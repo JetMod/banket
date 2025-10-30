@@ -1,0 +1,132 @@
+/* =================================
+   Hero Improved Page - Дополнительные стили
+   ================================= */
+
+/* Многослойный слайдер фона */
+.hero-improved__slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-improved__slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.hero-improved__slide--active {
+    opacity: 1;
+}
+
+/* Badge */
+.hero-improved__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 25px;
+    color: #d4af37;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    animation: slideInUp 0.8s ease-out 0.1s both;
+}
+
+.hero-improved__badge-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #d4af37;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Subtitle */
+.hero-improved__subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2rem 0;
+    max-width: 500px;
+    animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+/* Info item */
+.hero-improved__info-item {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 2rem 0;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+/* Stats */
+.hero-improved__stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-improved__stat {
+    text-align: center;
+}
+
+.hero-improved__stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
+
+.hero-improved__stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Left alignment */
+.hero-improved__left {
+    max-width: 650px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-improved__subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-improved__stats {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}

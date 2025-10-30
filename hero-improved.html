@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShenCrystal - Банкетный Зал | ✨ Нет предела совершенству ✨ | Вместимость до 300 гостей">
+    <title>ShenCrystal - Банкетный зал Shen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключаем основные стили с index.html -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Добавляем свои стили для этой страницы -->
+    <link rel="stylesheet" href="css/hero-improved-page.css">
+</head>
+<body>
+    
+    <main class="main">
+        
+        <!-- Hero Section -->
+        <section class="hero hero-improved" id="hero">
+            <!-- Многослойный слайдер фона -->
+            <div class="hero__background hero-improved__background">
+                <div class="hero-improved__slides">
+                    <img src="img/13.webp" alt="Банкетный зал ShenCrystal" class="hero-improved__slide hero-improved__slide--active" data-slide="0">
+                    <img src="img/2.webp" alt="Интерьер зала" class="hero-improved__slide" data-slide="1">
+                    <img src="img/3.webp" alt="Ещё один вид" class="hero-improved__slide" data-slide="2">
+                </div>
+                <div class="hero__overlay"></div>
+            </div>
+            
+            <!-- Header как на главной -->
+            <header class="header" id="header">
+                <div class="header__container container">
+                    <a href="index.html" class="header__logo">
+                        <svg class="header__logo-svg" width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 25L8 19L2 13" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="18" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="url(#gold-gradient)" letter-spacing="2">SHEN</text>
+                            <path d="M118 25L112 31L118 37" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="60" y="44" font-family="'Inter', sans-serif" font-size="7" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="3">BANQUET HALLS</text>
+                            <defs>
+                                <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#f4d03f;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#c9a961;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </a>
+                    
+                    <nav class="header__nav">
+                        <ul class="header__menu">
+                            <li class="header__menu-item header__menu-item--dropdown">
+                                <a href="events.html" class="header__menu-link">
+                                    Мероприятия
+                                    <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                                <ul class="header__dropdown">
+                                    <li class="header__dropdown-item"><a href="events/wedding.html" class="header__dropdown-link">Свадьба</a></li>
+                                    <li class="header__dropdown-item"><a href="events/birthday.html" class="header__dropdown-link">День рождения</a></li>
+                                    <li class="header__dropdown-item"><a href="events/corporate.html" class="header__dropdown-link">Корпоратив</a></li>
+                                    <li class="header__dropdown-item"><a href="events/conference.html" class="header__dropdown-link">Конференция</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__menu-item"><a href="menu.html" class="header__menu-link">Меню</a></li>
+                            <li class="header__menu-item"><a href="gallery.html" class="header__menu-link">Галерея</a></li>
+                            <li class="header__menu-item"><a href="contacts.html" class="header__menu-link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <a href="tel:+79788064657" class="header__phone">+7 (978) 806-46-57</a>
+                    
+                    <button class="header__burger" aria-label="Открыть меню">
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                        <span class="header__burger-line"></span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Hero Content -->
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <div class="hero__left hero-improved__left">
+                        <!-- Премиум лейбл -->
+                        <div class="hero-improved__badge">
+                            <span class="hero-improved__badge-dot"></span>
+                            Премиум банкетный зал
+                        </div>
+                        
+                        <!-- Главный заголовок -->
+                        <h1 class="hero__title">
+                            Банкетный<br>
+                            <span class="hero__title-accent">ShenCrystal</span>
+                        </h1>
+                        
+                        <!-- Подзаголовок -->
+                        <p class="hero-improved__subtitle">
+                            Роскошное пространство для ваших самых значимых мероприятий. Идеально для свадеб, корпоративов, презентаций и торжественных банкетов.
+                        </p>
+                        
+                        <!-- Слоган -->
+                        <div class="hero__info">
+                            <div class="hero-improved__info-item">
+                                ✨ <span>Нет предела совершенству</span> ✨
+                            </div>
+                        </div>
+                        
+                        <!-- Кнопки действия -->
+                        <div class="hero__buttons">
+                            <a href="#booking" class="button button--primary">Забронировать</a>
+                            <a href="#about" class="button button--secondary">Подробнее</a>
+                        </div>
+                        
+                        <!-- Информационные блоки -->
+                        <div class="hero-improved__stats">
+                            <div class="hero-improved__stat">
+                                <div class="hero-improved__stat-number">300</div>
+                                <div class="hero-improved__stat-label">гостей</div>
+                            </div>
+                            <div class="hero-improved__stat">
+                                <div class="hero-improved__stat-number">✨</div>
+                                <div class="hero-improved__stat-label">Премиум</div>
+                            </div>
+                            <div class="hero-improved__stat">
+                                <div class="hero-improved__stat-number">✓</div>
+                                <div class="hero-improved__stat-label">Халяль</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero__right"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about__container container">
+                <h2 class="about__title section-title">Почему ShenCrystal?</h2>
+                <div class="about__halls">
+                    <div class="hall">
+                        <div class="hall__image">
+                            <img src="img/2.webp" alt="ShenCrystal зал" class="hall__img">
+                        </div>
+                        <div class="hall__content">
+                            <h3 class="hall__name">Банкетный зал ShenCrystal</h3>
+                            <p class="hall__description">
+                                Роскошный многопрофильный зал с хрустальными люстрами и элегантным интерьером. 
+                                Идеально подходит для свадеб, торжественных банкетов, корпоративов и премиальных мероприятий.
+                            </p>
+                            <ul class="hall__features">
+                                <li class="hall__feature">
+                                    <span class="hall__feature-icon">👥</span>
+                                    <span class="hall__feature-text">До 300 гостей</span>
+                                </li>
+                                <li class="hall__feature">
+                                    <span class="hall__feature-icon">✨</span>
+                                    <span class="hall__feature-text">Премиум интерьер</span>
+                                </li>
+                                <li class="hall__feature">
+                                    <span class="hall__feature-icon">🎵</span>
+                                    <span class="hall__feature-text">Профессиональная аудиосистема</span>
+                                </li>
+                                <li class="hall__feature">
+                                    <span class="hall__feature-icon">👨‍🍳</span>
+                                    <span class="hall__feature-text">Восточная и европейская кухня</span>
+                                </li>
+                                <li class="hall__feature">
+                                    <span class="hall__feature-icon">🕌</span>
+                                    <span class="hall__feature-text">Сертифицированный Халяль</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Booking Section -->
+        <section class="booking" id="booking">
+            <div class="booking__container container">
+                <div class="booking__content">
+                    <div class="booking__info">
+                        <h2 class="booking__title">Забронировать зал</h2>
+                        <p class="booking__text">
+                            Оставьте заявку, и мы свяжемся с вами в ближайшее время для обсуждения деталей вашего мероприятия.
+                        </p>
+                        <div class="booking__features">
+                            <div class="booking__feature">✓ Бесплатная консультация</div>
+                            <div class="booking__feature">✓ Индивидуальное меню</div>
+                            <div class="booking__feature">✓ Гибкие условия</div>
+                        </div>
+                    </div>
+
+                    <form class="booking__form" id="bookingForm">
+                        <div class="booking__field">
+                            <label for="name" class="booking__label">Ваше имя</label>
+                            <input type="text" id="name" name="name" class="booking__input" placeholder="Введите ваше имя" required>
+                        </div>
+
+                        <div class="booking__field">
+                            <label for="phone" class="booking__label">Телефон</label>
+                            <input type="tel" id="phone" name="phone" class="booking__input" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+
+                        <div class="booking__field">
+                            <label for="date" class="booking__label">Дата мероприятия</label>
+                            <input type="date" id="date" name="date" class="booking__input" required>
+                        </div>
+
+                        <div class="booking__field">
+                            <label for="guests" class="booking__label">Количество гостей</label>
+                            <select id="guests" name="guests" class="booking__input" required>
+                                <option value="">Выберите количество</option>
+                                <option value="50-100">50-100 гостей</option>
+                                <option value="100-150">100-150 гостей</option>
+                                <option value="150-200">150-200 гостей</option>
+                                <option value="200-300">200-300 гостей</option>
+                                <option value="300+">300+ гостей</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="booking__button button button--primary">
+                            Отправить заявку
+                        </button>
+
+                        <div class="booking__message" id="bookingMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <p class="footer__slogan">✨ Нет предела совершенству ✨</p>
+                </div>
+                <div class="footer__contact">
+                    <h3 class="footer__contact-title">Контакты</h3>
+                    <a href="tel:+79788064657" class="footer__phone">+7 (978) 806-46-57</a>
+                    <p class="footer__hours">Ежедневно с 10:00 до 23:00</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 ShenCrystal. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>
