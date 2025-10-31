@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ShenCrystal и Shen зеркальный – многопрофильные банкетные залы для проведения мероприятий. Вместимость 100-350 гостей. Халяль продукты, восточная и европейская кухня.">
-    <title>Shen - Банкетные залы | Нет предела совершенству</title>
+    <title>Shen - Каталог залов и услуг | Все о банкетных залах</title>
     
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,7 @@
             <nav class="header__nav">
                 <ul class="header__menu">
                     <li class="header__menu-item header__menu-item--dropdown">
-                        <a href="events.html" class="header__menu-link">
+                        <a href="#" class="header__menu-link">
                             Мероприятия
                             <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
                                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -63,39 +63,39 @@
                         </a>
                         <ul class="header__dropdown">
                             <li class="header__dropdown-item">
-                                <a href="events/wedding.html" class="header__dropdown-link">Свадьба</a>
+                                <a href="#" class="header__dropdown-link">Свадьба</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/birthday.html" class="header__dropdown-link">День рождения</a>
+                                <a href="#" class="header__dropdown-link">День рождения</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/corporate.html" class="header__dropdown-link">Корпоратив</a>
+                                <a href="#" class="header__dropdown-link">Корпоратив</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/graduation.html" class="header__dropdown-link">Выпускной</a>
+                                <a href="#" class="header__dropdown-link">Выпускной</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/conference.html" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
+                                <a href="#" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/kids.html" class="header__dropdown-link">Детский праздник</a>
+                                <a href="#" class="header__dropdown-link">Детский праздник</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="events/newyear.html" class="header__dropdown-link">Новогодняя ночь</a>
+                                <a href="#" class="header__dropdown-link">Новогодняя ночь</a>
                             </li>
                         </ul>
                     </li>
                     <li class="header__menu-item">
-                        <a href="menu.html" class="header__menu-link">Меню</a>
+                        <a href="#menu" class="header__menu-link">Меню</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="gallery.html" class="header__menu-link">Галерея</a>
+                        <a href="#gallery" class="header__menu-link">Галерея</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="reviews.html" class="header__menu-link">Отзывы</a>
+                        <a href="#" class="header__menu-link">Отзывы</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="contacts.html" class="header__menu-link">Контакты</a>
+                        <a href="#contacts" class="header__menu-link">Контакты</a>
                     </li>
                 </ul>
             </nav>
@@ -117,25 +117,45 @@
             <div class="hero__container container">
                 <div class="hero__content">
                     <div class="hero__left">
+                        <div class="hero__badge">
+                            <span class="hero__badge-dot"></span>
+                            <span class="hero__badge-text">Премиум банкетный зал</span>
+                        </div>
                         <h1 class="hero__title">
-                            Банкетный зал<br>
-                            <span class="hero__title-accent">Shen</span><br>
-                            <span class="hero__slogan">✨ Нет предела совершенству ✨</span>
+                            Банкетный зал
+                            <br>
+                            <span class="hero__title-accent">ShenCrystal</span>
                         </h1>
+                        <p class="hero__slogan">✨ Нет предела совершенству ✨</p>
                         <div class="hero__buttons">
-                            <a href="#booking" class="button button--primary">Забронировать</a>
-                            <a href="#about" class="button button--secondary">Подробнее</a>
+                            <button class="hero__button hero__button--primary" onclick="document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' })">
+                                Забронировать
+                            </button>
+                            <button class="hero__button hero__button--secondary" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                                Узнать больше
+                            </button>
                         </div>
                         
                         <div class="hero__info">
                             <div class="hero__info-item">
-                                <div class="hero__info-number">100-300</div>
+                                <div class="hero__info-top">
+                                    <div class="hero__info-number">300</div>
+                                </div>
                                 <div class="hero__info-text">гостей</div>
                             </div>
-                           
+                            <div class="hero__info-item hero__info-item--premium">
+                                <div class="hero__info-stars">✨</div>
+                                <div class="hero__info-text">премиум</div>
+                            </div>
                             <div class="hero__info-item">
-                                <div class="hero__info-number">Халяль</div>
-                                <div class="hero__info-text">продукты</div>
+                                <div class="hero__info-icon--check">✓</div>
+                                <div class="hero__info-text">халяль</div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero__scroll" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                            <div class="hero__scroll-arrow">
+                                <span>↓</span>
                             </div>
                         </div>
                     </div>
@@ -566,7 +586,7 @@
                     <h3 class="footer__nav-title">Навигация</h3>
                     <ul class="footer__nav-list">
                         <li class="footer__nav-item">
-                            <a href="#events" class="footer__nav-link">Мероприятия</a>
+                            <a href="index.html" class="footer__nav-link">На главную</a>
                         </li>
                         <li class="footer__nav-item">
                             <a href="#menu" class="footer__nav-link">Меню</a>
@@ -575,7 +595,7 @@
                             <a href="#gallery" class="footer__nav-link">Галерея</a>
                         </li>
                         <li class="footer__nav-item">
-                            <a href="#reviews" class="footer__nav-link">Отзывы</a>
+                            <a href="#booking" class="footer__nav-link">Бронирование</a>
                         </li>
                     </ul>
                 </div>
