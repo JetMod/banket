@@ -317,55 +317,6 @@ function isElementInViewport(el) {
 
 
 // =================================
-// Hero Parallax Effect
-// =================================
-function initHeroParallax() {
-  const hero = document.querySelector('.hero');
-  const heroContent = document.querySelector('.hero__content');
-  const floatingCards = document.querySelectorAll('.floating-card');
-  const decorativeShapes = document.querySelectorAll('.shape');
-  
-  if (!hero || window.innerWidth <= 768) return;
-  
-  hero.addEventListener('mousemove', (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    
-    const xPercent = (clientX / innerWidth - 0.5) * 2;
-    const yPercent = (clientY / innerHeight - 0.5) * 2;
-    
-    // Parallax для контента
-    if (heroContent) {
-      heroContent.style.transform = `translate(${xPercent * 10}px, ${yPercent * 10}px)`;
-    }
-    
-    // Parallax для floating cards
-    floatingCards.forEach((card, index) => {
-      const speed = (index + 1) * 5;
-      card.style.transform = `translate(${xPercent * speed}px, ${yPercent * speed}px)`;
-    });
-    
-    // Parallax для decorative shapes
-    decorativeShapes.forEach((shape, index) => {
-      const speed = (index + 1) * 3;
-      shape.style.transform = `translate(${xPercent * speed}px, ${yPercent * speed}px) rotate(${xPercent * 10}deg)`;
-    });
-  });
-  
-  // Reset при выходе мыши
-  hero.addEventListener('mouseleave', () => {
-    if (heroContent) {
-      heroContent.style.transform = '';
-    }
-    floatingCards.forEach(card => {
-      card.style.transform = '';
-    });
-    decorativeShapes.forEach(shape => {
-      shape.style.transform = '';
-    });
-  });
-}
-
 // =================================
 // Animated Number Counter
 // =================================
@@ -402,28 +353,6 @@ function initNumberCounter() {
 }
 
 // =================================
-// Magnetic Buttons Effect
-// =================================
-function initMagneticButtons() {
-  const buttons = document.querySelectorAll('.hero__button');
-  
-  if (window.innerWidth <= 768) return;
-  
-  buttons.forEach(button => {
-    button.addEventListener('mousemove', (e) => {
-      const rect = button.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
-    });
-    
-    button.addEventListener('mouseleave', () => {
-      button.style.transform = '';
-    });
-  });
-}
-
 // Hero Background Slider - автоматическая смена каждые 5 секунд
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero__slide');
@@ -452,9 +381,7 @@ function initHeroSlider() {
 const originalInit = ShenApp.init;
 ShenApp.init = function() {
   originalInit.call(this);
-  // initHeroParallax(); // Отключен parallax эффект
   initNumberCounter();
-  // initMagneticButtons(); // Отключен magnetic эффект
-  initHeroSlider(); // Автоматический слайдер фона
+  initHeroSlider();
 };
 
