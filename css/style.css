@@ -414,6 +414,28 @@ button {
   z-index: -1;
 }
 
+.hero__slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.hero__slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
 .hero__bg-img {
   width: 100%;
   height: 100%;
@@ -426,13 +448,14 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(15, 15, 30, 0.8), rgba(26, 26, 46, 0.7));
+  background: linear-gradient(135deg, rgba(15, 15, 30, 0.85), rgba(26, 26, 46, 0.75));
+  z-index: 3;
 }
 
 .hero__container {
   position: relative;
-  z-index: 1;
-  padding-top: 130px;
+  z-index: 10;
+  padding-top: 80px;
   padding-bottom: var(--spacing-xxl);
   max-width: 1400px;
   margin: 0 auto;
@@ -457,9 +480,116 @@ button {
 }
 
 .hero__right {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+/* Rating Card - Horizontal Compact */
+.hero__rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+}
+
+.hero__rating--left {
+  position: static;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.rating-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-radius: 100px;
+  padding: 10px 22px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  animation: fadeInRight 0.8s ease-out 0.5s forwards;
+  white-space: nowrap;
+  height: 46px;
+}
+
+.rating-card:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(0, 0, 0, 0.5) 100%);
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 
+    0 6px 24px rgba(212, 175, 55, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.rating-card:hover .rating-card__icon {
+  transform: scale(1.1);
+}
+
+.rating-card:hover .rating-card__number {
+  text-shadow: 0 2px 16px rgba(212, 175, 55, 0.8);
+}
+
+.rating-card__icon {
+  font-size: 20px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.6));
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.rating-card__number {
+  font-family: var(--font-primary);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  letter-spacing: 0;
+  text-shadow: 0 2px 12px rgba(212, 175, 55, 0.5);
+  transition: text-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.rating-card__separator {
+  font-size: 12px;
+  color: rgba(212, 175, 55, 0.6);
+  line-height: 1;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.rating-card__text {
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .hero__title {
@@ -496,10 +626,10 @@ button {
 }
 
 .hero__slogan {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(18px, 2.5vw, 18px);
   margin-bottom: 48px;
-  color: var(--color-gold);
-  font-weight: 500;
+  color: var(--color-white);
+  font-weight: 400;
   letter-spacing: 1px;
   opacity: 0;
   animation: slideInLeft 0.8s ease-out 0.2s forwards;
@@ -708,7 +838,7 @@ button {
 /* Scroll indicator */
 .hero__scroll {
   position: absolute;
-  bottom: 80px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
