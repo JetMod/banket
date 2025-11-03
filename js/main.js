@@ -377,11 +377,147 @@ function initHeroSlider() {
   setInterval(nextSlide, 5000);
 }
 
+// =================================
+// Слайдер в секции About
+// =================================
+function initAboutSlider() {
+  const slider = document.querySelector('.about__slider');
+  if (!slider) {
+    console.log('❌ Слайдер не найден');
+    return;
+  }
+  
+  console.log('✅ Слайдер найден');
+  
+  const slides = slider.querySelectorAll('.about__slide');
+  const prevBtn = slider.querySelector('.about__slider-btn--prev');
+  const nextBtn = slider.querySelector('.about__slider-btn--next');
+  const dots = slider.querySelectorAll('.about__slider-dot');
+  
+  console.log(`📸 Найдено слайдов: ${slides.length}`);
+  console.log(`🔘 Найдено точек: ${dots.length}`);
+  
+  let currentSlide = 0;
+  let autoplayInterval;
+  
+  // Показать слайд
+  function showSlide(index) {
+    // Удалить активный класс у всех слайдов и точек
+    slides.forEach(slide => slide.classList.remove('about__slide--active'));
+    dots.forEach(dot => dot.classList.remove('about__slider-dot--active'));
+    
+    // Добавить активный класс текущему слайду и точке
+    slides[index].classList.add('about__slide--active');
+    dots[index].classList.add('about__slider-dot--active');
+  }
+  
+  // Следующий слайд
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+  
+  // Предыдущий слайд
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+  
+  // Перейти к определенному слайду
+  function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+    resetAutoplay();
+  }
+  
+  // Автопрокрутка
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 5000);
+  }
+  
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+  
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+  
+  // События для кнопок
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoplay();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoplay();
+    });
+  }
+  
+  // События для точек
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+  
+  // Пауза при наведении
+  slider.addEventListener('mouseenter', stopAutoplay);
+  slider.addEventListener('mouseleave', startAutoplay);
+  
+  // Поддержка свайпов на мобильных
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      resetAutoplay();
+    }
+  }
+  
+  // Клавиатурная навигация
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+      resetAutoplay();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+      resetAutoplay();
+    }
+  });
+  
+  // Запустить автопрокрутку
+  startAutoplay();
+}
+
 // Добавить в инициализацию ShenApp
 const originalInit = ShenApp.init;
 ShenApp.init = function() {
   originalInit.call(this);
   initNumberCounter();
   initHeroSlider();
+  initAboutSlider();
 };
 
