@@ -512,6 +512,166 @@ function initAboutSlider() {
   startAutoplay();
 }
 
+// =================================
+// Reels Video Slider (Instagram-like)
+// =================================
+function initReelsSlider() {
+  const slider = document.querySelector('.reels__slider');
+  if (!slider) return;
+
+  const track = slider.querySelector('.reels__track');
+  const viewport = slider.querySelector('.reels__viewport');
+  const slides = Array.from(slider.querySelectorAll('.reels__slide'));
+  const prevBtn = slider.querySelector('.reels__btn--prev');
+  const nextBtn = slider.querySelector('.reels__btn--next');
+  const dots = Array.from(slider.querySelectorAll('.reels__dot'));
+  const videos = slides.map(s => s.querySelector('.reels__video'));
+
+  let current = 0;
+  let autoplayTimer = null;
+  const AUTOPLAY_MS = 5000;
+  let cachedSlideWidth = null; // точная ширина для расчёта без дрожания
+
+  // Раскладка ширины слайдов под 1/2/3 видимых
+  const layoutSlides = () => {
+    const viewportWidth = Math.floor(viewport.getBoundingClientRect().width);
+    const gap = parseFloat(getComputedStyle(track).gap || '0');
+    const visibleTarget = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+    const slideWidth = Math.floor((viewportWidth - gap * (visibleTarget - 1)) / visibleTarget);
+    cachedSlideWidth = slideWidth;
+    slides.forEach(s => { s.style.width = `${slideWidth}px`; });
+  };
+
+  // Подсчёт метрик: фиксируем число видимых карточек по брейкпоинтам,
+  // чтобы всегда показывалось ровно 3/2/1 без «обрезков»
+  const getMetrics = () => {
+    const slideWidth = cachedSlideWidth ?? Math.floor(slides[0].getBoundingClientRect().width);
+    const gap = parseFloat(getComputedStyle(track).gap || '0');
+    const visibleCount = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+    const maxIndex = Math.max(0, slides.length - visibleCount);
+    return { slideWidth, gap, visibleCount, maxIndex };
+  };
+
+  // Вспомогательные функции
+  const updateActive = (index) => {
+    const { visibleCount } = getMetrics();
+    const middleOffset = Math.floor(visibleCount / 2);
+    const activeIndex = Math.min(slides.length - 1, index + middleOffset);
+    slides.forEach((s, i) => s.classList.toggle('reels__slide--active', i === activeIndex));
+    dots.forEach((d, i) => d.classList.toggle('reels__dot--active', i === index));
+  };
+
+  const scrollToIndex = (index) => {
+    const { slideWidth, gap } = getMetrics();
+    const offset = Math.round(index * (slideWidth + gap));
+    track.style.transform = `translateX(${-offset}px)`;
+  };
+
+  const pauseAll = () => {
+    videos.forEach((v) => {
+      if (!v) return;
+      v.pause();
+      v.currentTime = Math.min(v.currentTime, (v.duration || 0));
+    });
+  };
+
+  const playActive = () => {
+    const v = videos[current];
+    if (!v) return;
+    // Автовоспроизведение возможно только при mute и playsinline
+    v.muted = true;
+    const playPromise = v.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise.catch(() => {});
+    }
+  };
+
+  const goTo = (index) => {
+    const { maxIndex } = getMetrics();
+    if (index > maxIndex) {
+      current = 0;
+    } else if (index < 0) {
+      current = maxIndex;
+    } else {
+      current = index;
+    }
+    updateActive(current);
+    scrollToIndex(current);
+    pauseAll();
+    playActive();
+  };
+
+  const next = () => goTo(current + 1);
+  const prev = () => goTo(current - 1);
+
+  // Пагинация по страницам (по 3/2/1 сразу) при двойном клике на стрелку
+  const pageNext = () => { const { visibleCount } = getMetrics(); goTo(current + visibleCount); };
+  const pagePrev = () => { const { visibleCount } = getMetrics(); goTo(current - visibleCount); };
+
+  // Если потребуется — можно переключить на pageNext/pagePrev
+
+
+  // Автовоспроизведение
+  const startAutoplay = () => {
+    stopAutoplay();
+    autoplayTimer = setInterval(next, AUTOPLAY_MS);
+  };
+  const stopAutoplay = () => {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  };
+
+  // События
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  // Пауза при наведении
+  slider.addEventListener('mouseenter', stopAutoplay);
+  slider.addEventListener('mouseleave', startAutoplay);
+
+  // Свайпы на мобильных
+  let touchStartX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  slider.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
+  });
+
+  // Пауза, когда секция вне экрана
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startAutoplay();
+        playActive();
+      } else {
+        stopAutoplay();
+        pauseAll();
+      }
+    });
+  }, { threshold: 0.25 });
+  observer.observe(slider);
+
+  // Инициализация
+  const handleResize = () => {
+    layoutSlides();
+    const { maxIndex } = getMetrics();
+    if (current > maxIndex) current = maxIndex;
+    scrollToIndex(current);
+  };
+  window.addEventListener('resize', handleResize);
+
+  layoutSlides();
+  updateActive(current);
+  scrollToIndex(current);
+  playActive();
+  startAutoplay();
+}
+
 // Добавить в инициализацию ShenApp
 const originalInit = ShenApp.init;
 ShenApp.init = function() {
@@ -519,5 +679,6 @@ ShenApp.init = function() {
   initNumberCounter();
   initHeroSlider();
   initAboutSlider();
+  initReelsSlider();
 };
 
