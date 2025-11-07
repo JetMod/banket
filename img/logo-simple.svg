@@ -1,0 +1,25 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffeb3b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Темный фон с скруглением -->
+  <rect width="200" height="200" rx="40" fill="#2c3e50"/>
+  
+  <!-- Надпись SHEN -->
+  <text x="100" y="115" 
+        font-family="'Playfair Display', Georgia, serif" 
+        font-size="48" 
+        font-weight="bold" 
+        fill="url(#logoGrad)" 
+        text-anchor="middle"
+        letter-spacing="4">SHEN</text>
+  
+  <!-- Декоративные линии -->
+  <line x1="40" y1="100" x2="70" y2="100" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="130" y1="100" x2="160" y2="100" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>
