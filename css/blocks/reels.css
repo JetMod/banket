@@ -353,3 +353,14 @@
     .reels__cta-row { gap: 16px; }
     .reels__cta { padding: 16px 28px; font-size: 1.05rem; }
   }
+
+
+  @media (max-width: 768px) {
+    .reels {
+      padding: 20px 0 10px;
+    }
+
+    .reels__viewport {
+      padding: 16px 0 0;
+  }
+  }

@@ -255,11 +255,11 @@
   
   @media (max-width: 768px) {
     .booking {
-      padding: 60px 0;
+      padding: 10px 0;
     }
   
     .booking__wrapper {
-      padding: 40px 24px;
+      padding: 20px 24px;
       border-radius: 20px;
     }
   
@@ -270,6 +270,10 @@
     .booking__subtitle {
       font-size: 14px;
     }
+
+    .booking__header{
+      margin-bottom: 20px;
+    }
   
     .booking__form {
       flex-direction: column;
@@ -279,6 +283,7 @@
     .booking__inputs {
       flex-direction: column;
       gap: 16px;
+      width: 100%;
     }
   
     .booking__input {

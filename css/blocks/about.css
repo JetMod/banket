@@ -519,7 +519,12 @@
 /* =================================
    Responsive
    ================================= */
-
+   @media (max-width: 1230px) {
+    .about__content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    } 
+  }
 @media (max-width: 1024px) {
   .about__content {
     grid-template-columns: 1fr;
@@ -559,12 +564,13 @@
     font-size: 1.05rem;
   }
 
-  .about__text:first-of-type::first-letter {
+  /* .about__text:first-of-type::first-letter {
     font-size: 3rem;
-  }
+  } */
 
   .about__stats {
     gap: var(--spacing-md);
+    margin-top: -30px;
   }
 
   .about__stat-number {
@@ -572,11 +578,25 @@
   }
 }
 
+/* Планшеты и мобильные устройства */
 @media (max-width: 768px) {
+  .about {
+    padding: 40px 0;
+  }
+
+  .about__header {
+    margin-bottom: 32px;
+  }
+
   .about__label {
     font-size: 0.75rem;
     letter-spacing: 2px;
     padding: 6px 16px;
+  }
+
+  .about__title {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    line-height: 1.3;
   }
 
   .about__divider-line {
@@ -593,8 +613,45 @@
   }
   
   .about__text-wrapper {
-    padding: 30px;
-    border-radius: 30px;
+    padding: 28px 24px;
+    border-radius: 24px;
+  }
+
+  .about__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .about__text:first-of-type {
+    font-size: 1.05rem;
+  }
+
+  /* .about__text:first-of-type::first-letter {
+    font-size: 2.5rem;
+    margin-right: 8px;
+    margin-top: 4px;
+  } */
+
+  .about__stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    /* margin-top: 24px; */
+  }
+
+  .about__stat {
+    padding: 20px 12px;
+  }
+
+  .about__stat-number {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+
+  .about__stat-label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
   }
   
   .about__slider,
@@ -655,37 +712,315 @@
     right: 10px;
   }
 
-  .about__text {
-    font-size: 1rem;
-    text-align: left;
+  .button {
+    width: 100%;
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 480px) {
+  .about {
+    padding: 32px 0;
   }
 
-  .about__text:first-of-type {
+  .about__header {
+    margin-bottom: 24px;
+  }
+
+  .about__label {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    padding: 5px 14px;
+  }
+
+  .about__title {
+    font-size: clamp(1.5rem, 7vw, 1.875rem);
+    line-height: 1.25;
+    padding: 0 10px;
+  }
+
+  .about__divider {
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .about__divider-line {
+    width: 30px;
+  }
+
+  .about__divider-icon {
     font-size: 1.1rem;
   }
 
+  .about__content {
+    gap: 24px;
+  }
+  
+  .about__text-wrapper {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .about__text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .about__text:first-of-type {
+    font-size: 1rem;
+  }
+
   .about__text:first-of-type::first-letter {
-    font-size: 2.5rem;
-    margin-right: 8px;
-    margin-top: 4px;
+    font-size: 2.2rem;
+    margin-right: 6px;
   }
 
   .about__stats {
     grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-    padding-top: var(--spacing-md);
+    gap: 12px;
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .about__stat {
+    padding: 18px 16px;
+    border-radius: 16px;
   }
 
   .about__stat-number {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+    margin-bottom: 4px;
   }
 
   .about__stat-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .about__slider,
+  .about__slider-wrapper,
+  .about__slider-track,
+  .about__slide,
+  .about__slide-image {
+    min-height: 280px;
+  }
+  
+  .about__slider-wrapper {
+    border-radius: 16px;
+  }
+  
+  .about__slider-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .about__slider-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .about__slider-btn--prev {
+    left: 8px;
+  }
+  
+  .about__slider-btn--next {
+    right: 8px;
+  }
+  
+  .about__slider-dots {
+    bottom: 16px;
+    gap: 6px;
+  }
+  
+  .about__slider-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .about__slider-dot--active {
+    width: 20px;
+  }
+
+  .about__quote-mark {
+    font-size: 3rem;
+  }
+
+  .about__quote-mark--left {
+    top: 8px;
+    left: 8px;
+  }
+
+  .about__quote-mark--right {
+    bottom: 8px;
+    right: 8px;
   }
 
   .button {
-    width: 100%;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Очень маленькие экраны (iPhone SE и подобные) */
+@media (max-width: 375px) {
+  .about {
+    padding: 28px 0;
+  }
+
+  .about__header {
+    margin-bottom: 20px;
+  }
+
+  .about__label {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+  }
+
+  .about__title {
+    font-size: clamp(1.35rem, 6.5vw, 1.75rem);
+    line-height: 1.2;
+    padding: 0 8px;
+  }
+
+  .about__divider {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .about__divider-line {
+    width: 25px;
+  }
+
+  .about__divider-icon {
+    font-size: 1rem;
+  }
+
+  .about__content {
+    gap: 20px;
+  }
+  
+  .about__text-wrapper {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .about__text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .about__text:first-of-type {
+    font-size: 0.95rem;
+  }
+
+  .about__text:first-of-type::first-letter {
+    font-size: 2rem;
+    margin-right: 5px;
+  }
+
+  .about__stats {
+    gap: 10px;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .about__stat {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .about__stat-number {
+    font-size: 2rem;
+    margin-bottom: 3px;
+  }
+
+  .about__stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .about__slider,
+  .about__slider-wrapper,
+  .about__slider-track,
+  .about__slide,
+  .about__slide-image {
+    min-height: 250px;
+  }
+  
+  .about__slider-wrapper {
+    border-radius: 14px;
+  }
+  
+  .about__slider-btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .about__slider-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .about__slider-btn--prev {
+    left: 6px;
+  }
+  
+  .about__slider-btn--next {
+    right: 6px;
+  }
+  
+  .about__slider-dots {
+    bottom: 12px;
+    gap: 5px;
+  }
+  
+  .about__slider-dot {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .about__slider-dot--active {
+    width: 18px;
+  }
+
+  .button {
+    padding: 11px 24px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+  .about {
+    padding: 32px 0;
+  }
+
+  .about__slider,
+  .about__slider-wrapper,
+  .about__slider-track,
+  .about__slide,
+  .about__slide-image {
+    min-height: 300px;
+  }
+
+  .about__stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .about__stat {
+    padding: 16px 10px;
+  }
+
+  .about__stat-number {
+    font-size: 1.75rem;
+  }
+
+  .about__stat-label {
+    font-size: 0.7rem;
   }
 }
 
