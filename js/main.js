@@ -9,6 +9,7 @@ const ShenApp = {
     this.initSmoothScroll();
     this.initForm();
     this.initHeader();
+    this.initGalleryLightbox();
   },
 
   // =================================
@@ -272,6 +273,117 @@ const ShenApp = {
       console.error('Ошибка:', error);
       throw error;
     }
+  },
+
+  // =================================
+  // Галерея с Lightbox
+  // =================================
+  initGalleryLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery__item');
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const closeBtn = lightbox?.querySelector('.gallery__lightbox-close');
+    const prevBtn = lightbox?.querySelector('.gallery__lightbox-prev');
+    const nextBtn = lightbox?.querySelector('.gallery__lightbox-next');
+    
+    if (!lightbox || galleryItems.length === 0) return;
+
+    let currentIndex = 0;
+    const images = Array.from(galleryItems).map(item => ({
+      src: item.querySelector('.gallery__img').src,
+      alt: item.querySelector('.gallery__img').alt
+    }));
+
+    // Открытие lightbox
+    const openLightbox = (index) => {
+      currentIndex = index;
+      updateLightboxImage();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Закрытие lightbox
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    // Обновление изображения
+    const updateLightboxImage = () => {
+      const img = images[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+    };
+
+    // Показать следующее изображение
+    const showNext = () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateLightboxImage();
+    };
+
+    // Показать предыдущее изображение
+    const showPrev = () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateLightboxImage();
+    };
+
+    // События клика на элементы галереи
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    // События кнопок
+    closeBtn?.addEventListener('click', closeLightbox);
+    nextBtn?.addEventListener('click', showNext);
+    prevBtn?.addEventListener('click', showPrev);
+
+    // Закрытие по клику на фон
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Управление клавиатурой
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          closeLightbox();
+          break;
+        case 'ArrowRight':
+          showNext();
+          break;
+        case 'ArrowLeft':
+          showPrev();
+          break;
+      }
+    });
+
+    // Поддержка свайпов на мобильных
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      if (touchStartX - touchEndX > swipeThreshold) {
+        showNext();
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        showPrev();
+      }
+    };
   }
 };
 
