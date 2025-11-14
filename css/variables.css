@@ -1,0 +1,90 @@
+/* =================================
+   CSS Variables - Банкетные залы Shen
+   ================================= */
+
+:root {
+  /* ========== Цветовая палитра ========== */
+  
+  /* Основные цвета бренда */
+  --color-primary: #D4AF37;        /* Золотой - основной */
+  --color-primary-light: #F4D03F;  /* Золотой светлый */
+  --color-primary-dark: #c9a961;   /* Золотой темный */
+  --color-secondary: #0a0a14;      /* Темный - вторичный */
+  --color-accent: #e74c3c;         /* Акцентный красный */
+  
+  /* Алиасы для удобства (deprecated - использовать primary) */
+  --color-gold: var(--color-primary);
+  --color-gold-light: var(--color-primary-light);
+  --color-gold-dark: var(--color-primary-dark);
+  
+  /* Фоновые цвета */
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: var(--color-secondary);
+  
+  /* Текстовые цвета */
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-lighter: #999999;
+  
+  /* Белые оттенки */
+  --color-white: #ffffff;
+  --color-white-soft: rgba(255, 255, 255, 0.95);
+  --color-white-muted: rgba(255, 255, 255, 0.7);
+  
+  /* Служебные */
+  --color-border: #e0e0e0;
+  --color-overlay: rgba(0, 0, 0, 0.65);
+  
+  /* ========== Типографика ========== */
+  
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Inter', sans-serif;
+  
+  /* Адаптивные размеры шрифтов */
+  --fs-h1: clamp(40px, 5vw, 72px);
+  --fs-h2: clamp(32px, 4vw, 56px);
+  --fs-h3: clamp(24px, 3vw, 32px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  
+  /* ========== Отступы ========== */
+  
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 32px;
+  --spacing-lg: 64px;
+  --spacing-xl: 96px;
+  --spacing-xxl: 128px;
+  
+  /* ========== Анимации ========== */
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* ========== Прочее ========== */
+  
+  --max-width: 1400px;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 15px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Global - Responsive */
+@media (max-width: 1024px) {
+  :root {
+    --spacing-lg: 48px;
+    --spacing-xl: 64px;
+    --spacing-xxl: 96px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+    --spacing-xxl: 64px;
+  }
+}
+

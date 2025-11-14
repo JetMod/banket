@@ -1,0 +1,232 @@
+
+/* =================================
+   Contacts Section
+   ================================= */
+
+   .contacts {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  }
+  
+  .contacts__title {
+    font-family: var(--font-primary);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+  }
+  
+  /* Contact Cards */
+  .contacts__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  .contacts__card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .contacts__card-icon {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #f4d03f 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .contacts__card:hover .contacts__card-icon {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+  }
+  
+  .contacts__card-text {
+    color: var(--color-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contacts__card-text:hover {
+    color: var(--color-gold);
+  }
+  
+  /* Map Section */
+  .contacts__map-section {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  
+  .contacts__map-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contacts__map {
+    width: 100%;
+    max-width: 750px;
+    height: 500px;
+    background: #e0e0e0;
+    border: none;
+    display: block;
+    filter: grayscale(100%) contrast(1.05) brightness(1.15);
+    transition: filter var(--transition-normal) ease;
+  }
+  
+  .contacts__map-wrapper:hover .contacts__map {
+    filter: grayscale(80%) contrast(1.1) brightness(1.2);
+  }
+  
+  .contacts__map-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #f4d03f 100%);
+    color: var(--color-secondary);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .contacts__map-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+  }
+  
+  /* Rating Card */
+  .contacts__rating {
+    background: var(--color-white);
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contacts__rating-title {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  
+  .contacts__rating-score {
+    font-family: var(--font-primary);
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  
+  .contacts__rating-stars {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .contacts__star {
+    font-size: 32px;
+    color: var(--color-gold);
+  }
+  
+  .contacts__rating-count {
+    font-size: 16px;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+  
+  /* Contacts - Responsive */
+  @media (max-width: 1024px) {
+    .contacts {
+      padding: 60px 0;
+    }
+  
+    .contacts__title {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+  
+    .contacts__cards {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+  
+    .contacts__card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .contacts__card-icon {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .contacts__card-text {
+      font-size: 16px;
+    }
+  
+    .contacts__map-section {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  
+    .contacts__map {
+      height: 300px;
+    }
+  
+    .contacts__map-button {
+      position: static;
+      width: 100%;
+      margin-top: 16px;
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .contacts__rating {
+      padding: 40px 24px;
+    }
+  
+    .contacts__rating-title {
+      font-size: 18px;
+    }
+  
+    .contacts__rating-score {
+      font-size: 60px;
+    }
+  
+    .contacts__star {
+      font-size: 24px;
+    }
+  }
+  

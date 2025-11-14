@@ -1,0 +1,24 @@
+/* =================================
+   Main CSS - Банкетные залы Shen
+   Модульная архитектура стилей
+   ================================= */
+
+/* Core Styles - Базовые стили */
+@import url('variables.css');      /* CSS переменные */
+@import url('reset.css');          /* Сброс стилей браузера */
+@import url('utilities.css');      /* Утилиты и общие классы */
+
+/* Blocks - Компоненты страницы */
+@import url('blocks/header.css');      /* Шапка сайта */
+@import url('blocks/hero.css');        /* Главный экран */
+@import url('blocks/hero-info.css');   /* Информационные блоки Hero */
+@import url('blocks/about.css');       /* О залах */
+@import url('blocks/advantages.css');  /* Преимущества */
+@import url('blocks/clients.css');     /* Клиенты */
+@import url('blocks/menu.css');        /* Меню */
+@import url('blocks/gallery.css');     /* Галерея */
+@import url('blocks/reels.css');       /* Видео-секция */
+@import url('blocks/booking.css');     /* Форма бронирования */
+@import url('blocks/contacts.css');    /* Контакты */
+@import url('blocks/footer.css');      /* Подвал */
+

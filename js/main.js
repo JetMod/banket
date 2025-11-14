@@ -527,9 +527,17 @@ function initReelsSlider() {
   const dots = Array.from(slider.querySelectorAll('.reels__dot'));
   const videos = slides.map(s => s.querySelector('.reels__video'));
 
+  // Отключаем звук для всех видео
+  videos.forEach((v) => {
+    if (v) {
+      v.muted = true;
+      v.volume = 0;
+    }
+  });
+
   let current = 0;
   let autoplayTimer = null;
-  const AUTOPLAY_MS = 5000;
+  const AUTOPLAY_MS = 5000; // Увеличено до 10 секунд
   let cachedSlideWidth = null; // точная ширина для расчёта без дрожания
 
   // Раскладка ширины слайдов под 1/2/3 видимых
@@ -559,6 +567,10 @@ function initReelsSlider() {
     const activeIndex = Math.min(slides.length - 1, index + middleOffset);
     slides.forEach((s, i) => s.classList.toggle('reels__slide--active', i === activeIndex));
     dots.forEach((d, i) => d.classList.toggle('reels__dot--active', i === index));
+    
+    // Обновляем воспроизведение при изменении активного слайда
+    pauseAll();
+    playActive();
   };
 
   const scrollToIndex = (index) => {
@@ -576,10 +588,16 @@ function initReelsSlider() {
   };
 
   const playActive = () => {
-    const v = videos[current];
+    // Находим активный слайд по центру
+    const activeSlide = slides.find(s => s.classList.contains('reels__slide--active'));
+    if (!activeSlide) return;
+    
+    const v = activeSlide.querySelector('.reels__video');
     if (!v) return;
+    
     // Автовоспроизведение возможно только при mute и playsinline
     v.muted = true;
+    v.volume = 0;
     const playPromise = v.play();
     if (playPromise && typeof playPromise.then === 'function') {
       playPromise.catch(() => {});
@@ -597,8 +615,6 @@ function initReelsSlider() {
     }
     updateActive(current);
     scrollToIndex(current);
-    pauseAll();
-    playActive();
   };
 
   const next = () => goTo(current + 1);
@@ -661,6 +677,7 @@ function initReelsSlider() {
     layoutSlides();
     const { maxIndex } = getMetrics();
     if (current > maxIndex) current = maxIndex;
+    updateActive(current);
     scrollToIndex(current);
   };
   window.addEventListener('resize', handleResize);
@@ -668,7 +685,6 @@ function initReelsSlider() {
   layoutSlides();
   updateActive(current);
   scrollToIndex(current);
-  playActive();
   startAutoplay();
 }
 

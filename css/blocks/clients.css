@@ -1,0 +1,136 @@
+
+/* =================================
+   Clients Section
+   ================================= */
+
+   .clients {
+    padding: 60px 0;
+    background: var(--color-white);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  
+  .clients__container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+  
+  .clients__title {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    white-space: nowrap;
+    letter-spacing: 2px;
+    min-width: 240px;
+  }
+  
+  .clients__slider {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .clients__track {
+    display: flex;
+    gap: 80px;
+    animation: scroll 30s linear infinite;
+    width: fit-content;
+  }
+  
+  .clients__track:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .clients__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+  }
+  
+  .clients__name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-light);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  
+  .clients__item:hover .clients__name {
+    opacity: 1;
+    color: var(--color-secondary);
+    transform: scale(1.05);
+  }
+  
+  /* Clients - Responsive */
+  @media (max-width: 1024px) {
+    .clients {
+      padding: 50px 0;
+    }
+  
+    .clients__container {
+      gap: 40px;
+    }
+  
+    .clients__title {
+      font-size: 24px;
+      min-width: 200px;
+    }
+  
+    .clients__track {
+      gap: 60px;
+    }
+  
+    .clients__item {
+      min-width: 160px;
+    }
+  
+    .clients__name {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .clients {
+      padding: 40px 0;
+    }
+  
+    .clients__container {
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+  
+    .clients__title {
+      font-size: 22px;
+      min-width: auto;
+      text-align: center;
+    }
+  
+    .clients__track {
+      gap: 60px;
+      animation: scroll 25s linear infinite;
+    }
+  
+    .clients__item {
+      min-width: 140px;
+    }
+  
+    .clients__name {
+      font-size: 16px;
+    }
+  }

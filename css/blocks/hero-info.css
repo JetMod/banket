@@ -1,0 +1,87 @@
+/* ================================= */
+/* Hero Info Block - Improved Layout */
+/* ================================= */
+
+.hero__info {
+  display: flex;
+  gap: 64px;
+  margin-top: 48px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.hero__info-item {
+  position: relative;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 80px;
+  transition: transform var(--transition-normal);
+}
+
+.hero__info-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Top row - number and stars together */
+.hero__info-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.hero__info-number {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero__info-stars {
+  font-size: 24px;
+  animation: twinkle 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.hero__info-text {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.hero__info-item--premium {
+  gap: 8px;
+}
+
+.hero__info-item--premium .hero__info-stars {
+  font-size: 28.8px;
+  margin-bottom: 8px;
+}
+
+.hero__info-icon--check {
+  font-size: 48px;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* Title accent */
+.hero__title-accent {
+  color: var(--color-primary);
+  display: block;
+}
+
