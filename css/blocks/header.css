@@ -52,7 +52,14 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
+
+    @media screen and (max-width: 1230px) {
+      gap: 0;
+    }
   }  
+
+  
+
   
   .header__menu-item {
     position: relative;
@@ -167,12 +174,6 @@
     transition: transform var(--transition-normal), opacity var(--transition-normal), background var(--transition-normal);
   }
 
-  /* Скрыть элементы мобильного меню в десктопе */
-  .header__nav-logo,
-  .header__nav-contacts {
-    display: none;
-  }
-
   /* Десктопная версия - показать навигацию */
   @media (min-width: 981px) {
     .header__nav {
@@ -188,6 +189,12 @@
     }
 
     .header__burger {
+      display: none;
+    }
+
+    /* Скрыть элементы мобильного меню в десктопе */
+    .header__nav-logo,
+    .header__nav-contacts {
       display: none;
     }
   }
@@ -231,6 +238,13 @@
   .header__nav-logo-svg {
     width: 120px;
     height: 50px;
+  }
+
+  .header__nav-logo-img {
+    width: 120px;
+    height: 50px;
+    display: block;
+    object-fit: contain;
   }
 
   /* Обертка для скролла меню */
