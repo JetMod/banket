@@ -40,7 +40,7 @@ const ShenApp = {
       const link = item.querySelector('.header__menu-link');
       
       link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 980) {
           e.preventDefault();
           item.classList.toggle('active');
           
@@ -60,7 +60,7 @@ const ShenApp = {
       
       link.addEventListener('click', () => {
         // Не закрывать если это dropdown на мобильном
-        if (window.innerWidth <= 768 && parentItem.classList.contains('header__menu-item--dropdown')) {
+        if (window.innerWidth <= 980 && parentItem.classList.contains('header__menu-item--dropdown')) {
           return;
         }
         
@@ -104,7 +104,7 @@ const ShenApp = {
 
     // Закрыть dropdown при изменении размера окна
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 980) {
         dropdownItems.forEach(item => {
           item.classList.remove('active');
         });
