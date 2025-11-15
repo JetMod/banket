@@ -39,10 +39,25 @@ const ShenApp = {
     // Мобильное выпадающее меню
     dropdownItems.forEach(item => {
       const link = item.querySelector('.header__menu-link');
+      let touchStarted = false;
       
-      link.addEventListener('click', (e) => {
+      // Функция переключения dropdown
+      const toggleDropdown = (e) => {
         if (window.innerWidth <= 980) {
           e.preventDefault();
+          e.stopPropagation();
+          
+          // Предотвращаем двойное срабатывание на touch устройствах
+          if (e.type === 'click' && touchStarted) {
+            touchStarted = false;
+            return;
+          }
+          
+          if (e.type === 'touchstart') {
+            touchStarted = true;
+            setTimeout(() => touchStarted = false, 500);
+          }
+          
           item.classList.toggle('active');
           
           // Закрыть другие открытые dropdown
@@ -52,7 +67,12 @@ const ShenApp = {
             }
           });
         }
-      });
+      };
+      
+      // Для iOS: используем touchstart (срабатывает быстрее чем click)
+      link.addEventListener('touchstart', toggleDropdown, { passive: false });
+      // Для desktop: обычный click
+      link.addEventListener('click', toggleDropdown);
     });
 
     // Закрытие меню при клике на ссылку (не dropdown)
