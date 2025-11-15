@@ -768,14 +768,14 @@
     line-height: 1.65;
   }
 
-  .about__text:first-of-type {
+  /* .about__text:first-of-type {
     font-size: 1rem;
-  }
+  } */
 
-  .about__text:first-of-type::first-letter {
+  /* .about__text:first-of-type::first-letter {
     font-size: 2.2rem;
     margin-right: 6px;
-  }
+  } */
 
   .about__stats {
     grid-template-columns: 1fr;
