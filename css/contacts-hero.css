@@ -1,0 +1,857 @@
+/* =================================
+   Contacts Hero - Split Screen
+   ================================= */
+
+.hero--contacts {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background: #fafafa;
+  overflow: hidden;
+  padding-top: 120px;
+}
+
+/* Split Screen Layout */
+.hero--contacts .hero__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 100vh;
+  max-width: none;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Левая часть - Фон */
+.contacts-hero__image-side {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #f5f5f5 100%);
+}
+
+/* Убираем изображение, используем градиент и паттерн */
+.contacts-hero__bg-image {
+  display: none;
+}
+
+/* Декоративный градиентный фон */
+.contacts-hero__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 248, 248, 0.95) 100%);
+  opacity: 1;
+}
+
+/* Геометрический паттерн */
+.contacts-hero__image-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Декоративные линии */
+.contacts-hero__image-side::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+  z-index: 1;
+}
+
+/* Центральный контент */
+.contacts-hero__main-content {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  z-index: 10;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease 0.3s forwards;
+}
+
+.contacts-hero__main-label {
+  font-size: 12px;
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 20px;
+}
+
+.contacts-hero__main-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+.contacts-hero__main-title {
+  font-family: var(--font-primary);
+  font-size: 4rem;
+  color: var(--color-secondary);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.contacts-hero__main-title-accent {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.contacts-hero__main-subtitle {
+  font-size: 1.15rem;
+  color: rgba(44, 62, 80, 0.7);
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* Статистика */
+.contacts-hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.contacts-hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contacts-hero__stat-number {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.contacts-hero__stat-label {
+  font-size: 0.85rem;
+  color: rgba(44, 62, 80, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.contacts-hero__stat-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* Нижний блок */
+.contacts-hero__image-content {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  z-index: 10;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-left: 3px solid var(--color-primary);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-right: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transform: translateX(-10px);
+  opacity: 0;
+  animation: slideInLeft 0.8s ease 0.7s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.contacts-hero__image-label {
+  font-size: 11px;
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 500;
+  position: relative;
+  padding-left: 15px;
+}
+
+.contacts-hero__image-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+.contacts-hero__image-title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.contacts-hero__image-subtitle {
+  font-size: 1rem;
+  color: rgba(44, 62, 80, 0.7);
+  font-weight: 300;
+}
+
+/* Правая часть - Контакты */
+.contacts-hero__info-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Вертикальный разделитель */
+.contacts-hero__info-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Декоративный элемент - угол */
+.contacts-hero__info-side::after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  width: 80px;
+  height: 80px;
+  border-top: 2px solid rgba(212, 175, 55, 0.15);
+  border-right: 2px solid rgba(212, 175, 55, 0.15);
+  pointer-events: none;
+}
+
+.hero--contacts .hero__content {
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInRight 0.8s ease 0.3s forwards;
+}
+
+.contacts-hero__title {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.contacts-hero__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+}
+
+.contacts-hero__subtitle {
+  font-size: 1.05rem;
+  color: rgba(44, 62, 80, 0.7);
+  margin-bottom: 60px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+}
+
+/* Контактные блоки */
+.contacts-hero__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 50px;
+}
+
+/* Анимация появления блоков по очереди */
+.contacts-hero__item:nth-child(1) {
+  animation: fadeInUp 0.6s ease 0.5s backwards;
+}
+
+.contacts-hero__item:nth-child(2) {
+  animation: fadeInUp 0.6s ease 0.6s backwards;
+}
+
+.contacts-hero__item:nth-child(3) {
+  animation: fadeInUp 0.6s ease 0.7s backwards;
+}
+
+.contacts-hero__item:nth-child(4) {
+  animation: fadeInUp 0.6s ease 0.8s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contacts-hero__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 25px 0 25px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 2px solid transparent;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.contacts-hero__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: var(--color-primary);
+  transition: height 0.4s ease;
+}
+
+.contacts-hero__item:hover {
+  border-bottom-color: rgba(212, 175, 55, 0.3);
+  padding-left: 30px;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.contacts-hero__item:hover::before {
+  height: 100%;
+}
+
+.contacts-hero__item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contacts-hero__item-label {
+  font-size: 10px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.contacts-hero__item-value {
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.contacts-hero__item:hover .contacts-hero__item-value {
+  color: rgba(44, 62, 80, 0.95);
+  transform: translateX(2px);
+}
+
+.contacts-hero__item-link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.contacts-hero__item-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.contacts-hero__item-link:hover {
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.contacts-hero__item-link:hover::after {
+  width: 100%;
+}
+
+/* Кнопка */
+.contacts-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 45px;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 0;
+  transition: all 0.4s ease;
+  border: 2px solid var(--color-primary);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contacts-hero__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.contacts-hero__cta:hover {
+  background: transparent;
+  color: var(--color-primary);
+  padding-right: 50px;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.contacts-hero__cta:hover::before {
+  left: 0;
+}
+
+.contacts-hero__cta:hover .contacts-hero__cta-icon {
+  transform: translateX(5px);
+}
+
+.contacts-hero__cta-icon {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+
+/* Анимация появления кнопки */
+.contacts-hero__cta {
+  animation: fadeInUp 0.6s ease 1s backwards;
+}
+
+/* Индикатор прокрутки */
+.contacts-hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(44, 62, 80, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.contacts-hero__scroll:hover {
+  color: var(--color-primary);
+  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+.contacts-hero__scroll-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.contacts-hero__scroll-arrow {
+  font-size: 14px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.contacts-hero__scroll:hover .contacts-hero__scroll-arrow {
+  animation-play-state: paused;
+  transform: translateY(3px);
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Анимации */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .hero--contacts .hero__container {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-hero__image-side {
+    min-height: 45vh;
+    position: relative;
+  }
+
+  .contacts-hero__info-side {
+    padding: 60px 40px;
+  }
+
+  .contacts-hero__info-side::before {
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 50%, transparent 100%);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+
+  .contacts-hero__info-side::after {
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .contacts-hero__main-content {
+    left: 40px;
+    max-width: 90%;
+  }
+  
+  .contacts-hero__main-title {
+    font-size: 3rem;
+  }
+  
+  .contacts-hero__main-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .contacts-hero__stats {
+    gap: 20px;
+  }
+  
+  .contacts-hero__stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .contacts-hero__image-content {
+    bottom: 40px;
+    left: 40px;
+    padding: 20px 25px;
+  }
+  
+  .contacts-hero__image-side::after {
+    display: none;
+  }
+
+  .contacts-hero__scroll {
+    right: 40px;
+    bottom: 30px;
+  }
+
+  .contacts-hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero--contacts {
+    padding-top: 100px;
+  }
+
+  .contacts-hero__image-side {
+    min-height: 40vh;
+  }
+
+  .contacts-hero__info-side {
+    padding: 50px 30px;
+  }
+
+  .contacts-hero__info-side::after {
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .contacts-hero__title {
+    font-size: 2.2rem;
+    padding-bottom: 15px;
+  }
+
+  .contacts-hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: 50px;
+  }
+
+  .contacts-hero__main-content {
+    left: 30px;
+    max-width: calc(100% - 60px);
+  }
+  
+  .contacts-hero__main-title {
+    font-size: 2.75rem;
+  }
+  
+  .contacts-hero__main-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contacts-hero__stats {
+    gap: 20px;
+    padding-top: 25px;
+  }
+  
+  .contacts-hero__stat-number {
+    font-size: 2.25rem;
+  }
+  
+  .contacts-hero__image-title {
+    font-size: 2rem;
+  }
+
+  .contacts-hero__image-content {
+    bottom: 30px;
+    left: 30px;
+    padding: 20px 25px;
+  }
+
+  .contacts-hero__items {
+    margin-bottom: 40px;
+  }
+
+  .contacts-hero__item {
+    padding: 20px 0 20px 15px;
+  }
+
+  .contacts-hero__item-value {
+    font-size: 1.15rem;
+  }
+
+  .contacts-hero__cta {
+    padding: 16px 40px;
+  }
+
+  .contacts-hero__scroll {
+    right: 30px;
+    bottom: 25px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero--contacts {
+    padding-top: 90px;
+  }
+
+  .contacts-hero__image-side {
+    min-height: 35vh;
+  }
+
+  .contacts-hero__info-side {
+    padding: 40px 20px;
+  }
+
+  .contacts-hero__info-side::after {
+    display: none;
+  }
+
+  .hero--contacts .hero__content {
+    max-width: 100%;
+  }
+
+  .contacts-hero__title {
+    font-size: 1.85rem;
+    padding-bottom: 12px;
+  }
+
+  .contacts-hero__title::after {
+    width: 50px;
+    height: 2px;
+  }
+
+  .contacts-hero__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+  }
+
+  .contacts-hero__image-title {
+    font-size: 1.6rem;
+  }
+
+  .contacts-hero__image-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .contacts-hero__main-content {
+    left: 20px;
+    max-width: calc(100% - 40px);
+  }
+  
+  .contacts-hero__main-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .contacts-hero__main-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .contacts-hero__stats {
+    gap: 15px;
+    padding-top: 20px;
+  }
+  
+  .contacts-hero__stat-number {
+    font-size: 2rem;
+  }
+  
+  .contacts-hero__stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .contacts-hero__stat-divider {
+    height: 40px;
+  }
+  
+  .contacts-hero__image-content {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 20px;
+    border-left-width: 3px;
+  }
+  
+  .contacts-hero__image-side::before {
+    background-size: 30px 30px;
+  }
+
+  .contacts-hero__image-label {
+    font-size: 9px;
+    margin-bottom: 10px;
+  }
+
+  .contacts-hero__items {
+    margin-bottom: 35px;
+  }
+
+  .contacts-hero__item {
+    padding: 18px 0 18px 12px;
+  }
+
+  .contacts-hero__item-value {
+    font-size: 1.05rem;
+  }
+
+  .contacts-hero__cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 35px;
+  }
+
+  .contacts-hero__cta:hover {
+    padding-right: 35px;
+  }
+
+  .contacts-hero__scroll {
+    display: none;
+  }
+}
+
+/* Скрыть старые элементы */
+.hero--contacts .hero__title,
+.contacts-hero__label,
+.contacts-hero__divider,
+.contacts-hero__cards,
+.contacts-hero__card,
+.contacts-hero__actions,
+.contacts-hero__button {
+  display: none;
+}
