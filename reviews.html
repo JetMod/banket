@@ -60,7 +60,7 @@
                 
                 <ul class="header__menu">
                     <li class="header__menu-item header__menu-item--dropdown">
-                        <a href="#" class="header__menu-link">
+                        <a href="events.html" class="header__menu-link">
                             Мероприятия
                             <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
                                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -91,13 +91,13 @@
                         </ul>
                     </li>
                     <li class="header__menu-item">
-                        <a href="index.html#menu" class="header__menu-link">Меню</a>
+                        <a href="#menu" class="header__menu-link">Меню</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="index.html#gallery" class="header__menu-link">Галерея</a>
+                        <a href="gallery.html" class="header__menu-link">Галерея</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="reviews.html" class="header__menu-link header__menu-link--active">Отзывы</a>
+                        <a href="reviews.html" class="header__menu-link">Отзывы</a>
                     </li>
                     <li class="header__menu-item">
                         <a href="contacts.html" class="header__menu-link">Контакты</a>
@@ -118,8 +118,7 @@
                 <span class="header__burger-line"></span>
                 <span class="header__burger-line"></span>
             </button>
-        </div>
-    </header>
+            </header>
 
     <!-- Hero Section -->
     <section class="reviews-hero">
@@ -157,7 +156,7 @@
                     <div class="reviews-hero__stat">
                         <div class="reviews-hero__stat-value">5.0</div>
                         <div class="reviews-hero__stat-stars">⭐⭐⭐⭐⭐</div>
-                        <div class="reviews-hero__stat-label">Средний рейтинг</div>
+                       
                     </div>
                     <div class="reviews-hero__stat">
                         <div class="reviews-hero__stat-value">2926</div>
@@ -170,10 +169,10 @@
                 </div>
 
                 <!-- Кнопка оставить отзыв -->
-                <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="reviews-hero__button">
+                <!-- <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="reviews-hero__button">
                     <span class="reviews-hero__button-text">Оставить отзыв на Яндекс</span>
                     <span class="reviews-hero__button-icon">→</span>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -296,59 +295,202 @@
     </section>
 
 
-    <!-- Photo Gallery from Reviews -->
-    <section class="reviews-gallery">
-        <div class="reviews-gallery__container container">
-            <div class="reviews-gallery__header">
-                <span class="reviews-gallery__label">Фотографии от гостей</span>
-                <h2 class="reviews-gallery__title section-title">Ваши мгновения счастья</h2>
-                <div class="reviews-gallery__divider">
-                    <span class="reviews-gallery__divider-line"></span>
-                    <span class="reviews-gallery__divider-icon">📸</span>
-                    <span class="reviews-gallery__divider-line"></span>
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <div class="gallery__container container">
+        <div class="gallery__header">
+            <h2 class="gallery__title section-title">Галерея</h2>
+            <p class="gallery__subtitle section-subtitle">
+                Атмосфера наших залов и мероприятий
+            </p>
+        </div>
+
+        <div class="gallery__grid">
+            <!-- Первый ряд - 4 обычных элемента -->
+            <div class="gallery__item" data-index="0">
+                <img src="img/13.webp" alt="Интерьер зала" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
             </div>
-
-            <div class="reviews-gallery__grid">
-                <div class="reviews-gallery__item">
-                    <img src="img/1.webp" alt="Свадьба в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
-                </div> 
-                <div class="reviews-gallery__item">
-                    <img src="img/2.webp" alt="Корпоратив в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
+            <div class="gallery__item" data-index="1">
+                <img src="img/eat1.webp" alt="Блюда" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="reviews-gallery__item">
-                    <img src="img/3.webp" alt="Банкет в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
+            </div>
+            <div class="gallery__item" data-index="2">
+                <img src="img/11.webp" alt="Сервировка" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="reviews-gallery__item">
-                    <img src="img/4.webp" alt="Празднование в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
+            </div>
+            <div class="gallery__item" data-index="3">
+                <img src="img/5.webp" alt="Банкетный стол" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="reviews-gallery__item">
-                    <img src="img/5.webp" alt="Мероприятие в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
+            </div>
+            
+            <!-- Второй ряд - 2 обычных + 1 большой (2x2) -->
+            <div class="gallery__item" data-index="4">
+                <img src="img/4.webp" alt="Зал" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="reviews-gallery__item">
-                    <img src="img/6.webp" alt="Торжество в зале Shen" class="reviews-gallery__image">
-                    <div class="reviews-gallery__overlay">
-                        <span class="reviews-gallery__icon">🔍</span>
-                    </div>
+            </div>
+            <div class="gallery__item" data-index="5">
+                <img src="img/6.webp" alt="Оформление" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item gallery__item--large" data-index="6">
+                <img src="img/15.webp" alt="Зал с гостями" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Третий ряд - 1 большой (2x2) + 2 обычных -->
+            <div class="gallery__item gallery__item--large" data-index="7">
+                <img src="img/1.webp" alt="Интерьер зала" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item" data-index="8">
+                <img src="img/eat2.webp" alt="Кухня" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item" data-index="9">
+                <img src="img/eat4.webp" alt="Десерты" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Четвертый ряд - 4 обычных элемента -->
+            <div class="gallery__item" data-index="10">
+                <img src="img/eat5.webp" alt="Праздничный стол" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item" data-index="11">
+                <img src="img/3.webp" alt="Мероприятие" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item" data-index="12">
+                <img src="img/12.webp" alt="Банкет" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery__item" data-index="13">
+                <img src="img/2.webp" alt="Интерьер" class="gallery__img">
+                <div class="gallery__overlay">
+                    <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 8v6M8 11h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Lightbox Modal -->
+        <div class="gallery__lightbox" id="galleryLightbox">
+            <button class="gallery__lightbox-close" aria-label="Закрыть">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <button class="gallery__lightbox-prev" aria-label="Предыдущее фото">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <button class="gallery__lightbox-next" aria-label="Следующее фото">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18l6-6-6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <div class="gallery__lightbox-content">
+                <img src="" alt="" class="gallery__lightbox-img" id="lightboxImg">
+                <div class="gallery__lightbox-counter" id="lightboxCounter">1 / 14</div>
+            </div>
+        </div>
+
+        <div class="gallery__footer">
+            <a href="gallery.html" class="gallery__link button button--primary">
+                Смотреть все фото
+                <svg class="gallery__link-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- CTA Section -->
     <section class="about about--cta">
@@ -378,63 +520,102 @@
         </div>
     </section>
 
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer__container container">
-            <div class="footer__top">
-                <div class="footer__brand">
-                    <div class="footer__logo">
-                        <svg width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 25L8 19L2 13" stroke="url(#gold-gradient-footer)" stroke-width="2"/>
-                            <text x="18" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="url(#gold-gradient-footer)" letter-spacing="2">SHEN</text>
-                            <path d="M118 25L112 31L118 37" stroke="url(#gold-gradient-footer)" stroke-width="2"/>
-                            <text x="60" y="44" font-family="'Inter', sans-serif" font-size="7" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="3">BANQUET HALL</text>
-                            <defs>
-                                <linearGradient id="gold-gradient-footer" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
-                                    <stop offset="50%" style="stop-color:#F4D03F;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
+        <div class="footer__top">
+            <div class="footer__container container">
+                <div class="footer__grid">
+                    <!-- О компании -->
+                    <div class="footer__col footer__col--about">
+                        <div class="footer__logo">
+                            <h3 class="footer__logo-text">SHEN</h3>
+                            <span class="footer__logo-subtitle">BANQUET HALLS</span>
+                        </div>
+                        <p class="footer__description">
+                            Премиальные банкетные залы для незабываемых мероприятий. Создаем идеальную атмосферу для ваших торжеств.
+                        </p>
+                        <div class="footer__social">
+                            <a href="#" class="footer__social-link" aria-label="VK">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12.785 16.241s.288-.032.436-.191c.136-.146.131-.42.131-.42s-.019-1.284.571-1.473c.582-.186 1.329 1.241 2.122 1.791.6.416 1.056.325 1.056.325l2.123-.03s1.111-.069.584-.952c-.043-.072-.308-.655-1.586-1.85-1.338-1.25-1.159-1.048.453-3.21.982-1.316 1.374-2.118 1.252-2.463-.116-.329-.834-.242-.834-.242l-2.386.015s-.177-.024-.308.055c-.128.078-.21.259-.21.259s-.376.995-.877 1.84c-1.058 1.784-1.482 1.879-1.656 1.767-.404-.261-.303-.996-.303-1.576 0-1.713.257-2.427-.501-2.612-.252-.061-.437-.102-1.081-.108-.826-.008-1.525.003-1.920.198-.263.13-.466.419-.342.435.153.02.499.094.683.346.237.325.229.956.229.956s.137 2.017-.319 2.268c-.313.173-.743-.18-1.665-1.79-.472-.824-.829-1.734-.829-1.734s-.069-.169-.192-.259c-.149-.11-.357-.145-.357-.145l-2.268.015s-.341.01-.466.159c-.111.132-.009.405-.009.405s1.763 4.153 3.758 6.244c1.832 1.918 3.911 1.792 3.911 1.792h.943z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="Telegram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <p class="footer__slogan">✨ Нет предела совершенству ✨</p>
-                </div>
 
-                <div class="footer__links">
-                    <div class="footer__column">
-                        <h4 class="footer__column-title">Навигация</h4>
+                    <!-- Навигация -->
+                    <div class="footer__col">
+                        <h4 class="footer__col-title">Навигация</h4>
                         <ul class="footer__list">
-                            <li><a href="index.html" class="footer__link">Главная</a></li>
-                            <li><a href="index.html#about" class="footer__link">О зале</a></li>
-                            <li><a href="index.html#menu" class="footer__link">Меню</a></li>
-                            <li><a href="index.html#gallery" class="footer__link">Галерея</a></li>
-                            <li><a href="reviews.html" class="footer__link">Отзывы</a></li>
-                            <li><a href="contacts.html" class="footer__link">Контакты</a></li>
+                            <li><a href="#about" class="footer__link">О нас</a></li>
+                            <li><a href="#advantages" class="footer__link">Преимущества</a></li>
+                            <li><a href="#menu" class="footer__link">Меню</a></li>
+                            <li><a href="#gallery" class="footer__link">Галерея</a></li>
                         </ul>
                     </div>
 
-                    <div class="footer__column">
-                        <h4 class="footer__column-title">Контакты</h4>
+                    <!-- Услуги -->
+                    <div class="footer__col">
+                        <h4 class="footer__col-title">Услуги</h4>
                         <ul class="footer__list">
-                            <li><a href="tel:+79788064657" class="footer__link">+7 (978) 806-46-57</a></li>
-                            <li><a href="mailto:info@shen-banquet.ru" class="footer__link">info@shen-banquet.ru</a></li>
-                            <li class="footer__address">г. Симферополь<br>ул. Генерала Васильева, 40А</li>
+                            <li><a href="#" class="footer__link">Корпоративы</a></li>
+                            <li><a href="#" class="footer__link">Свадьбы</a></li>
+                            <li><a href="#" class="footer__link">Дни рождения</a></li>
+                            <li><a href="#" class="footer__link">Конференции</a></li>
                         </ul>
                     </div>
 
-                    <div class="footer__column">
-                        <h4 class="footer__column-title">Режим работы</h4>
-                        <p class="footer__hours">Консультации:<br>Ежедневно 10:00 — 22:00</p>
-                        <p class="footer__note">Мероприятия — по договоренности</p>
+                    <!-- Контакты -->
+                    <div class="footer__col">
+                        <h4 class="footer__col-title">Контакты</h4>
+                        <ul class="footer__list footer__list--contacts">
+                            <li>
+                                <a href="tel:+79781872827" class="footer__link footer__link--phone">
+                                    +7 (978) 187-28-27
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:banquet@shen.ru" class="footer__link">
+                                    banquet@shen.ru
+                                </a>
+                            </li>
+                            <li class="footer__address">
+                                г. Симферополь, ул. Генерала Васильева, 40А
+                            </li>
+                            <li class="footer__hours">
+                                Ежедневно с 10:00 до 23:00
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="footer__bottom">
-                <p class="footer__copyright">© 2025 Shen. Все права защищены.</p>
-                <div class="footer__social">
-                    <a href="#" class="footer__social-link">Политика конфиденциальности</a>
+        <div class="footer__bottom">
+            <div class="footer__container container">
+                <div class="footer__bottom-content">
+                    <p class="footer__copyright">© 2025 Shen Banquet Halls. Все права защищены.</p>
+                    <div class="footer__links">
+                        <a href="privacy.html" class="footer__bottom-link">Техническая информация</a>
+                    
+                    </div>
                 </div>
             </div>
         </div>

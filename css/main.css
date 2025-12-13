@@ -37,3 +37,6 @@
 @import url('blocks/events-gallery.css');  /* Галерея мероприятий */
 @import url('blocks/contact-cta.css');     /* Финальный CTA */
 
+/* Gallery Page - Страница галереи */
+@import url('blocks/gallery-page.css');    /* Полная галерея с фильтрами */
+

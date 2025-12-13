@@ -3,7 +3,7 @@
    ================================= */
 
 .reviews-gallery {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
     background: white;
 }
 
@@ -138,7 +138,7 @@
 /* Мобильные */
 @media (max-width: 576px) {
     .reviews-gallery {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-md) 0;
     }
 
     .reviews-gallery__grid {

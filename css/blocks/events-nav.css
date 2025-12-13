@@ -1,10 +1,9 @@
 /* =================================
-   Events Navigation Bar (Sticky)
+   Events Navigation Bar
    ================================= */
 
 .events-nav {
-    position: sticky;
-    top: 80px;
+    position: relative;
     z-index: 100;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -85,10 +84,6 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .events-nav {
-        top: 70px;
-    }
-    
     .events-nav__list {
         justify-content: flex-start;
         gap: var(--spacing-xs);
@@ -96,10 +91,6 @@
 }
 
 @media (max-width: 768px) {
-    .events-nav {
-        top: 60px;
-    }
-    
     .events-nav__link {
         padding: 12px var(--spacing-xs);
     }

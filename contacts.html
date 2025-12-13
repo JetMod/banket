@@ -56,7 +56,7 @@
                 
                 <ul class="header__menu">
                     <li class="header__menu-item header__menu-item--dropdown">
-                        <a href="#" class="header__menu-link">
+                        <a href="events.html" class="header__menu-link">
                             Мероприятия
                             <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
                                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -90,7 +90,7 @@
                         <a href="#menu" class="header__menu-link">Меню</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="#gallery" class="header__menu-link">Галерея</a>
+                        <a href="gallery.html" class="header__menu-link">Галерея</a>
                     </li>
                     <li class="header__menu-item">
                         <a href="reviews.html" class="header__menu-link">Отзывы</a>
@@ -190,7 +190,7 @@
                             <a href="#menu" class="header__menu-link">Меню</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="#gallery" class="header__menu-link">Галерея</a>
+                            <a href="gallery.html" class="header__menu-link">Галерея</a>
                         </li>
                         <li class="header__menu-item">
                             <a href="#" class="header__menu-link">Отзывы</a>
@@ -294,12 +294,12 @@
             </div>
         </div>
 
-        <!-- Индикатор прокрутки -->
-        <div class="contacts-hero__scroll" onclick="document.querySelector('#contact-info').scrollIntoView({ behavior: 'smooth' })">
+        <!-- Индикатор прокрутки - СКРЫТ -->
+        <!-- <div class="contacts-hero__scroll" onclick="document.querySelector('#contact-info').scrollIntoView({ behavior: 'smooth' })">
             <div class="contacts-hero__scroll-arrow">
                 <span>↓</span>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <!-- Contact Information Section -->
@@ -492,6 +492,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <!-- Footer -->
     <footer class="footer">

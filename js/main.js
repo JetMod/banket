@@ -911,15 +911,55 @@ function initEventsHeroSlideshow() {
   if (!slideshowContainer) return;
 
   const slides = slideshowContainer.querySelectorAll('.events-hero__slide');
+  const scrollBtn = document.querySelector('.events-hero__scroll');
+  
   let currentSlide = 0;
+  let autoplayInterval;
 
-  function showNextSlide() {
-    slides[currentSlide].classList.remove('events-hero__slide--active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('events-hero__slide--active');
+  // Функция показа слайда
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('events-hero__slide--active'));
+    slides[index].classList.add('events-hero__slide--active');
+    currentSlide = index;
   }
 
-  setInterval(showNextSlide, 6000);
+  // Функция автоматической смены слайдов
+  function showNextSlide() {
+    const nextSlide = (currentSlide + 1) % slides.length;
+    showSlide(nextSlide);
+  }
+
+  // Запуск автопроигрывания
+  function startAutoplay() {
+    autoplayInterval = setInterval(showNextSlide, 5000);
+  }
+
+  // Остановка автопроигрывания
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+    }
+  }
+
+  // Клик по кнопке прокрутки
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      const nextSection = document.querySelector('.events-nav');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Пауза при наведении на hero секцию
+  const heroSection = document.querySelector('.events-hero');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', stopAutoplay);
+    heroSection.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Запуск автопроигрывания
+  startAutoplay();
 }
 
 // Events Navigation - Sticky & Active States
@@ -1044,8 +1084,610 @@ function initSmoothScroll() {
   });
 }
 
+// =================================
+// Gallery Page Module
+// =================================
+
+const GalleryPage = {
+  currentIndex: 0,
+  allImages: [],
+  visibleImages: [],
+  currentFilter: 'all',
+  slideshowInterval: null,
+  isPlaying: false,
+
+  init() {
+    // Проверяем, находимся ли мы на странице галереи
+    if (!document.querySelector('.gallery-page')) return;
+
+    this.initHeroSlideshow();
+    this.initFilters();
+    this.initMasonry();
+    this.initLightbox();
+    this.initLoadMore();
+    // this.initParallax(); // Отключен параллакс эффект
+    this.initCounters();
+    // this.initScrollToTop() - перенесено в универсальную функцию
+    this.initLightboxTools(); // 🆕 Zoom, Share, Download
+    // this.initInfiniteScroll(); // Отключен - вернули кнопку "Загрузить ещё"
+    this.updateAllImages();
+  },
+
+  // Hero Background Slideshow
+  initHeroSlideshow() {
+    const slides = document.querySelectorAll('.gallery-hero__slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('gallery-hero__slide--active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('gallery-hero__slide--active');
+    }, 5000);
+  },
+
+  // Parallax Effect
+  initParallax() {
+    const hero = document.querySelector('.gallery-hero');
+    const heroContent = document.querySelector('.gallery-hero__content');
+    const heroBackground = document.querySelector('.gallery-hero__background');
+    
+    if (!hero || !heroContent || !heroBackground) return;
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const heroHeight = hero.offsetHeight;
+      
+      if (scrolled < heroHeight) {
+        // Parallax для фона
+        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+        
+        // Parallax для контента
+        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+        heroContent.style.opacity = 1 - (scrolled / heroHeight) * 1.5;
+      }
+    });
+  },
+
+  // Animated Counters
+  initCounters() {
+    const stats = document.querySelectorAll('.gallery-hero__stat-value');
+    let animated = false;
+
+    const animateCounter = (element, target) => {
+      const duration = 2000;
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = element.getAttribute('data-target');
+        }
+      };
+
+      updateCounter();
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          stats.forEach(stat => {
+            const originalText = stat.textContent.trim();
+            const target = parseInt(originalText);
+            
+            // Не анимировать если это символ бесконечности или не число
+            if (originalText === '∞' || isNaN(target)) {
+              // Просто добавим fade-in эффект
+              stat.style.opacity = '0';
+              setTimeout(() => {
+                stat.style.transition = 'opacity 1s ease';
+                stat.style.opacity = '1';
+              }, 100);
+              return;
+            }
+            
+            stat.setAttribute('data-target', originalText);
+            stat.textContent = '0';
+            animateCounter(stat, target);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => observer.observe(stat));
+  },
+
+  // 3D Tilt Effect for Cards
+  init3DTilt() {
+    const cards = document.querySelectorAll('.gallery-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.03)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  },
+
+  // Filter Buttons
+  initFilters() {
+    const filterBtns = document.querySelectorAll('.gallery-filters__btn');
+    const cards = document.querySelectorAll('.gallery-card:not(.gallery-card--hidden)');
+    
+    // Initialize 3D Tilt after filters are set
+    this.init3DTilt();
+
+    if (filterBtns.length === 0) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        this.currentFilter = filter;
+
+        // Обновить активную кнопку
+        filterBtns.forEach(b => b.classList.remove('gallery-filters__btn--active'));
+        btn.classList.add('gallery-filters__btn--active');
+
+        // Фильтрация карточек
+        cards.forEach((card, index) => {
+          const category = card.dataset.category;
+
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.animation = `fadeInUp 0.4s ease ${index * 0.05}s both`;
+            }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Пересчитать Masonry после фильтрации
+        setTimeout(() => {
+          this.calculateMasonry();
+          this.updateVisibleImages();
+          this.init3DTilt(); // Re-initialize 3D Tilt
+        }, 100);
+      });
+    });
+  },
+
+  // Masonry Layout - теперь используется CSS columns, расчеты не нужны
+  initMasonry() {
+    // CSS columns автоматически создает Masonry layout
+    // Никаких расчетов не требуется!
+    console.log('Masonry layout использует CSS columns');
+  },
+
+  // Lightbox Functionality
+  initLightbox() {
+    const cards = document.querySelectorAll('.gallery-card');
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    const slideshowBtn = document.getElementById('lightboxSlideshow');
+
+    if (!lightbox) return;
+
+    // Открытие lightbox
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        if (card.style.display === 'none' || card.classList.contains('gallery-card--hidden')) return;
+        
+        this.updateVisibleImages();
+        const visibleIndex = this.visibleImages.findIndex(img => img === card);
+        if (visibleIndex !== -1) {
+          this.openLightbox(visibleIndex);
+        }
+      });
+    });
+
+    // Закрытие lightbox
+    closeBtn.addEventListener('click', () => this.closeLightbox());
+    
+    // Закрытие по клику на фон
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        this.closeLightbox();
+      }
+    });
+
+    // Закрытие по ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        this.closeLightbox();
+      }
+    });
+
+    // Навигация
+    prevBtn.addEventListener('click', () => this.showPrevImage());
+    nextBtn.addEventListener('click', () => this.showNextImage());
+
+    // Навигация стрелками
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'ArrowLeft') {
+        this.showPrevImage();
+      } else if (e.key === 'ArrowRight') {
+        this.showNextImage();
+      }
+      // Space для slideshow - DISABLED
+    });
+
+    // Slideshow - DISABLED
+    // slideshowBtn.addEventListener('click', () => this.toggleSlideshow());
+
+    // 📱 Swipe Gestures для мобильных
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    lightboxImg.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    lightboxImg.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      // Swipe horizontal (влево/вправо)
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          this.showNextImage(); // Swipe left
+        } else {
+          this.showPrevImage(); // Swipe right
+        }
+      }
+      // Swipe vertical down для закрытия
+      else if (diffY < -100) {
+        this.closeLightbox();
+      }
+    }, { passive: true });
+  },
+
+  updateAllImages() {
+    this.allImages = Array.from(document.querySelectorAll('.gallery-card'));
+    this.updateVisibleImages();
+  },
+
+  updateVisibleImages() {
+    this.visibleImages = this.allImages.filter(card => {
+      return card.style.display !== 'none' && !card.classList.contains('gallery-card--hidden');
+    });
+  },
+
+  openLightbox(index) {
+    this.currentIndex = index;
+    const lightbox = document.getElementById('galleryLightbox');
+    const card = this.visibleImages[index];
+    const img = card.querySelector('.gallery-card__image');
+    const category = card.querySelector('.gallery-card__category');
+
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCounter.textContent = `${index + 1} / ${this.visibleImages.length}`;
+    lightboxCategory.textContent = category.textContent;
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  },
+
+  closeLightbox() {
+    const lightbox = document.getElementById('galleryLightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Остановить слайдшоу
+    if (this.isPlaying) {
+      this.toggleSlideshow();
+    }
+  },
+
+  showPrevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.visibleImages.length) % this.visibleImages.length;
+    this.updateLightboxImage();
+  },
+
+  showNextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.visibleImages.length;
+    this.updateLightboxImage();
+  },
+
+  updateLightboxImage() {
+    const card = this.visibleImages[this.currentIndex];
+    const img = card.querySelector('.gallery-card__image');
+    const category = card.querySelector('.gallery-card__category');
+
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxProgress = document.getElementById('lightboxProgress');
+
+    // Анимация смены изображения
+    lightboxImg.style.opacity = '0';
+    
+    setTimeout(() => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      
+      // Update counter
+      const counterText = lightboxCounter.querySelector('.gallery-lightbox__counter-text');
+      if (counterText) {
+        counterText.textContent = `${this.currentIndex + 1} / ${this.visibleImages.length}`;
+      } else {
+        lightboxCounter.textContent = `${this.currentIndex + 1} / ${this.visibleImages.length}`;
+      }
+      
+      // Update progress bar
+      if (lightboxProgress) {
+        const progress = ((this.currentIndex + 1) / this.visibleImages.length) * 100;
+        lightboxProgress.style.width = `${progress}%`;
+      }
+      
+      lightboxCategory.textContent = category.textContent;
+      lightboxImg.style.opacity = '1';
+    }, 150);
+  },
+
+  toggleSlideshow() {
+    const slideshowBtn = document.getElementById('lightboxSlideshow');
+    const playIcon = slideshowBtn.querySelector('.gallery-lightbox__slideshow-icon--play');
+    const pauseIcon = slideshowBtn.querySelector('.gallery-lightbox__slideshow-icon--pause');
+
+    if (this.isPlaying) {
+      // Остановить
+      clearInterval(this.slideshowInterval);
+      this.isPlaying = false;
+      slideshowBtn.classList.remove('gallery-lightbox__slideshow--playing');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+    } else {
+      // Запустить
+      this.slideshowInterval = setInterval(() => {
+        this.showNextImage();
+      }, 3000);
+      this.isPlaying = true;
+      slideshowBtn.classList.add('gallery-lightbox__slideshow--playing');
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+    }
+  },
+
+  // 🆕 Scroll to Top Button
+  initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (!scrollBtn) return;
+
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // Scroll to top on click
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  },
+
+  // 🆕 Lightbox Tools (Share, Download) - Zoom removed
+  initLightboxTools() {
+    const lightboxImg = document.getElementById('lightboxImg');
+    const zoomBtn = document.getElementById('zoomBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    if (!lightboxImg) return;
+
+    // Zoom functionality - DISABLED
+    // if (zoomBtn) {
+    //   zoomBtn.addEventListener('click', () => {
+    //     lightboxImg.classList.toggle('zoomed');
+    //   });
+    // }
+
+    // Double-click to zoom - DISABLED
+    // lightboxImg.addEventListener('dblclick', () => {
+    //   lightboxImg.classList.toggle('zoomed');
+    // });
+
+    // Share functionality
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: 'Галерея Shen',
+          text: 'Посмотрите это фото из банкетного зала Shen!',
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else {
+            // Fallback: copy to clipboard
+            await navigator.clipboard.writeText(window.location.href);
+            this.showNotification('Ссылка скопирована в буфер обмена!');
+          }
+        } catch (err) {
+          console.log('Share failed:', err);
+        }
+      });
+    }
+
+    // Download functionality
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', () => {
+        const currentCard = this.visibleImages[this.currentIndex];
+        const img = currentCard.querySelector('.gallery-card__image');
+        
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = `shen-gallery-${this.currentIndex + 1}.jpg`;
+        link.click();
+        
+        this.showNotification('Загрузка началась...');
+      });
+    }
+  },
+
+  // 🆕 Notification helper
+  showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'gallery-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      z-index: 10000;
+      animation: fadeInUp 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.animation = 'fadeOut 0.3s ease';
+      setTimeout(() => notification.remove(), 300);
+    }, 2000);
+  },
+
+  // 🆕 Infinite Scroll
+  initInfiniteScroll() {
+    const loadMoreSection = document.getElementById('loadMoreSection');
+    if (!loadMoreSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Auto-load more when section is visible
+          const loadBtn = document.getElementById('loadMoreBtn');
+          if (loadBtn && !loadBtn.disabled) {
+            loadBtn.click();
+          }
+        }
+      });
+    }, {
+      rootMargin: '200px' // Load before reaching the button
+    });
+
+    observer.observe(loadMoreSection);
+  },
+
+  // Load More Functionality
+  initLoadMore() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const hiddenCards = document.querySelectorAll('.gallery-card--hidden');
+
+    if (!loadMoreBtn || hiddenCards.length === 0) {
+      // Скрыть кнопку, если нет скрытых карточек
+      const loadMoreSection = document.getElementById('loadMoreSection');
+      if (loadMoreSection) {
+        loadMoreSection.style.display = 'none';
+      }
+      return;
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      const hiddenCards = document.querySelectorAll('.gallery-card--hidden');
+      const cardsToShow = Array.from(hiddenCards).slice(0, 12);
+
+      cardsToShow.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.remove('gallery-card--hidden');
+          card.style.animation = `fadeInUp 0.4s ease ${index * 0.05}s both`;
+        }, index * 50);
+      });
+
+      // Обновить список изображений после показа новых карточек
+      setTimeout(() => {
+        this.updateAllImages();
+      }, 500);
+
+      // Скрыть кнопку, если больше нет скрытых карточек
+      setTimeout(() => {
+        const remainingHidden = document.querySelectorAll('.gallery-card--hidden');
+        if (remainingHidden.length === 0) {
+          const loadMoreSection = document.getElementById('loadMoreSection');
+          if (loadMoreSection) {
+            loadMoreSection.style.display = 'none';
+          }
+        }
+      }, 600);
+    });
+  }
+};
+
 // Инициализация при загрузке DOM
 if (document.readyState === 'loading') {
+  // 🆕 Universal Scroll to Top Button
+  function initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (!scrollBtn) return;
+
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // Scroll to top on click
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initContactCardsAnimation();
     initContactHeroSlideshow();
@@ -1055,6 +1697,8 @@ if (document.readyState === 'loading') {
     initGalleryFiltering();
     initScrollAnimations();
     initSmoothScroll();
+    initScrollToTop(); // 🆕 Инициализация кнопки "Наверх" на всех страницах
+    GalleryPage.init(); // Инициализация Gallery Page
   });
 } else {
   initContactCardsAnimation();
@@ -1065,5 +1709,6 @@ if (document.readyState === 'loading') {
   initGalleryFiltering();
   initScrollAnimations();
   initSmoothScroll();
+  GalleryPage.init(); // Инициализация Gallery Page
 }
 
