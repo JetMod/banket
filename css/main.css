@@ -22,3 +22,18 @@
 @import url('blocks/contacts.css');    /* Контакты */
 @import url('blocks/footer.css');      /* Подвал */
 
+/* Reviews Page - Страница отзывов */
+@import url('blocks/reviews-hero.css');    /* Hero секция отзывов */
+@import url('blocks/reviews-stats.css');   /* Статистика отзывов */
+@import url('blocks/reviews-filter.css');  /* Фильтр отзывов */
+@import url('blocks/review-card.css');     /* Карточка отзыва */
+@import url('blocks/reviews-gallery.css'); /* Галерея фотографий */
+@import url('blocks/yandex-widget.css');   /* Виджет Яндекс */
+
+/* Events Page - Страница мероприятий */
+@import url('blocks/events-hero.css');     /* Hero секция мероприятий */
+@import url('blocks/events-nav.css');      /* Навигация по типам */
+@import url('blocks/event-section.css');   /* Секции мероприятий */
+@import url('blocks/events-gallery.css');  /* Галерея мероприятий */
+@import url('blocks/contact-cta.css');     /* Финальный CTA */
+

@@ -64,25 +64,25 @@
                         </a>
                         <ul class="header__dropdown">
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Свадьба</a>
+                                <a href="events.html#wedding" class="header__dropdown-link">Свадьба</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">День рождения</a>
+                                <a href="events.html#birthday" class="header__dropdown-link">День рождения</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Корпоратив</a>
+                                <a href="events.html#corporate" class="header__dropdown-link">Корпоратив</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Выпускной</a>
+                                <a href="events.html#graduation" class="header__dropdown-link">Выпускной</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
+                                <a href="events.html#conference" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Детский праздник</a>
+                                <a href="events.html#kids" class="header__dropdown-link">Детский праздник</a>
                             </li>
                             <li class="header__dropdown-item">
-                                <a href="#" class="header__dropdown-link">Новогодняя ночь</a>
+                                <a href="events.html#newyear" class="header__dropdown-link">Новогодняя ночь</a>
                             </li>
                         </ul>
                     </li>
@@ -93,7 +93,7 @@
                         <a href="#gallery" class="header__menu-link">Галерея</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="#" class="header__menu-link">Отзывы</a>
+                        <a href="reviews.html" class="header__menu-link">Отзывы</a>
                     </li>
                     <li class="header__menu-item">
                         <a href="contacts.html" class="header__menu-link">Контакты</a>
@@ -220,87 +220,85 @@
         <div class="hero__container">
             <!-- Левая часть - Фото -->
             <div class="contacts-hero__image-side">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f29da8c2d6?w=1200&q=80" 
-                     alt="Банкетный зал Shen" 
-                     class="contacts-hero__bg-image">
+                <!-- Фоновое слайдшоу -->
+                <div class="contacts-hero__slideshow">
+                    <div class="contacts-hero__slide contacts-hero__slide--active">
+                        <img src="img/1.webp" alt="Банкетный зал Shen">
+                    </div>
+                    <div class="contacts-hero__slide">
+                        <img src="img/2.webp" alt="Банкетный зал Shen">
+                    </div>
+                    <div class="contacts-hero__slide">
+                        <img src="img/3.webp" alt="Банкетный зал Shen">
+                    </div>
+                    <div class="contacts-hero__slide">
+                        <img src="img/2.webp" alt="Банкетный зал Shen">
+                    </div>
+                </div>
                 <div class="contacts-hero__image-overlay"></div>
                 
                 <!-- Центральный контент -->
                 <div class="contacts-hero__main-content">
-                    <div class="contacts-hero__main-label">Премиум</div>
+                    <div class="contacts-hero__main-label">
+                        <span class="contacts-hero__main-label-icon">✨</span>
+                        <span class="contacts-hero__main-label-text">Примеальный уровень</span>
+                    </div>
                     <h2 class="contacts-hero__main-title">Банкетный зал<br><span class="contacts-hero__main-title-accent">Shen</span></h2>
                     <p class="contacts-hero__main-subtitle">Ваше идеальное место для незабываемых мероприятий</p>
                     
                  
                 </div>
                 
-                <!-- Нижний блок -->
-                <div class="contacts-hero__image-content">
-                    <div class="contacts-hero__image-label">Расположение</div>
-                    <p class="contacts-hero__image-subtitle">Симферополь, ул. Бела Куна 7</p>
-                </div>
+            
             </div>
 
             <!-- Правая часть - Контакты -->
             <div class="contacts-hero__info-side">
                 <div class="hero__content">
-                    <h1 class="contacts-hero__title">Свяжитесь с нами</h1>
+                    <h1 class="contacts-hero__title">Забронируйте зал</h1>
                     <p class="contacts-hero__subtitle">
-                        Мы готовы ответить на все ваши вопросы и помочь организовать незабываемое мероприятие
+                        Оставьте заявку, и наш менеджер свяжется с вами в ближайшее время для уточнения деталей
                     </p>
 
-                    <!-- Контактная информация -->
-                    <div class="contacts-hero__items">
-                        <!-- Телефон -->
-                        <div class="contacts-hero__item">
-                            <div class="contacts-hero__item-label">Телефон</div>
-                            <div class="contacts-hero__item-value">
-                                <a href="tel:+79788064657" class="contacts-hero__item-link">
-                                    +7 (978) 806-46-57
-                                </a>
-                            </div>
+                    <!-- Форма быстрого бронирования -->
+                    <form class="contacts-hero__form" id="quick-booking-form" onsubmit="event.preventDefault(); document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' }); return false;">
+                        <div class="contacts-hero__form-inputs">
+                            <input 
+                                type="text" 
+                                class="contacts-hero__form-input" 
+                                placeholder="Ваше имя" 
+                                required
+                                name="name"
+                            >
+                            <input 
+                                type="tel" 
+                                class="contacts-hero__form-input" 
+                                placeholder="Ваш телефон" 
+                                required
+                                name="phone"
+                            >
+                            <input 
+                                type="text" 
+                                class="contacts-hero__form-input" 
+                                placeholder="Комментарий"
+                                name="comment"
+                            >
                         </div>
-
-                        <!-- Email -->
-                        <div class="contacts-hero__item">
-                            <div class="contacts-hero__item-label">Email</div>
-                            <div class="contacts-hero__item-value">
-                                <a href="mailto:info@shen-banquet.ru" class="contacts-hero__item-link">
-                                    info@shen-banquet.ru
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Адрес -->
-                        <div class="contacts-hero__item">
-                            <div class="contacts-hero__item-label">Адрес</div>
-                            <div class="contacts-hero__item-value">
-                                г. Симферополь,<br>ул. Бела Куна 7
-                            </div>
-                        </div>
-
-                        <!-- Время работы -->
-                        <div class="contacts-hero__item">
-                            <div class="contacts-hero__item-label">Время работы</div>
-                            <div class="contacts-hero__item-value">
-                                Ежедневно с 10:00 до 22:00
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Кнопка бронирования -->
-                    <a href="#booking" class="contacts-hero__cta">
-                        <span>Забронировать зал</span>
-                        <span class="contacts-hero__cta-icon">→</span>
-                    </a>
+                        
+                        <button type="submit" class="contacts-hero__form-button">
+                            <span class="contacts-hero__form-button-text">Отправить заявку</span>
+                            <span class="contacts-hero__form-button-icon">→</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
 
         <!-- Индикатор прокрутки -->
         <div class="contacts-hero__scroll" onclick="document.querySelector('#contact-info').scrollIntoView({ behavior: 'smooth' })">
-            <span class="contacts-hero__scroll-text">Scroll</span>
-            <span class="contacts-hero__scroll-arrow">↓</span>
+            <div class="contacts-hero__scroll-arrow">
+                <span>↓</span>
+            </div>
         </div>
     </section>
 
@@ -390,12 +388,7 @@
                 <div class="about__text-block">
                     <h3 class="about__subtitle">Удобное расположение</h3>
                     <p class="about__description">
-                        Наш банкетный зал Shen расположен в городской черте Симферополя, 
-                        вдали от шумных дорог. Просторное помещение вмещает до 300 гостей.
-                    </p>
-                    <p class="about__description">
-                        Для ваших гостей предусмотрена просторная собственная парковка. 
-                        Безопасное и удобное размещение автомобилей.
+                        Наш банкетный зал Shen расположен в городской черте Симферополя, вдали от шумных дорог. Просторное помещение вмещает до 300 гостей. Для ваших гостей предусмотрена просторная собственная парковка.
                     </p>
                     
                     <div class="about__features">
@@ -415,8 +408,7 @@
 
                     <a href="https://yandex.ru/maps/?text=Симферополь, ул. Генерала Васильева, 40А" 
                        target="_blank" 
-                       class="hero__button hero__button--primary" 
-                       style="display: inline-block; margin-top: 24px;">
+                       class="hero__button hero__button--primary">
                         Открыть в Яндекс Картах
                     </a>
                 </div>

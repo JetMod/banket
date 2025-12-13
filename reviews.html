@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Отзывы гостей банкетного зала Shen. Реальные отзывы о свадьбах, корпоративах и других мероприятиях. Рейтинг 4.9/5.">
+    <title>Отзывы гостей — Банкетный зал Shen | Реальные отзывы о мероприятиях</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/blocks/reviews-hero.css">
+    <link rel="stylesheet" href="css/blocks/reviews-stats.css">
+    <link rel="stylesheet" href="css/blocks/reviews-gallery.css">
+    <link rel="stylesheet" href="css/blocks/yandex-widget.css">
+</head>
+
+<body class="page-reviews">
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container container">
+            <a href="index.html" class="header__logo">
+                <svg class="header__logo-svg" width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Декоративный элемент слева -->
+                    <path d="M2 25L8 19L2 13" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Текст SHEN -->
+                    <text x="18" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="url(#gold-gradient)" letter-spacing="2">
+                        SHEN
+                    </text>
+                    
+                    <!-- Декоративный элемент справа -->
+                    <path d="M118 25L112 31L118 37" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Подпись снизу -->
+                    <text x="60" y="44" font-family="'Inter', sans-serif" font-size="7" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="3">
+                        BANQUET HALLS
+                    </text>
+                    
+                    <!-- Градиент -->
+                    <defs>
+                        <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f4d03f;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c9a961;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+            
+            <nav class="header__nav">
+                <!-- Логотип для мобильного меню -->
+                <div class="header__nav-logo">
+                    <img src="img/logo.png" alt="Shen Banquet Halls" class="header__nav-logo-img" width="120" height="50">
+                </div>
+                
+                <ul class="header__menu">
+                    <li class="header__menu-item header__menu-item--dropdown">
+                        <a href="#" class="header__menu-link">
+                            Мероприятия
+                            <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <ul class="header__dropdown">
+                            <li class="header__dropdown-item">
+                                <a href="events.html#wedding" class="header__dropdown-link">Свадьба</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#birthday" class="header__dropdown-link">День рождения</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#corporate" class="header__dropdown-link">Корпоратив</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#graduation" class="header__dropdown-link">Выпускной</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#conference" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#kids" class="header__dropdown-link">Детский праздник</a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="events.html#newyear" class="header__dropdown-link">Новогодняя ночь</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="index.html#menu" class="header__menu-link">Меню</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="index.html#gallery" class="header__menu-link">Галерея</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="reviews.html" class="header__menu-link header__menu-link--active">Отзывы</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="contacts.html" class="header__menu-link">Контакты</a>
+                    </li>
+                </ul>
+                
+                <!-- Контакты в мобильном меню -->
+                <div class="header__nav-contacts">
+                    <a href="tel:+79788064657" class="header__nav-phone">+7 (978) 187-28-27</a>
+                    <p class="header__nav-address">ул. Генерала Васильева, 40А</p>
+                </div>
+            </nav>
+            
+            <a href="tel:+79781872827" class="header__phone">+7 (978) 187-28-27</a>
+            
+            <button class="header__burger" aria-label="Открыть меню">
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="reviews-hero">
+        <!-- Фоновое слайдшоу -->
+        <div class="reviews-hero__background">
+            <div class="reviews-hero__slideshow">
+                <div class="reviews-hero__slide reviews-hero__slide--active">
+                    <img src="img/1.webp" alt="Банкетный зал Shen">
+                </div>
+                <div class="reviews-hero__slide">
+                    <img src="img/2.webp" alt="Банкетный зал Shen">
+                </div>
+                <div class="reviews-hero__slide">
+                    <img src="img/3.webp" alt="Банкетный зал Shen">
+                </div>
+            </div>
+            <div class="reviews-hero__overlay"></div>
+        </div>
+
+        <!-- Контент Hero -->
+        <div class="reviews-hero__container container">
+            <div class="reviews-hero__content">
+                <span class="reviews-hero__label">
+                    <span class="reviews-hero__label-icon">⭐</span>
+                    <span class="reviews-hero__label-text">Мнение наших гостей</span>
+                </span>
+                <h1 class="reviews-hero__title">Отзывы о<br><span class="reviews-hero__title-accent">Банкетном зале Shen</span></h1>
+                <p class="reviews-hero__subtitle">
+                    Нам доверяют тысячи гостей! Более 2900 оценок подтверждают наш профессионализм.<br>
+                    Спасибо за ваше доверие и максимальный рейтинг 5.0!
+                </p>
+
+                <!-- Статистика в Hero -->
+                <div class="reviews-hero__stats">
+                    <div class="reviews-hero__stat">
+                        <div class="reviews-hero__stat-value">5.0</div>
+                        <div class="reviews-hero__stat-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="reviews-hero__stat-label">Средний рейтинг</div>
+                    </div>
+                    <div class="reviews-hero__stat">
+                        <div class="reviews-hero__stat-value">2926</div>
+                        <div class="reviews-hero__stat-label">Оценок</div>
+                    </div>
+                    <div class="reviews-hero__stat">
+                        <div class="reviews-hero__stat-value">99%</div>
+                        <div class="reviews-hero__stat-label">Довольных гостей</div>
+                    </div>
+                </div>
+
+                <!-- Кнопка оставить отзыв -->
+                <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="reviews-hero__button">
+                    <span class="reviews-hero__button-text">Оставить отзыв на Яндекс</span>
+                    <span class="reviews-hero__button-icon">→</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Индикатор прокрутки -->
+        <div class="reviews-hero__scroll" onclick="document.querySelector('#reviews-stats').scrollIntoView({ behavior: 'smooth' })">
+            <div class="reviews-hero__scroll-arrow">
+                <span>↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="reviews-stats" id="reviews-stats">
+        <div class="reviews-stats__container container">
+            <div class="reviews-stats__header">
+                <span class="reviews-stats__label">Наша статистика</span>
+                <h2 class="reviews-stats__title section-title">Что говорят цифры</h2>
+                <div class="reviews-stats__divider">
+                    <span class="reviews-stats__divider-line"></span>
+                    <span class="reviews-stats__divider-icon">📊</span>
+                    <span class="reviews-stats__divider-line"></span>
+                </div>
+            </div>
+
+            <div class="reviews-stats__grid">
+                <!-- Общий рейтинг -->
+                <div class="reviews-stats__card reviews-stats__card--main">
+                    <div class="reviews-stats__rating-big">5.0</div>
+                    <div class="reviews-stats__stars">⭐⭐⭐⭐⭐</div>
+                    <p class="reviews-stats__text">На основе 2926 оценок</p>
+                </div>
+
+                <!-- Распределение оценок -->
+                <div class="reviews-stats__card reviews-stats__card--distribution">
+                    <h3 class="reviews-stats__card-title">Распределение оценок</h3>
+                    <div class="reviews-stats__bars">
+                        <div class="reviews-stats__bar">
+                            <span class="reviews-stats__bar-label">5★</span>
+                            <div class="reviews-stats__bar-track">
+                                <div class="reviews-stats__bar-fill" style="width: 96%"></div>
+                            </div>
+                            <span class="reviews-stats__bar-value">96%</span>
+                        </div>
+                        <div class="reviews-stats__bar">
+                            <span class="reviews-stats__bar-label">4★</span>
+                            <div class="reviews-stats__bar-track">
+                                <div class="reviews-stats__bar-fill" style="width: 3%"></div>
+                            </div>
+                            <span class="reviews-stats__bar-value">3%</span>
+                        </div>
+                        <div class="reviews-stats__bar">
+                            <span class="reviews-stats__bar-label">3★</span>
+                            <div class="reviews-stats__bar-track">
+                                <div class="reviews-stats__bar-fill" style="width: 1%"></div>
+                            </div>
+                            <span class="reviews-stats__bar-value">1%</span>
+                        </div>
+                        <div class="reviews-stats__bar">
+                            <span class="reviews-stats__bar-label">2★</span>
+                            <div class="reviews-stats__bar-track">
+                                <div class="reviews-stats__bar-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="reviews-stats__bar-value">0%</span>
+                        </div>
+                        <div class="reviews-stats__bar">
+                            <span class="reviews-stats__bar-label">1★</span>
+                            <div class="reviews-stats__bar-track">
+                                <div class="reviews-stats__bar-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="reviews-stats__bar-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Yandex Reviews Widget -->
+    <section class="yandex-widget">
+        <div class="yandex-widget__container container">
+            <div class="yandex-widget__header">
+                <span class="yandex-widget__label">Яндекс Карты</span>
+                <h2 class="yandex-widget__title section-title">Отзывы на Яндексе</h2>
+                <div class="yandex-widget__divider">
+                    <span class="yandex-widget__divider-line"></span>
+                    <span class="yandex-widget__divider-icon">🗺</span>
+                    <span class="yandex-widget__divider-line"></span>
+                </div>
+                <p class="yandex-widget__subtitle">
+                    Мы также собираем отзывы на Яндекс Картах. Будем благодарны за ваше мнение!
+                </p>
+            </div>
+
+            <!-- Виджет Яндекс карт -->
+            <div class="yandex-widget__embed">
+                <div style="width:100%;height:800px;overflow:hidden;position:relative;">
+                    <iframe 
+                        style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:20px;box-sizing:border-box" 
+                        src="https://yandex.ru/maps-reviews-widget/1013938334?comments">
+                    </iframe>
+                    <a href="https://yandex.ru/maps/org/shen/1013938334/" 
+                       target="_blank" 
+                       style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">
+                        Shen на карте Симферополя — Яндекс Карты
+                    </a>
+                </div>
+            </div>
+
+            <!-- Кнопка к отзывам на Яндекс -->
+            <div class="yandex-widget__cta">
+                <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="yandex-widget__button">
+                    <span class="yandex-widget__button-text">Все отзывы на Яндекс Картах</span>
+                    <svg class="yandex-widget__button-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Photo Gallery from Reviews -->
+    <section class="reviews-gallery">
+        <div class="reviews-gallery__container container">
+            <div class="reviews-gallery__header">
+                <span class="reviews-gallery__label">Фотографии от гостей</span>
+                <h2 class="reviews-gallery__title section-title">Ваши мгновения счастья</h2>
+                <div class="reviews-gallery__divider">
+                    <span class="reviews-gallery__divider-line"></span>
+                    <span class="reviews-gallery__divider-icon">📸</span>
+                    <span class="reviews-gallery__divider-line"></span>
+                </div>
+            </div>
+
+            <div class="reviews-gallery__grid">
+                <div class="reviews-gallery__item">
+                    <img src="img/1.webp" alt="Свадьба в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div> 
+                <div class="reviews-gallery__item">
+                    <img src="img/2.webp" alt="Корпоратив в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div>
+                <div class="reviews-gallery__item">
+                    <img src="img/3.webp" alt="Банкет в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div>
+                <div class="reviews-gallery__item">
+                    <img src="img/4.webp" alt="Празднование в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div>
+                <div class="reviews-gallery__item">
+                    <img src="img/5.webp" alt="Мероприятие в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div>
+                <div class="reviews-gallery__item">
+                    <img src="img/6.webp" alt="Торжество в зале Shen" class="reviews-gallery__image">
+                    <div class="reviews-gallery__overlay">
+                        <span class="reviews-gallery__icon">🔍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about about--cta">
+        <div class="about__container container">
+            <div class="about__header">
+                <span class="about__label">Поделитесь впечатлениями</span>
+                <h2 class="about__title section-title">Оставьте свой отзыв</h2>
+                <div class="about__divider">
+                    <span class="about__divider-line"></span>
+                    <span class="about__divider-icon">✨</span>
+                    <span class="about__divider-line"></span>
+                </div>
+                <p class="about__description">
+                    Ваше мнение очень важно для нас! Если вы уже посетили наш банкетный зал,<br>
+                    будем благодарны за отзыв на Яндекс Картах.
+                </p>
+            </div>
+
+            <div class="about__cta-buttons">
+                <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="hero__button hero__button--primary">
+                    Оставить отзыв на Яндекс
+                </a>
+                <a href="contacts.html" class="hero__button hero__button--secondary">
+                    Забронировать мероприятие
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 25L8 19L2 13" stroke="url(#gold-gradient-footer)" stroke-width="2"/>
+                            <text x="18" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="url(#gold-gradient-footer)" letter-spacing="2">SHEN</text>
+                            <path d="M118 25L112 31L118 37" stroke="url(#gold-gradient-footer)" stroke-width="2"/>
+                            <text x="60" y="44" font-family="'Inter', sans-serif" font-size="7" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="3">BANQUET HALL</text>
+                            <defs>
+                                <linearGradient id="gold-gradient-footer" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#F4D03F;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p class="footer__slogan">✨ Нет предела совершенству ✨</p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4 class="footer__column-title">Навигация</h4>
+                        <ul class="footer__list">
+                            <li><a href="index.html" class="footer__link">Главная</a></li>
+                            <li><a href="index.html#about" class="footer__link">О зале</a></li>
+                            <li><a href="index.html#menu" class="footer__link">Меню</a></li>
+                            <li><a href="index.html#gallery" class="footer__link">Галерея</a></li>
+                            <li><a href="reviews.html" class="footer__link">Отзывы</a></li>
+                            <li><a href="contacts.html" class="footer__link">Контакты</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__column">
+                        <h4 class="footer__column-title">Контакты</h4>
+                        <ul class="footer__list">
+                            <li><a href="tel:+79788064657" class="footer__link">+7 (978) 806-46-57</a></li>
+                            <li><a href="mailto:info@shen-banquet.ru" class="footer__link">info@shen-banquet.ru</a></li>
+                            <li class="footer__address">г. Симферополь<br>ул. Генерала Васильева, 40А</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__column">
+                        <h4 class="footer__column-title">Режим работы</h4>
+                        <p class="footer__hours">Консультации:<br>Ежедневно 10:00 — 22:00</p>
+                        <p class="footer__note">Мероприятия — по договоренности</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 Shen. Все права защищены.</p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+

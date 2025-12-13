@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Организация мероприятий в банкетных залах Shen: свадьбы, корпоративы, юбилеи, дни рождения. Профессиональная команда, премиальное обслуживание, вместимость до 350 гостей.">
+    <title>Мероприятия в Shen | Свадьбы, Корпоративы, Дни Рождения, Юбилеи</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/logo-simple.svg">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <main class="main">
+        
+        <!-- Hero Section -->
+        <section class="events-hero">
+            <!-- Header -->
+            <header class="header" id="header">
+                <div class="header__container container">
+                    <a href="index.html" class="header__logo">
+                        <svg class="header__logo-svg" width="120" height="50" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 25L8 19L2 13" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="18" y="32" font-family="'Playfair Display', serif" font-size="24" font-weight="600" fill="url(#gold-gradient)" letter-spacing="2">SHEN</text>
+                            <path d="M118 25L112 31L118 37" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="60" y="44" font-family="'Inter', sans-serif" font-size="7" fill="rgba(255,255,255,0.8)" text-anchor="middle" letter-spacing="3">BANQUET HALLS</text>
+                            <defs>
+                                <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#f4d03f;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#c9a961;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </a>
+                    
+                    <nav class="header__nav">
+                        <div class="header__nav-logo">
+                            <img src="img/logo.png" alt="Shen Banquet Halls" class="header__nav-logo-img" width="120" height="50">
+                        </div>
+                        
+                        <ul class="header__menu">
+                            <li class="header__menu-item header__menu-item--dropdown">
+                                <a href="#" class="header__menu-link header__menu-link--active">
+                                    Мероприятия
+                                    <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                                <ul class="header__dropdown">
+                                    <li class="header__dropdown-item"><a href="#wedding" class="header__dropdown-link">Свадьба</a></li>
+                                    <li class="header__dropdown-item"><a href="#corporate" class="header__dropdown-link">Корпоратив</a></li>
+                                    <li class="header__dropdown-item"><a href="#birthday" class="header__dropdown-link">День рождения</a></li>
+                                    <li class="header__dropdown-item"><a href="#anniversary" class="header__dropdown-link">Юбилей</a></li>
+                                    <li class="header__dropdown-item"><a href="#graduation" class="header__dropdown-link">Выпускной</a></li>
+                                    <li class="header__dropdown-item"><a href="#conference" class="header__dropdown-link">Конференция</a></li>
+                                    <li class="header__dropdown-item"><a href="#kids" class="header__dropdown-link">Детский праздник</a></li>
+                                    <li class="header__dropdown-item"><a href="#newyear" class="header__dropdown-link">Новогодняя ночь</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__menu-item"><a href="index.html#menu" class="header__menu-link">Меню</a></li>
+                            <li class="header__menu-item"><a href="index.html#gallery" class="header__menu-link">Галерея</a></li>
+                            <li class="header__menu-item"><a href="reviews.html" class="header__menu-link">Отзывы</a></li>
+                            <li class="header__menu-item"><a href="contacts.html" class="header__menu-link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <a href="tel:+79788064657" class="header__phone">
+                        <svg class="header__phone-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18.3 14.5C17.5 14.5 16.7 14.4 16 14.2C15.7 14.1 15.4 14.2 15.2 14.4L13.4 16.9C10.6 15.5 4.6 9.5 3.1 6.7L5.6 4.8C5.8 4.6 5.9 4.3 5.8 4C5.6 3.3 5.5 2.5 5.5 1.7C5.5 1.2 5.1 0.8 4.6 0.8H1.9C1.4 0.8 1 1.2 1 1.7C1 11.3 8.8 19.1 18.4 19.1C18.9 19.1 19.3 18.7 19.3 18.2V15.5C19.2 15 18.8 14.5 18.3 14.5Z" fill="currentColor"/>
+                        </svg>
+                        <span class="header__phone-number">+7 (978) 806-46-57</span>
+                    </a>
+                    
+                    <button class="header__burger" aria-label="Открыть меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Hero Background -->
+            <div class="events-hero__background">
+                <div class="events-hero__slideshow">
+                    <div class="events-hero__slide events-hero__slide--active">
+                        <img src="img/1.webp" alt="Мероприятие в Shen">
+                    </div>
+                    <div class="events-hero__slide">
+                        <img src="img/2.webp" alt="Банкетный зал Shen">
+                    </div>
+                    <div class="events-hero__slide">
+                        <img src="img/3.webp" alt="Свадьба в Shen">
+                    </div>
+                    <div class="events-hero__slide">
+                        <img src="img/4.webp" alt="Корпоратив в Shen">
+                    </div>
+                    <div class="events-hero__slide">
+                        <img src="img/5.webp" alt="Праздник в Shen">
+                    </div>
+                </div>
+                <div class="events-hero__overlay"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="events-hero__container container">
+                <div class="events-hero__content">
+                    <span class="events-hero__label">
+                        <span class="events-hero__label-icon">✨</span>
+                        Незабываемые мероприятия
+                    </span>
+                    
+                    <h1 class="events-hero__title">
+                        Создаем <span class="events-hero__title-accent">волшебство</span> <br>ваших праздников
+                    </h1>
+                    
+                    <p class="events-hero__subtitle">
+                        От камерных celebrations до масштабных торжеств. <br>
+                        Профессиональная организация мероприятий любого формата <br>
+                        в премиальных банкетных залах Shen.
+                    </p>
+                    
+                    <!-- Навигационные карточки -->
+                    <div class="events-hero__nav-cards">
+                        <a href="#wedding" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">💍</span>
+                            <span class="events-hero__nav-title">Свадьбы</span>
+                            <span class="events-hero__nav-count">150+</span>
+                        </a>
+                        <a href="#corporate" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎉</span>
+                            <span class="events-hero__nav-title">Корпоративы</span>
+                            <span class="events-hero__nav-count">200+</span>
+                        </a>
+                        <a href="#birthday" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎂</span>
+                            <span class="events-hero__nav-title">Дни рождения</span>
+                            <span class="events-hero__nav-count">300+</span>
+                        </a>
+                        <a href="#anniversary" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎊</span>
+                            <span class="events-hero__nav-title">Юбилеи</span>
+                            <span class="events-hero__nav-count">180+</span>
+                        </a>
+                        <a href="#graduation" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎓</span>
+                            <span class="events-hero__nav-title">Выпускные</span>
+                            <span class="events-hero__nav-count">50+</span>
+                        </a>
+                        <a href="#conference" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">💼</span>
+                            <span class="events-hero__nav-title">Конференции</span>
+                            <span class="events-hero__nav-count">80+</span>
+                        </a>
+                        <a href="#kids" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎈</span>
+                            <span class="events-hero__nav-title">Детские</span>
+                            <span class="events-hero__nav-count">120+</span>
+                        </a>
+                        <a href="#newyear" class="events-hero__nav-card">
+                            <span class="events-hero__nav-icon">🎄</span>
+                            <span class="events-hero__nav-title">Новогодние</span>
+                            <span class="events-hero__nav-count">60+</span>
+                        </a>
+                    </div>
+                    
+                    <div class="events-hero__cta">
+                        <a href="contacts.html" class="button button--primary">
+                            <span class="button__text">Забронировать дату</span>
+                            <span class="button__icon">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="events-hero__scroll">
+                    <span class="events-hero__scroll-text">Прокрутите вниз</span>
+                    <svg class="events-hero__scroll-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Events Navigation Bar (Sticky) -->
+        <nav class="events-nav" id="events-nav">
+            <div class="container">
+                <ul class="events-nav__list">
+                    <li class="events-nav__item">
+                        <a href="#wedding" class="events-nav__link" data-section="wedding">
+                            <span class="events-nav__icon">💍</span>
+                            <span class="events-nav__label">Свадьбы</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#corporate" class="events-nav__link" data-section="corporate">
+                            <span class="events-nav__icon">🎉</span>
+                            <span class="events-nav__label">Корпоративы</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#birthday" class="events-nav__link" data-section="birthday">
+                            <span class="events-nav__icon">🎂</span>
+                            <span class="events-nav__label">Дни рождения</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#anniversary" class="events-nav__link" data-section="anniversary">
+                            <span class="events-nav__icon">🎊</span>
+                            <span class="events-nav__label">Юбилеи</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#graduation" class="events-nav__link" data-section="graduation">
+                            <span class="events-nav__icon">🎓</span>
+                            <span class="events-nav__label">Выпускные</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#conference" class="events-nav__link" data-section="conference">
+                            <span class="events-nav__icon">💼</span>
+                            <span class="events-nav__label">Конференции</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#kids" class="events-nav__link" data-section="kids">
+                            <span class="events-nav__icon">🎈</span>
+                            <span class="events-nav__label">Детские</span>
+                        </a>
+                    </li>
+                    <li class="events-nav__item">
+                        <a href="#newyear" class="events-nav__link" data-section="newyear">
+                            <span class="events-nav__icon">🎄</span>
+                            <span class="events-nav__label">Новогодние</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Section: Свадьбы (Light) -->
+        <section class="event-section event-section--light" id="wedding">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">💍 Свадьбы</span>
+                    <h2 class="event-section__title">Ваша свадьба — начало волшебной истории</h2>
+                    <p class="event-section__description">
+                        Ваша свадьба в Shen — это начало новой главы в атмосфере роскоши и элегантности. 
+                        Мы создаем незабываемые торжества, где каждая деталь продумана до мелочей.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">150+</span><span class="event-stat__label">свадеб</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.9</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Корпоративы (Dark) -->
+        <section class="event-section event-section--dark" id="corporate">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎉 Корпоративы</span>
+                    <h2 class="event-section__title">Корпоративные праздники с размахом</h2>
+                    <p class="event-section__description">
+                        Корпоративные мероприятия в Shen — это идеальное сочетание делового подхода и праздничной атмосферы.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">200+</span><span class="event-stat__label">корпоративов</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.8</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Дни рождения (Light) -->
+        <section class="event-section event-section--light" id="birthday">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎂 Дни рождения</span>
+                    <h2 class="event-section__title">Праздник, который запомнится надолго!</h2>
+                    <p class="event-section__description">
+                        День рождения в Shen — это праздник, который запомнится надолго! Создаем атмосферу радости и веселья.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">300+</span><span class="event-stat__label">дней рождения</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.9</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Юбилеи (Dark) -->
+        <section class="event-section event-section--dark" id="anniversary">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎊 Юбилеи</span>
+                    <h2 class="event-section__title">Торжественный размах особенной даты</h2>
+                    <p class="event-section__description">
+                        Юбилей — особенная дата, требующая торжественного размаха. В Shen мы организуем юбилеи с особым шиком.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">180+</span><span class="event-stat__label">юбилеев</span></div>
+                        <div class="event-stat"><span class="event-stat__number">5.0</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Выпускные (Light) -->
+        <section class="event-section event-section--light" id="graduation">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎓 Выпускные</span>
+                    <h2 class="event-section__title">Незабываемый вечер прощания с юностью</h2>
+                    <p class="event-section__description">
+                        Выпускной вечер — это прощание с беззаботной юностью и шаг во взрослую жизнь.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">50+</span><span class="event-stat__label">выпускных</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.9</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Конференции (Dark) -->
+        <section class="event-section event-section--dark" id="conference">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">💼 Конференции</span>
+                    <h2 class="event-section__title">Деловые мероприятия формата премиум</h2>
+                    <p class="event-section__description">
+                        Деловые мероприятия в формате премиум. Организуем конференции, презентации, семинары любого уровня.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">80+</span><span class="event-stat__label">мероприятий</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.8</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Детские праздники (Light) -->
+        <section class="event-section event-section--light" id="kids">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎈 Детские праздники</span>
+                    <h2 class="event-section__title">Волшебство для маленьких гостей</h2>
+                    <p class="event-section__description">
+                        Детский праздник в Shen — это волшебство! Создаем сказочные celebrations для маленьких гостей.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">120+</span><span class="event-stat__label">праздников</span></div>
+                        <div class="event-stat"><span class="event-stat__number">5.0</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Новогодние (Dark) -->
+        <section class="event-section event-section--dark" id="newyear">
+            <div class="container">
+                <div class="event-section__content">
+                    <span class="event-section__label">🎄 Новогодние мероприятия</span>
+                    <h2 class="event-section__title">Встречайте Новый год в атмосфере сказки</h2>
+                    <p class="event-section__description">
+                        Встречайте Новый год в атмосфере сказки и волшебства! Новогодние корпоративы и celebrations в Shen.
+                    </p>
+                    <div class="event-section__stats">
+                        <div class="event-stat"><span class="event-stat__number">60+</span><span class="event-stat__label">мероприятий</span></div>
+                        <div class="event-stat"><span class="event-stat__number">4.9</span><span class="event-stat__label">рейтинг</span></div>
+                    </div>
+                    <a href="contacts.html" class="button button--primary"><span class="button__text">Забронировать</span></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section class="events-gallery" id="gallery">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">📸 Галерея</span>
+                    <h2 class="section__title">Наши работы</h2>
+                    <p class="section__subtitle">Более 1000 проведенных мероприятий</p>
+                </div>
+                
+                <!-- Gallery Filters -->
+                <div class="events-gallery__filters">
+                    <button class="filter-btn filter-btn--active" data-filter="all">Все <span class="filter-count">40</span></button>
+                    <button class="filter-btn" data-filter="wedding">💍 Свадьбы <span class="filter-count">12</span></button>
+                    <button class="filter-btn" data-filter="corporate">🎉 Корпоративы <span class="filter-count">8</span></button>
+                    <button class="filter-btn" data-filter="birthday">🎂 Дни рождения <span class="filter-count">6</span></button>
+                    <button class="filter-btn" data-filter="anniversary">🎊 Юбилеи <span class="filter-count">5</span></button>
+                    <button class="filter-btn" data-filter="graduation">🎓 Выпускные <span class="filter-count">3</span></button>
+                    <button class="filter-btn" data-filter="conference">💼 Конференции <span class="filter-count">2</span></button>
+                    <button class="filter-btn" data-filter="kids">🎈 Детские <span class="filter-count">3</span></button>
+                    <button class="filter-btn" data-filter="newyear">🎄 Новогодние <span class="filter-count">1</span></button>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="events-gallery__grid">
+                    <article class="gallery-item" data-category="wedding" data-featured="true">
+                        <img src="img/1.webp" alt="Свадьба в Shen" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">💍 Свадьба</span>
+                                <h3 class="gallery-item__title">Анна и Дмитрий</h3>
+                                <p class="gallery-item__details">200 гостей • Июль 2024</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="gallery-item" data-category="corporate">
+                        <img src="img/2.webp" alt="Корпоратив" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">🎉 Корпоратив</span>
+                                <h3 class="gallery-item__title">Новогодний корпоратив</h3>
+                                <p class="gallery-item__details">150 гостей • Декабрь 2023</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="gallery-item" data-category="birthday">
+                        <img src="img/3.webp" alt="День рождения" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">🎂 День рождения</span>
+                                <h3 class="gallery-item__title">Юбилей 50 лет</h3>
+                                <p class="gallery-item__details">100 гостей • Сентябрь 2024</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="gallery-item" data-category="wedding">
+                        <img src="img/4.webp" alt="Свадьба" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">💍 Свадьба</span>
+                                <h3 class="gallery-item__title">Мария и Сергей</h3>
+                                <p class="gallery-item__details">180 гостей • Август 2024</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="gallery-item" data-category="corporate">
+                        <img src="img/5.webp" alt="Корпоратив" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">🎉 Корпоратив</span>
+                                <h3 class="gallery-item__title">IT компания</h3>
+                                <p class="gallery-item__details">120 гостей • Май 2024</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="gallery-item" data-category="kids" data-featured="true">
+                        <img src="img/6.webp" alt="Детский праздник" loading="lazy">
+                        <div class="gallery-item__overlay">
+                            <div class="gallery-item__info">
+                                <span class="gallery-item__type">🎈 Детский праздник</span>
+                                <h3 class="gallery-item__title">День рождения Маши</h3>
+                                <p class="gallery-item__details">50 детей • Июнь 2024</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact CTA Section -->
+        <section class="contact-cta" id="contact-cta">
+            <div class="container">
+                <div class="contact-cta__content">
+                    <h2 class="contact-cta__title">Готовы создать незабываемое мероприятие?</h2>
+                    <p class="contact-cta__subtitle">Свяжитесь с нами для консультации и бронирования</p>
+                    
+                    <div class="contact-cta__methods">
+                        <a href="tel:+79788064657" class="contact-method">
+                            <span class="contact-method__icon">📞</span>
+                            <span class="contact-method__text">+7 (978) 806-46-57</span>
+                        </a>
+                        <a href="https://wa.me/79788064657" class="contact-method">
+                            <span class="contact-method__icon">💬</span>
+                            <span class="contact-method__text">WhatsApp</span>
+                        </a>
+                        <a href="contacts.html" class="button button--primary button--large">
+                            <span class="button__text">Забронировать</span>
+                            <span class="button__icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__logo-section">
+                    <img src="img/logo.png" alt="Shen Banquet Halls" class="footer__logo" width="150" height="60">
+                    <p class="footer__slogan">✨ Нет предела совершенству ✨</p>
+                </div>
+                
+                <div class="footer__contacts">
+                    <h4 class="footer__title">Контакты</h4>
+                    <a href="tel:+79788064657" class="footer__link">+7 (978) 806-46-57</a>
+                    <a href="mailto:info@shen-banquet.ru" class="footer__link">info@shen-banquet.ru</a>
+                    <p class="footer__address">г. Симферополь, ул. Генерала Васильева, 40А</p>
+                </div>
+                
+                <div class="footer__hours">
+                    <h4 class="footer__title">Режим работы</h4>
+                    <p class="footer__text">Консультации:</p>
+                    <p class="footer__text">Ежедневно 10:00 — 22:00</p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 Shen Banquet Halls. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+/* =================================
+   Reviews Statistics Section
+   ================================= */
+
+.reviews-stats {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-light);
+}
+
+.reviews-stats__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.reviews-stats__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.reviews-stats__label {
+    display: inline-block;
+    color: var(--color-primary);
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.reviews-stats__title {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.reviews-stats__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.reviews-stats__divider-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+}
+
+.reviews-stats__divider-icon {
+    font-size: 1.5rem;
+}
+
+/* Grid */
+.reviews-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Карточка */
+.reviews-stats__card {
+    background: white;
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-normal);
+}
+
+.reviews-stats__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.15);
+}
+
+/* Главная карточка с рейтингом */
+.reviews-stats__card--main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #f4d03f 100%);
+    color: white;
+}
+
+.reviews-stats__rating-big {
+    font-family: var(--font-primary);
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.reviews-stats__stars {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.reviews-stats__text {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+/* Карточка распределения */
+.reviews-stats__card--distribution {
+    grid-column: span 2;
+}
+
+.reviews-stats__card-title {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.reviews-stats__bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.reviews-stats__bar {
+    display: grid;
+    grid-template-columns: 40px 1fr 60px;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.reviews-stats__bar-label {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.reviews-stats__bar-track {
+    height: 12px;
+    background: var(--color-bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews-stats__bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary) 0%, #f4d03f 100%);
+    border-radius: 10px;
+    transition: width 1s ease-out;
+}
+
+.reviews-stats__bar-value {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: right;
+}
+
+/* Карточка категорий */
+.reviews-stats__categories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.reviews-stats__category {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--color-bg-light);
+    border-radius: 12px;
+    transition: all var(--transition-fast);
+}
+
+.reviews-stats__category:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateX(5px);
+}
+
+.reviews-stats__category-icon {
+    font-size: 1.75rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reviews-stats__category-name {
+    flex: 1;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.reviews-stats__category-count {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* =================================
+   Адаптивность
+   ================================= */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .reviews-stats__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-stats__card--distribution {
+        grid-column: span 1;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 576px) {
+    .reviews-stats {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .reviews-stats__card {
+        padding: var(--spacing-md);
+    }
+
+    .reviews-stats__rating-big {
+        font-size: 4rem;
+    }
+
+    .reviews-stats__stars {
+        font-size: 1.5rem;
+    }
+
+    .reviews-stats__card-title {
+        font-size: 1.25rem;
+    }
+
+    .reviews-stats__bar {
+        grid-template-columns: 35px 1fr 50px;
+    }
+
+    .reviews-stats__category-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+}
+

@@ -1,0 +1,115 @@
+/* =================================
+   Events Navigation Bar (Sticky)
+   ================================= */
+
+.events-nav {
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.events-nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.events-nav__list::-webkit-scrollbar {
+    display: none;
+}
+
+.events-nav__item {
+    flex-shrink: 0;
+}
+
+.events-nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-sm) var(--spacing-sm);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.events-nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.3s ease;
+}
+
+.events-nav__link:hover,
+.events-nav__link--active {
+    color: var(--color-primary);
+}
+
+.events-nav__link:hover::after,
+.events-nav__link--active::after {
+    width: 80%;
+}
+
+.events-nav__icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.events-nav__link:hover .events-nav__icon {
+    transform: scale(1.1);
+}
+
+.events-nav__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .events-nav {
+        top: 70px;
+    }
+    
+    .events-nav__list {
+        justify-content: flex-start;
+        gap: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 768px) {
+    .events-nav {
+        top: 60px;
+    }
+    
+    .events-nav__link {
+        padding: 12px var(--spacing-xs);
+    }
+    
+    .events-nav__icon {
+        font-size: 1.25rem;
+    }
+    
+    .events-nav__label {
+        font-size: 0.7rem;
+    }
+}
+

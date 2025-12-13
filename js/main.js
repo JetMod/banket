@@ -820,6 +820,31 @@ function initReelsSlider() {
   startAutoplay();
 }
 
+// Анимация появления карточек контактов при скролле
+function initContactCardsAnimation() {
+  const cards = document.querySelectorAll('.advantages__card');
+  
+  if (cards.length === 0) return;
+
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
+}
+
 // Добавить в инициализацию ShenApp
 const originalInit = ShenApp.init;
 ShenApp.init = function() {
@@ -828,5 +853,217 @@ ShenApp.init = function() {
   initHeroSlider();
   initAboutSlider();
   initReelsSlider();
+  initContactCardsAnimation();
+  initContactHeroSlideshow();
 };
+
+// Фоновое слайдшоу на странице контактов
+function initContactHeroSlideshow() {
+  const slides = document.querySelectorAll('.contacts-hero__slide');
+  
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+    // Убираем active class с текущего слайда
+    slides[currentSlide].classList.remove('contacts-hero__slide--active');
+    
+    // Переходим к следующему слайду
+    currentSlide = (currentSlide + 1) % totalSlides;
+    
+    // Добавляем active class к новому слайду
+    slides[currentSlide].classList.add('contacts-hero__slide--active');
+  }
+
+  // Запускаем смену слайдов каждые 4 секунды
+  setInterval(showNextSlide, 4000);
+}
+
+// =================================
+// Reviews Hero Slideshow
+// =================================
+function initReviewsHeroSlideshow() {
+  const slides = document.querySelectorAll('.reviews-hero__slide');
+  
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove('reviews-hero__slide--active');
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].classList.add('reviews-hero__slide--active');
+  }
+
+  setInterval(showNextSlide, 5000);
+}
+
+// ================================
+// Events Page Functionality
+// ================================
+
+// Events Hero Slideshow
+function initEventsHeroSlideshow() {
+  const slideshowContainer = document.querySelector('.events-hero__slideshow');
+  if (!slideshowContainer) return;
+
+  const slides = slideshowContainer.querySelectorAll('.events-hero__slide');
+  let currentSlide = 0;
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove('events-hero__slide--active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('events-hero__slide--active');
+  }
+
+  setInterval(showNextSlide, 6000);
+}
+
+// Events Navigation - Sticky & Active States
+function initEventsNavigation() {
+  const eventsNav = document.getElementById('events-nav');
+  if (!eventsNav) return;
+
+  const navLinks = eventsNav.querySelectorAll('.events-nav__link');
+  const sections = document.querySelectorAll('.event-section');
+
+  // Smooth scroll
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        const offset = 150;
+        const targetPosition = targetSection.offsetTop - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Update active state on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.remove('events-nav__link--active');
+          if (link.getAttribute('data-section') === sectionId) {
+            link.classList.add('events-nav__link--active');
+          }
+        });
+      }
+    });
+  }, {
+    threshold: 0.3,
+    rootMargin: '-150px 0px -50% 0px'
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+// Gallery Filtering
+function initGalleryFiltering() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  if (filterBtns.length === 0 || galleryItems.length === 0) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('filter-btn--active'));
+      btn.classList.add('filter-btn--active');
+
+      // Filter items
+      galleryItems.forEach((item, index) => {
+        const category = item.dataset.category;
+
+        if (filter === 'all' || category === filter) {
+          item.classList.remove('gallery-item--filtering-out');
+          setTimeout(() => {
+            item.style.display = 'block';
+          }, 50);
+          setTimeout(() => {
+            item.style.animation = `fadeIn 0.4s ease ${index * 0.05}s both`;
+          }, 100);
+        } else {
+          item.classList.add('gallery-item--filtering-out');
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+// Scroll Animations
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  const elementsToAnimate = document.querySelectorAll('.event-section__content, .gallery-item');
+  elementsToAnimate.forEach(el => observer.observe(el));
+}
+
+// Smooth Scroll for all anchor links
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href === '#!') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 150;
+        const targetPosition = target.offsetTop - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+// Инициализация при загрузке DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initContactCardsAnimation();
+    initContactHeroSlideshow();
+    initReviewsHeroSlideshow();
+    initEventsHeroSlideshow();
+    initEventsNavigation();
+    initGalleryFiltering();
+    initScrollAnimations();
+    initSmoothScroll();
+  });
+} else {
+  initContactCardsAnimation();
+  initContactHeroSlideshow();
+  initReviewsHeroSlideshow();
+  initEventsHeroSlideshow();
+  initEventsNavigation();
+  initGalleryFiltering();
+  initScrollAnimations();
+  initSmoothScroll();
+}
 

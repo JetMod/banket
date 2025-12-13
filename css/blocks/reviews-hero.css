@@ -1,0 +1,417 @@
+/* =================================
+   Reviews Hero Section
+   ================================= */
+
+.reviews-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+/* Фоновое слайдшоу */
+.reviews-hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.reviews-hero__slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.reviews-hero__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.reviews-hero__slide--active {
+    opacity: 1;
+}
+
+.reviews-hero__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviews-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.92) 0%,
+        rgba(44, 62, 80, 0.88) 50%,
+        rgba(26, 26, 46, 0.92) 100%
+    );
+    z-index: 1;
+}
+
+/* Контент */
+.reviews-hero__container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.reviews-hero__content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Метка */
+.reviews-hero__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: var(--color-primary);
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-md);
+}
+
+.reviews-hero__label-icon {
+    font-size: 1.25rem;
+}
+
+/* Заголовок */
+.reviews-hero__title {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reviews-hero__title-accent {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* Подзаголовок */
+.reviews-hero__subtitle {
+    font-family: var(--font-secondary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Статистика в Hero */
+.reviews-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reviews-hero__stat {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.reviews-hero__stat:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.reviews-hero__stat-value {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.reviews-hero__stat-stars {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.reviews-hero__stat-label {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Кнопка */
+.reviews-hero__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #f4d03f 100%);
+    color: var(--color-bg-dark);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.reviews-hero__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+.reviews-hero__button-icon {
+    font-size: 1.5rem;
+    transition: transform var(--transition-normal);
+}
+
+.reviews-hero__button:hover .reviews-hero__button-icon {
+    transform: translateX(5px);
+}
+
+/* Индикатор прокрутки */
+.reviews-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reviews-hero__scroll:hover {
+    transform: translateX(-50%) translateY(-8px) scale(1.1);
+}
+
+.reviews-hero__scroll:hover .reviews-hero__scroll-arrow {
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.6),
+        0 0 60px rgba(212, 175, 55, 0.4),
+        inset 0 0 20px rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.8);
+}
+
+.reviews-hero__scroll-arrow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.3),
+        inset 0 0 10px rgba(212, 175, 55, 0.1);
+    animation: bounce 2s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+.reviews-hero__scroll-arrow span {
+    font-size: 24px;
+    color: var(--color-gold);
+    line-height: 1;
+    font-weight: 700;
+    animation: arrowMove 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.5));
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes arrowMove {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(6px);
+        opacity: 0.7;
+    }
+}
+
+/* =================================
+   Адаптивность
+   ================================= */
+
+/* Планшеты */
+@media (max-width: 768px) {
+    .reviews-hero {
+        min-height: 90vh;
+        padding-top: 70px;
+    }
+
+    .reviews-hero__container {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .reviews-hero__label {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+    }
+
+    .reviews-hero__title {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .reviews-hero__subtitle {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .reviews-hero__stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .reviews-hero__stat-value {
+        font-size: 2.5rem;
+    }
+
+    .reviews-hero__button {
+        padding: 16px 32px;
+        font-size: 0.875rem;
+    }
+
+    .reviews-hero__scroll {
+        bottom: 30px;
+    }
+
+    .reviews-hero__scroll-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .reviews-hero__scroll-arrow span {
+        font-size: 22px;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 576px) {
+    .reviews-hero {
+        min-height: 85vh;
+    }
+
+    .reviews-hero__label {
+        padding: 8px 16px;
+        font-size: 0.7rem;
+    }
+
+    .reviews-hero__stat {
+        padding: var(--spacing-sm);
+    }
+
+    .reviews-hero__stat-value {
+        font-size: 2rem;
+    }
+
+    .reviews-hero__stat-stars {
+        font-size: 1rem;
+    }
+
+    .reviews-hero__button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    .reviews-hero__scroll {
+        bottom: 20px;
+    }
+
+    .reviews-hero__scroll-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .reviews-hero__scroll-arrow span {
+        font-size: 20px;
+    }
+
+    /* Упрощаем анимации для мобильных */
+    @media (prefers-reduced-motion: reduce) {
+        .reviews-hero__scroll-arrow {
+            animation: none;
+        }
+        
+        .reviews-hero__scroll-arrow span {
+            animation: none;
+        }
+    }
+}
+
