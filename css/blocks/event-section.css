@@ -10,16 +10,14 @@
 
 /* Light sections - Нежный шампань */
 .event-section--light {
-    background: #f5f2ed;
-    background: linear-gradient(135deg, #f5f2ed 0%, #f0ede8 100%);
+    background: #ffffff;
     color: var(--color-text);
 }
 
 /* Dark sections - Благородный антрацит */
 .event-section--dark {
-    background: #1c1c28;
-    background: linear-gradient(135deg, #1c1c28 0%, #242433 100%);
-    color: white;
+    background: #faf8f0;
+    color: var(--color-text);
 }
 
 /* Light sections - Светлый фон, тёмный текст */
@@ -41,24 +39,23 @@
     color: #6a6a6a;
 }
 
-/* Dark sections - Тёмный фон, светлый текст */
+/* Dark sections - Светлый фон, тёмный текст */
 .event-section--dark .event-section__title {
-    color: white;
-    text-shadow: 0 2px 20px rgba(212, 175, 55, 0.15);
+    color: #2a2a2a;
 }
 
 .event-section--dark .event-section__description {
-    color: rgba(255, 255, 255, 0.88);
+    color: #5a5a5a;
 }
 
 .event-section--dark .event-section__label {
-    background: rgba(212, 175, 55, 0.16);
-    border-color: rgba(212, 175, 55, 0.42);
-    box-shadow: 0 2px 15px rgba(212, 175, 55, 0.12);
+    background: rgba(212, 175, 55, 0.12);
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.08);
 }
 
 .event-section--dark .event-stat__label {
-    color: rgba(255, 255, 255, 0.75);
+    color: #6a6a6a;
 }
 
 /* Content */
@@ -167,7 +164,7 @@
 }
 
 .event-section--dark .event-feature {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .event-feature:hover {

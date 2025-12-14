@@ -299,7 +299,8 @@ const ShenApp = {
   // Галерея с Lightbox
   // =================================
   initGalleryLightbox() {
-    const galleryItems = document.querySelectorAll('.gallery__item');
+    // Поддержка обычной галереи и галереи меню
+    const galleryItems = document.querySelectorAll('.gallery__item, .menu-gallery__item');
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCounter = document.getElementById('lightboxCounter');
@@ -310,10 +311,13 @@ const ShenApp = {
     if (!lightbox || galleryItems.length === 0) return;
 
     let currentIndex = 0;
-    const images = Array.from(galleryItems).map(item => ({
-      src: item.querySelector('.gallery__img').src,
-      alt: item.querySelector('.gallery__img').alt
-    }));
+    const images = Array.from(galleryItems).map(item => {
+      const img = item.querySelector('.gallery__img, .menu-gallery__img');
+      return {
+        src: img?.src || '',
+        alt: img?.alt || ''
+      };
+    }).filter(img => img.src);
 
     // Открытие lightbox
     const openLightbox = (index) => {
