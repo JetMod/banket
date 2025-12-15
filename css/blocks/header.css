@@ -488,4 +488,60 @@
 .page-contacts .header__logo-svg text:last-of-type {
   fill: rgba(26, 26, 26, 0.7);
 }
+
+/* =================================
+   Header на странице политики конфиденциальности
+   ================================= */
+
+/* Изменяем цвета header для светлого фона */
+.page-privacy .header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.page-privacy .header__menu-link {
+  color: rgba(26, 26, 26, 0.9);
+}
+
+.page-privacy .header__menu-link:hover {
+  color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.page-privacy .header__phone {
+  color: rgba(26, 26, 26, 0.9);
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.page-privacy .header__phone:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.page-privacy .header__burger-line {
+  background: rgba(26, 26, 26, 0.9);
+}
+
+/* Логотип на странице privacy - делаем темнее для лучшей видимости */
+.page-privacy .header__logo-svg {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+}
+
+.page-privacy .header__logo:hover .header__logo-svg {
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
+}
+
+/* Стрелка меню на странице privacy */
+.page-privacy .header__menu-arrow {
+  color: rgba(26, 26, 26, 0.9);
+}
+
+/* Подпись "BANQUET HALLS" в SVG логотипе на странице privacy */
+.page-privacy .header__logo-svg text:last-of-type {
+  fill: rgba(26, 26, 26, 0.7);
+}
   

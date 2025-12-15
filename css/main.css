@@ -21,6 +21,7 @@
 @import url('blocks/booking.css');     /* Форма бронирования */
 @import url('blocks/contacts.css');    /* Контакты */
 @import url('blocks/footer.css');      /* Подвал */
+@import url('blocks/modal.css');       /* Модальное окно */
 
 /* Reviews Page - Страница отзывов */
 @import url('blocks/reviews-hero.css');    /* Hero секция отзывов */
@@ -42,4 +43,7 @@
 
 /* Menu Page - Страница меню */
 @import url('blocks/menu-page.css');       /* Страница меню с категориями */
+
+/* Privacy Page - Страница политики конфиденциальности */
+@import url('blocks/privacy.css');         /* Страница политики конфиденциальности */
 

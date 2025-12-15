@@ -164,7 +164,7 @@
                         </h1>
                         <p class="hero__slogan">✨ Нет предела совершенству ✨</p>
                         <div class="hero__buttons">
-                            <button class="hero__button hero__button--primary" onclick="document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' })">
+                            <button class="hero__button hero__button--primary" onclick="if(typeof openBookingModal === 'function') openBookingModal(); else document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' });">
                                 Забронировать
                             </button>
                             <button class="hero__button hero__button--secondary" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
@@ -552,7 +552,7 @@
                             <p class="reels__subtitle">коротко о главном — атмосфера, кухня, эмоции</p>
                         </div>
                         <div class="reels__cta-row">
-                            <a class="reels__cta" href="#booking"><span class="reels__cta-text">Забронировать дату</span></a>
+                            <a class="reels__cta" onclick="event.preventDefault(); if(typeof openBookingModal === 'function') openBookingModal(); else document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' }); return false;"><span class="reels__cta-text">Забронировать дату</span></a>
                             <div class="reels__phone-wrapper">
                                 <a href="tel:+79781872827" class="reels__phone">+7 (978) 187-28-27</a>
                             </div>
@@ -835,7 +835,7 @@
                             >
                         </div>
 
-                        <button type="submit" class="booking__button">
+                        <button type="submit" class="booking__button" id="bookingFormSubmit">
                             <span class="booking__button-text">ОТПРАВИТЬ ЗАЯВКУ</span>
                             <svg class="booking__button-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1015,13 +1015,93 @@
                 <div class="footer__bottom-content">
                     <p class="footer__copyright">© 2025 Shen Banquet Halls. Все права защищены.</p>
                     <div class="footer__links">
-                        <a href="privacy.html" class="footer__bottom-link">Техническая информация</a>
+                        <a href="privacy.html" class="footer__bottom-link">Политика конфиденциальности</a>
                     
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно для формы обратной связи -->
+    <div class="modal" id="bookingModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+            <button class="modal__close" aria-label="Закрыть модальное окно">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class="modal__icon-wrapper">
+                        <svg class="modal__icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal__title">Забронировать зал</h2>
+                    <p class="modal__subtitle">Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+                </div>
+
+                <form class="modal__form" id="modalBookingForm">
+                    <div class="modal__field">
+                        <label for="modalName" class="modal__label">Ваше имя</label>
+                        <input 
+                            type="text" 
+                            id="modalName" 
+                            name="name" 
+                            class="modal__input" 
+                            placeholder="Введите ваше имя"
+                            required
+                        >
+                    </div>
+
+                    <div class="modal__field">
+                        <label for="modalPhone" class="modal__label">Номер телефона</label>
+                        <input 
+                            type="tel" 
+                            id="modalPhone" 
+                            name="phone" 
+                            class="modal__input" 
+                            placeholder="+7 (978) 187-28-27"
+                            required
+                        >
+                    </div>
+
+                    <div class="modal__field">
+                        <label for="modalComment" class="modal__label">Комментарий</label>
+                        <textarea 
+                            id="modalComment" 
+                            name="comment" 
+                            class="modal__textarea" 
+                            placeholder="Расскажите о вашем мероприятии..."
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <div class="modal__privacy">
+                        <label class="modal__checkbox">
+                            <input type="checkbox" class="modal__checkbox-input" required>
+                            <span class="modal__checkbox-custom"></span>
+                            <span class="modal__checkbox-text">
+                                Я принимаю условия <a href="privacy.html" target="_blank" class="modal__privacy-link">политики конфиденциальности</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="modal__button">
+                        <span class="modal__button-text">Отправить заявку</span>
+                        <svg class="modal__button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="modal__message" id="modalMessage"></div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>

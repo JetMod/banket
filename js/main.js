@@ -10,6 +10,7 @@ const ShenApp = {
     this.initForm();
     this.initHeader();
     this.initGalleryLightbox();
+    this.initModal();
   },
 
   // =================================
@@ -256,6 +257,137 @@ const ShenApp = {
     }
 
     return true;
+  },
+
+  // =================================
+  // Модальное окно для формы
+  // =================================
+  initModal() {
+    const modal = document.querySelector('#bookingModal');
+    const modalForm = document.querySelector('#modalBookingForm');
+    const modalMessage = document.querySelector('#modalMessage');
+    const closeBtn = modal?.querySelector('.modal__close');
+    const overlay = modal?.querySelector('.modal__overlay');
+
+    if (!modal) return;
+
+    // Функция открытия модального окна
+    window.openBookingModal = () => {
+      modal.classList.add('modal--active');
+      document.body.style.overflow = 'hidden';
+      
+      // Фокус на первое поле
+      const firstInput = modalForm?.querySelector('#modalName');
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 300);
+      }
+    };
+
+    // Функция закрытия модального окна
+    const closeModal = () => {
+      modal.classList.remove('modal--active');
+      document.body.style.overflow = '';
+      
+      // Очистка формы и сообщений
+      if (modalForm) {
+        modalForm.reset();
+      }
+      if (modalMessage) {
+        modalMessage.textContent = '';
+        modalMessage.className = 'modal__message';
+      }
+    };
+
+    // Закрытие по кнопке
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Закрытие по клику на overlay
+    if (overlay) {
+      overlay.addEventListener('click', closeModal);
+    }
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('modal--active')) {
+        closeModal();
+      }
+    });
+
+    // Маска для телефона в модальном окне
+    const modalPhoneInput = modalForm?.querySelector('#modalPhone');
+    if (modalPhoneInput) {
+      modalPhoneInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.startsWith('7')) {
+          value = value.substring(1);
+        }
+        
+        let formattedValue = '+7';
+        
+        if (value.length > 0) {
+          formattedValue += ' (' + value.substring(0, 3);
+        }
+        if (value.length >= 4) {
+          formattedValue += ') ' + value.substring(3, 6);
+        }
+        if (value.length >= 7) {
+          formattedValue += '-' + value.substring(6, 8);
+        }
+        if (value.length >= 9) {
+          formattedValue += '-' + value.substring(8, 10);
+        }
+        
+        e.target.value = formattedValue;
+      });
+    }
+
+    // Отправка формы модального окна
+    if (modalForm) {
+      modalForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(modalForm);
+        const data = Object.fromEntries(formData);
+
+        // Валидация
+        if (!data.name || data.name.trim().length < 2) {
+          this.showModalMessage(modalMessage, 'Пожалуйста, введите ваше имя', 'error');
+          return;
+        }
+
+        const phoneDigits = data.phone.replace(/\D/g, '');
+        if (phoneDigits.length !== 11) {
+          this.showModalMessage(modalMessage, 'Пожалуйста, введите корректный номер телефона', 'error');
+          return;
+        }
+
+        // Показ сообщения об успехе
+        this.showModalMessage(modalMessage, 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.', 'success');
+        
+        // Очистка формы
+        modalForm.reset();
+
+        // Автоматическое закрытие через 3 секунды после успешной отправки
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+
+        // Здесь можно добавить реальную отправку на сервер
+        // await this.sendFormData(data);
+      });
+    }
+  },
+
+  // Показ сообщения в модальном окне
+  showModalMessage(messageElement, text, type) {
+    if (!messageElement) return;
+
+    messageElement.textContent = text;
+    messageElement.className = 'modal__message';
+    messageElement.classList.add(`modal__message--${type}`);
   },
 
   // Показ сообщения
