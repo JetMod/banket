@@ -9,6 +9,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 940px) {
+  .about {
+    padding-bottom: 100px;
+  }
+}
+
 .about::before {
   content: '';
   position: absolute;
@@ -722,7 +728,7 @@
 /* Маленькие мобильные устройства */
 @media (max-width: 480px) {
   .about {
-    padding: 32px 0;
+    padding: 32px 0 70px;
   }
 
   .about__header {
@@ -866,7 +872,7 @@
 /* Очень маленькие экраны (iPhone SE и подобные) */
 @media (max-width: 375px) {
   .about {
-    padding: 28px 0;
+    /* padding: 28px 0; */
   }
 
   .about__header {
@@ -995,7 +1001,7 @@
 /* Ландшафтная ориентация на мобильных */
 @media (max-width: 768px) and (orientation: landscape) {
   .about {
-    padding: var(--spacing-md) 0;
+    /* padding: var(--spacing-md) 0; */
   }
 
   .about__slider,
@@ -1204,6 +1210,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 1000px) {
+  .about__text-block .hero__button {
+    margin-top: 580px;
+  }
+}
+
 .about__text-block .hero__button::before {
   content: '';
   position: absolute;
@@ -1381,7 +1393,7 @@
   }
 
   .about__text-block .hero__button {
-    margin-top: 28px;
+    margin-top: 520px;
     padding: 16px 32px;
     font-size: 14px;
     width: 100%;

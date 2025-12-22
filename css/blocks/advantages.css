@@ -754,11 +754,11 @@
   .advantages__stat-label {
     font-size: 13px;
   }
-}
+
 
 @media (max-width: 768px) {
   .advantages {
-    padding: 10px 0;
+    padding: 0px 0;
   }
 
   .advantages__header {

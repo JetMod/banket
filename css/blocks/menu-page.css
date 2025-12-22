@@ -898,6 +898,7 @@
     text-align: center;
     margin-bottom: var(--spacing-md);
     padding: 0 var(--spacing-md);
+    /* padding: 0; */
 }
 
 .menu-page__category-title {
@@ -1146,6 +1147,13 @@
 .contact-cta__container {
     position: relative;
     z-index: 2;
+    
+}
+
+@media (max-width: 768px) {
+.contact-cta__content {
+    padding: 0 var(--spacing-md);
+}
 }
 
 .contact-cta__wrapper {
@@ -1153,6 +1161,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    padding: 0;
 }
 
 /* Декоративные элементы */
@@ -1523,7 +1532,7 @@
 
     .menu-hero__button {
         width: 100%;
-        max-width: 300px;
+        /* max-width: 300px; */
     }
 
     .menu-hero__title-wrapper {
@@ -1593,6 +1602,7 @@
     .menu-page__items-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-sm);
+        padding: 0;
     }
 
     .menu-gallery {

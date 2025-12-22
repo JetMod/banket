@@ -894,7 +894,7 @@
   }
 
   .contacts-hero__image-side {
-    min-height: 40vh;
+    /* min-height: 40vh; */
   }
 
   .contacts-hero__info-side {
@@ -939,6 +939,7 @@
   .contacts-hero__main-content {
     left: 30px;
     max-width: calc(100% - 60px);
+    top: 58%;
   }
   
   .contacts-hero__main-label {
@@ -1017,11 +1018,11 @@
   }
 
   .contacts-hero__image-side {
-    min-height: 35vh;
+    /* min-height: 35vh; */
   }
 
   .contacts-hero__info-side {
-    padding: 40px 20px;
+    padding: 40px 20px 0;
   }
 
   .contacts-hero__info-side::after {

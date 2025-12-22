@@ -412,7 +412,7 @@
     }
 
     .footer__grid {
-      gap: 20px;
+      gap: 0px;
     }
 
     .footer__logo {

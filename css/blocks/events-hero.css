@@ -568,6 +568,8 @@
     
     .events-hero__container {
         padding: var(--spacing-sm) var(--spacing-sm) 0;
+        padding-top: 50px;
+        padding-bottom: 25px;
     }
     
     .events-hero__label {

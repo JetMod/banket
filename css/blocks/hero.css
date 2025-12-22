@@ -599,7 +599,7 @@
 
   .hero__container {
     padding-top: 20px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding-bottom: var(--spacing-lg);
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);

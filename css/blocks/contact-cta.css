@@ -43,6 +43,7 @@
     max-width: 850px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    padding: 0px;
 }
 
 .contact-cta__title {
