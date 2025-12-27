@@ -177,7 +177,7 @@
         </div>
 
         <!-- Индикатор прокрутки -->
-        <div class="reviews-hero__scroll" onclick="document.querySelector('#reviews-stats').scrollIntoView({ behavior: 'smooth' })">
+        <div class="reviews-hero__scroll" data-scroll-to="#reviews-stats" role="button" tabindex="0" aria-label="Прокрутить к статистике отзывов">
             <div class="reviews-hero__scroll-arrow">
                 <span>↓</span>
             </div>
@@ -370,7 +370,7 @@
                 </div>
             </div>
             <div class="gallery__item gallery__item--large" data-index="6">
-                <img src="img/15.webp" alt="Зал с гостями" class="gallery__img">
+                <img src="img/10.webp" alt="Зал с гостями" class="gallery__img">
                 <div class="gallery__overlay">
                     <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                         <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -513,7 +513,7 @@
                 <a href="https://yandex.ru/maps/org/1013938334/reviews" target="_blank" class="hero__button hero__button--primary">
                     Оставить отзыв на Яндекс
                 </a>
-                <a href="contacts.html" class="hero__button hero__button--secondary" onclick="event.preventDefault(); if(typeof openBookingModal === 'function') openBookingModal(); return false;">
+                <a href="contacts.html" class="hero__button hero__button--secondary" data-action="open-booking">
                     Забронировать мероприятие
                 </a>
             </div>

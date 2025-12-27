@@ -5,12 +5,71 @@
 const ShenApp = {
   // Инициализация приложения
   init() {
+    this.initEventDelegation(); // Инициализация обработки data-атрибутов
     this.initMenu();
     this.initSmoothScroll();
     this.initForm();
     this.initHeader();
     this.initGalleryLightbox();
     this.initModal();
+  },
+
+  // =================================
+  // Централизованная обработка событий через data-атрибуты
+  // =================================
+  initEventDelegation() {
+    // Обработка data-action атрибутов
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-action]');
+      if (!target) return;
+
+      const action = target.getAttribute('data-action');
+      
+      switch (action) {
+        case 'open-booking':
+          e.preventDefault();
+          if (typeof window.openBookingModal === 'function') {
+            window.openBookingModal();
+          } else {
+            const bookingSection = document.querySelector('#booking');
+            if (bookingSection) {
+              bookingSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+          break;
+      }
+    });
+
+    // Обработка data-scroll-to атрибутов
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-scroll-to]');
+      if (!target) return;
+
+      const selector = target.getAttribute('data-scroll-to');
+      const targetElement = document.querySelector(selector);
+      
+      if (targetElement) {
+        e.preventDefault();
+        const offset = 20;
+        const targetPosition = targetElement.offsetTop - offset;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    // Поддержка клавиатуры для элементов с data-scroll-to
+    document.addEventListener('keydown', (e) => {
+      const target = e.target;
+      if (!target.hasAttribute('data-scroll-to')) return;
+
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        target.click();
+      }
+    });
   },
 
   // =================================
@@ -26,11 +85,16 @@ const ShenApp = {
 
     // Открытие/закрытие меню
     burger.addEventListener('click', () => {
+      const isActive = nav.classList.contains('header__nav--active');
+      
       burger.classList.toggle('header__burger--active');
       nav.classList.toggle('header__nav--active');
       
+      // Обновление ARIA атрибутов
+      burger.setAttribute('aria-expanded', !isActive);
+      
       // Блокировка скролла при открытом меню
-      if (nav.classList.contains('header__nav--active')) {
+      if (!isActive) {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = '';
@@ -59,12 +123,23 @@ const ShenApp = {
             setTimeout(() => touchStarted = false, 500);
           }
           
+          const isActive = item.classList.contains('active');
           item.classList.toggle('active');
+          
+          // Обновление ARIA атрибутов
+          const link = item.querySelector('.header__menu-link');
+          if (link) {
+            link.setAttribute('aria-expanded', !isActive);
+          }
           
           // Закрыть другие открытые dropdown
           dropdownItems.forEach(otherItem => {
             if (otherItem !== item) {
               otherItem.classList.remove('active');
+              const otherLink = otherItem.querySelector('.header__menu-link');
+              if (otherLink) {
+                otherLink.setAttribute('aria-expanded', 'false');
+              }
             }
           });
         }
@@ -124,14 +199,16 @@ const ShenApp = {
       }
     });
 
-    // Закрыть dropdown при изменении размера окна
-    window.addEventListener('resize', () => {
+    // Закрыть dropdown при изменении размера окна (с debounce)
+    const handleResize = debounce(() => {
       if (window.innerWidth > 980) {
         dropdownItems.forEach(item => {
           item.classList.remove('active');
         });
       }
-    });
+    }, 250);
+    
+    window.addEventListener('resize', handleResize);
   },
 
   // =================================
@@ -141,6 +218,11 @@ const ShenApp = {
     const links = document.querySelectorAll('a[href^="#"]');
 
     links.forEach(link => {
+      // Пропускаем элементы с data-атрибутами (они обрабатываются отдельно)
+      if (link.hasAttribute('data-action') || link.hasAttribute('data-scroll-to')) {
+        return;
+      }
+
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
         
@@ -217,8 +299,12 @@ const ShenApp = {
       const data = Object.fromEntries(formData);
 
       // Валидация
-      if (!this.validateForm(data)) {
-        this.showMessage(message, 'Пожалуйста, заполните все обязательные поля', 'error');
+      const validation = this.validateForm(data);
+      if (!validation.isValid) {
+        const errorText = validation.errors.length > 0 
+          ? validation.errors.join('. ') 
+          : 'Пожалуйста, заполните все обязательные поля';
+        this.showMessage(message, errorText, 'error');
         return;
       }
 
@@ -235,28 +321,42 @@ const ShenApp = {
 
   // Валидация формы
   validateForm(data) {
+    const errors = [];
+
     // Проверка имени
     if (!data.name || data.name.trim().length < 2) {
-      return false;
+      errors.push('Имя должно содержать минимум 2 символа');
     }
 
     // Проверка телефона
     const phoneDigits = data.phone.replace(/\D/g, '');
     if (phoneDigits.length !== 11) {
-      return false;
+      errors.push('Введите корректный номер телефона');
     }
 
-    // Проверка даты
-    if (!data.date) {
-      return false;
+    // Проверка даты (если поле присутствует)
+    if (data.date) {
+      const selectedDate = new Date(data.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      if (selectedDate < today) {
+        errors.push('Дата не может быть в прошлом');
+      }
     }
 
-    // Проверка количества гостей
-    if (!data.guests) {
-      return false;
+    // Проверка количества гостей (если поле присутствует)
+    if (data.guests) {
+      const guests = parseInt(data.guests);
+      if (isNaN(guests) || guests < 1 || guests > 1000) {
+        errors.push('Количество гостей должно быть от 1 до 1000');
+      }
     }
 
-    return true;
+    return {
+      isValid: errors.length === 0,
+      errors
+    };
   },
 
   // =================================
@@ -572,6 +672,18 @@ function debounce(func, wait) {
   };
 }
 
+// Throttle функция для оптимизации частых событий
+function throttle(func, limit) {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
 // Проверка видимости элемента
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
@@ -803,9 +915,12 @@ function initReelsSlider() {
     }
   });
 
-  let current = 0;
+  // Инициализируем current с центрального слайда
+  // Вычисляем центральный индекс: для 5 слайдов это будет 2 (третий слайд)
+  const initialCenterIndex = Math.floor(slides.length / 2);
+  let current = initialCenterIndex;
   let autoplayTimer = null;
-  const AUTOPLAY_MS = 5000; // Увеличено до 10 секунд
+  const AUTOPLAY_MS = 7000; // Увеличено до 10 секунд
   let cachedSlideWidth = null; // точная ширина для расчёта без дрожания
 
   // Раскладка ширины слайдов под 1/2/3 видимых
@@ -824,15 +939,19 @@ function initReelsSlider() {
     const slideWidth = cachedSlideWidth ?? Math.floor(slides[0].getBoundingClientRect().width);
     const gap = parseFloat(getComputedStyle(track).gap || '0');
     const visibleCount = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-    const maxIndex = Math.max(0, slides.length - visibleCount);
+    // maxIndex теперь позволяет прокрутить до последнего слайда
+    const maxIndex = Math.max(0, slides.length - 1);
     return { slideWidth, gap, visibleCount, maxIndex };
   };
 
   // Вспомогательные функции
   const updateActive = (index) => {
     const { visibleCount } = getMetrics();
-    const middleOffset = Math.floor(visibleCount / 2);
-    const activeIndex = Math.min(slides.length - 1, index + middleOffset);
+    
+    // Активный слайд всегда равен текущему индексу
+    // Это позволяет каждому слайду стать активным и воспроизводиться
+    const activeIndex = index;
+    
     slides.forEach((s, i) => s.classList.toggle('reels__slide--active', i === activeIndex));
     dots.forEach((d, i) => d.classList.toggle('reels__dot--active', i === index));
     
@@ -842,8 +961,31 @@ function initReelsSlider() {
   };
 
   const scrollToIndex = (index) => {
-    const { slideWidth, gap } = getMetrics();
-    const offset = Math.round(index * (slideWidth + gap));
+    const { slideWidth, gap, visibleCount } = getMetrics();
+    
+    // Вычисляем смещение для центрирования активного слайда
+    const middleOffset = Math.floor(visibleCount / 2);
+    const maxStartIndex = Math.max(0, slides.length - visibleCount);
+    
+    // Вычисляем индекс первого видимого слайда
+    let startIndex;
+    
+    // Пытаемся центрировать активный слайд
+    const desiredStartIndex = index - middleOffset;
+    
+    if (desiredStartIndex < 0) {
+      // В начале: начинаем с 0
+      startIndex = 0;
+    } else if (desiredStartIndex > maxStartIndex) {
+      // В конце: показываем последние visibleCount слайдов
+      startIndex = maxStartIndex;
+    } else {
+      // В середине: центрируем активный слайд
+      startIndex = desiredStartIndex;
+    }
+    
+    // Вычисляем смещение для прокрутки
+    const offset = Math.round(startIndex * (slideWidth + gap));
     track.style.transform = `translateX(${-offset}px)`;
   };
 
@@ -1806,14 +1948,16 @@ if (document.readyState === 'loading') {
     const scrollBtn = document.getElementById('scrollToTop');
     if (!scrollBtn) return;
 
-    // Show/hide based on scroll position
-    window.addEventListener('scroll', () => {
+    // Show/hide based on scroll position (с throttle для оптимизации)
+    const handleScroll = throttle(() => {
       if (window.pageYOffset > 300) {
         scrollBtn.classList.add('visible');
       } else {
         scrollBtn.classList.remove('visible');
       }
-    });
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Scroll to top on click
     scrollBtn.addEventListener('click', () => {

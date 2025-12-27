@@ -57,55 +57,55 @@
                 </svg>
             </a>
             
-            <nav class="header__nav">
+            <nav class="header__nav" id="header-nav" aria-label="Основная навигация">
                 <!-- Логотип для мобильного меню -->
                 <div class="header__nav-logo">
                     <img src="img/logo.png" alt="Shen Banquet Halls" class="header__nav-logo-img" width="120" height="50">
                 </div>
                 
-                <ul class="header__menu">
-                    <li class="header__menu-item header__menu-item--dropdown">
-                        <a href="events.html" class="header__menu-link">
+                <ul class="header__menu" role="menubar">
+                    <li class="header__menu-item header__menu-item--dropdown" role="none">
+                        <a href="events.html" class="header__menu-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
                             Мероприятия
-                            <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <svg class="header__menu-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
                                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                         </a>
-                        <ul class="header__dropdown">
-                            <li class="header__dropdown-item">
-                                <a href="events.html#wedding" class="header__dropdown-link">Свадьба</a>
+                        <ul class="header__dropdown" role="menu" aria-label="Подменю мероприятий">
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#wedding" class="header__dropdown-link" role="menuitem">Свадьба</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#birthday" class="header__dropdown-link">День рождения</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#birthday" class="header__dropdown-link" role="menuitem">День рождения</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#corporate" class="header__dropdown-link">Корпоратив</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#corporate" class="header__dropdown-link" role="menuitem">Корпоратив</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#graduation" class="header__dropdown-link">Выпускной</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#graduation" class="header__dropdown-link" role="menuitem">Выпускной</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#conference" class="header__dropdown-link">Конференция | Бизнес мероприятия</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#conference" class="header__dropdown-link" role="menuitem">Конференция | Бизнес мероприятия</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#kids" class="header__dropdown-link">Детский праздник</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#kids" class="header__dropdown-link" role="menuitem">Детский праздник</a>
                             </li>
-                            <li class="header__dropdown-item">
-                                <a href="events.html#newyear" class="header__dropdown-link">Новогодняя ночь</a>
+                            <li class="header__dropdown-item" role="none">
+                                <a href="events.html#newyear" class="header__dropdown-link" role="menuitem">Новогодняя ночь</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="header__menu-item">
-                        <a href="menu.html" class="header__menu-link">Меню</a>
+                    <li class="header__menu-item" role="none">
+                        <a href="menu.html" class="header__menu-link" role="menuitem">Меню</a>
                     </li>
-                    <li class="header__menu-item">
-                        <a href="gallery.html" class="header__menu-link">Галерея</a>
+                    <li class="header__menu-item" role="none">
+                        <a href="gallery.html" class="header__menu-link" role="menuitem">Галерея</a>
                     </li>
-                    <li class="header__menu-item">
-                        <a href="reviews.html" class="header__menu-link">Отзывы</a>
+                    <li class="header__menu-item" role="none">
+                        <a href="reviews.html" class="header__menu-link" role="menuitem">Отзывы</a>
                     </li>
-                    <li class="header__menu-item">
-                        <a href="contacts.html" class="header__menu-link">Контакты</a>
+                    <li class="header__menu-item" role="none">
+                        <a href="contacts.html" class="header__menu-link" role="menuitem">Контакты</a>
                     </li>
                 </ul>
                 
@@ -118,29 +118,29 @@
             
             <a href="tel:+79781872827" class="header__phone">+7 (978) 187-28-27</a>
             
-            <button class="header__burger" aria-label="Открыть меню">
-                <span class="header__burger-line"></span>
-                <span class="header__burger-line"></span>
-                <span class="header__burger-line"></span>
+            <button class="header__burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-nav">
+                <span class="header__burger-line" aria-hidden="true"></span>
+                <span class="header__burger-line" aria-hidden="true"></span>
+                <span class="header__burger-line" aria-hidden="true"></span>
             </button>
             </header>
             
             <div class="hero__background">
                 <div class="hero__slider">
                     <div class="hero__slide active">
-                        <img src="img/13.webp" alt="Банкетный зал Shen" class="hero__bg-img">
+                        <img src="img/13.webp" alt="Банкетный зал Shen" class="hero__bg-img" loading="lazy">
                     </div>
                     <div class="hero__slide">
-                        <img src="img/15.webp" alt="Банкетный зал Shen" class="hero__bg-img">
+                        <img src="img/10.webp" alt="Банкетный зал Shen" class="hero__bg-img" loading="lazy">
                     </div>
                     <div class="hero__slide">
-                        <img src="img/1.webp" alt="Банкетный зал Shen" class="hero__bg-img">
+                        <img src="img/1.webp" alt="Банкетный зал Shen" class="hero__bg-img" loading="lazy">
                     </div>
                     <div class="hero__slide">
-                        <img src="img/2.webp" alt="Банкетный зал Shen" class="hero__bg-img">
+                        <img src="img/2.webp" alt="Банкетный зал Shen" class="hero__bg-img" loading="lazy">
                     </div>
                     <div class="hero__slide">
-                        <img src="img/3.webp" alt="Банкетный зал Shen" class="hero__bg-img">
+                        <img src="img/3.webp" alt="Банкетный зал Shen" class="hero__bg-img" loading="lazy">
                     </div>
                 </div>
                 <div class="hero__overlay"></div>
@@ -164,10 +164,10 @@
                         </h1>
                         <p class="hero__slogan">✨ Нет предела совершенству ✨</p>
                         <div class="hero__buttons">
-                            <button class="hero__button hero__button--primary" onclick="if(typeof openBookingModal === 'function') openBookingModal(); else document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' });">
+                            <button class="hero__button hero__button--primary" data-action="open-booking">
                                 Забронировать
                             </button>
-                            <button class="hero__button hero__button--secondary" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                            <button class="hero__button hero__button--secondary" data-scroll-to="#about">
                                 Узнать больше
                             </button>
                         </div>
@@ -189,7 +189,7 @@
                             </div>
                         </div>
                         
-                        <div class="hero__scroll" onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                        <div class="hero__scroll" data-scroll-to="#about" role="button" tabindex="0" aria-label="Прокрутить к разделу О нас">
                             <div class="hero__scroll-arrow">
                                 <span>↓</span>
                             </div>
@@ -251,19 +251,19 @@
                             <div class="about__slider-wrapper">
                                 <div class="about__slider-track">
                                     <div class="about__slide about__slide--active">
-                                        <img src="img/1.webp" alt="Интерьер банкетного зала Shen Crystal" class="about__slide-image">
+                                        <img src="img/1.webp" alt="Интерьер банкетного зала Shen Crystal" class="about__slide-image" loading="eager">
                                         <div class="about__slide-overlay"></div>
                                     </div>
                                     <div class="about__slide">
-                                        <img src="img/2.webp" alt="Банкетный зал - вид сбоку" class="about__slide-image">
+                                        <img src="img/2.webp" alt="Банкетный зал - вид сбоку" class="about__slide-image" loading="lazy">
                                         <div class="about__slide-overlay"></div>
                                     </div>
                                     <div class="about__slide">
-                                        <img src="img/3.webp" alt="Оформление зала" class="about__slide-image">
+                                        <img src="img/3.webp" alt="Оформление зала" class="about__slide-image" loading="lazy">
                                         <div class="about__slide-overlay"></div>
                                     </div>
                                     <div class="about__slide">
-                                        <img src="img/4.webp" alt="Праздничное оформление" class="about__slide-image">
+                                        <img src="img/4.webp" alt="Праздничное оформление" class="about__slide-image" loading="lazy">
                                         <div class="about__slide-overlay"></div>
                                     </div>
                                 </div>
@@ -531,10 +531,10 @@
 
                     <div class="menu__images">
                         <div class="menu__image-item">
-                            <img src="img/eat1.webp" alt="Блюда восточной кухни" class="menu__img">
+                            <img src="img/eat1.webp" alt="Блюда восточной кухни" class="menu__img" loading="lazy">
                         </div>
                         <div class="menu__image-item">
-                            <img src="img/eat2.webp" alt="Блюда европейской кухни" class="menu__img">
+                            <img src="img/eat2.webp" alt="Блюда европейской кухни" class="menu__img" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -552,7 +552,7 @@
                             <p class="reels__subtitle">коротко о главном — атмосфера, кухня, эмоции</p>
                         </div>
                         <div class="reels__cta-row">
-                            <a class="reels__cta" onclick="event.preventDefault(); if(typeof openBookingModal === 'function') openBookingModal(); else document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' }); return false;"><span class="reels__cta-text">Забронировать дату</span></a>
+                            <a class="reels__cta" href="#booking" data-action="open-booking"><span class="reels__cta-text">Забронировать дату</span></a>
                             <div class="reels__phone-wrapper">
                                 <a href="tel:+79781872827" class="reels__phone">+7 (978) 187-28-27</a>
                             </div>
@@ -565,29 +565,34 @@
 
                             <div class="reels__viewport">
                                 <div class="reels__track">
+                                    <div class="reels__slide">
+                                        <div class="reels__card">
+                                            <!-- первое видео шаблон -->
+                                            <video class="reels__video" src="video/6.MP4" muted playsinline preload="metadata" loop volume="0"></video>
+                                        </div>
+                                    </div>
+                                    <div class="reels__slide">
+                                        <div class="reels__card">
+                                            <!-- второе видео -->
+                                            <video class="reels__video" src="video/1.MP4" muted playsinline preload="metadata" loop volume="0"></video>
+                                        </div>
+                                    </div>
                                     <div class="reels__slide reels__slide--active">
                                         <div class="reels__card">
+                                            <!-- третье видео  -->
+                                            <video class="reels__video" src="video/2.MP4" muted playsinline preload="metadata" loop volume="0"></video>
+                                        </div>
+                                    </div>
+                                    <div class="reels__slide">
+                                        <div class="reels__card">
+                                            <!-- 4 видео -->
+                                            <video class="reels__video" src="video/3.MP4" muted playsinline preload="metadata" loop volume="0"></video>
+                                        </div>
+                                    </div>
+                                    <div class="reels__slide">
+                                        <div class="reels__card">
+                                            <!-- 5 видео шаблон-->
                                             <video class="reels__video" src="video/4.MP4" muted playsinline preload="metadata" loop volume="0"></video>
-                                        </div>
-                                    </div>
-                                    <div class="reels__slide">
-                                        <div class="reels__card">
-                                            <video class="reels__video" src="video/1.MOV" muted playsinline preload="metadata" loop volume="0"></video>
-                                        </div>
-                                    </div>
-                                    <div class="reels__slide">
-                                        <div class="reels__card">
-                                            <video class="reels__video" src="video/2.MOV" muted playsinline preload="metadata" loop volume="0"></video>
-                                        </div>
-                                    </div>
-                                    <div class="reels__slide">
-                                        <div class="reels__card">
-                                            <video class="reels__video" src="video/5.MOV" muted playsinline preload="metadata" loop volume="0"></video>
-                                        </div>
-                                    </div>
-                                    <div class="reels__slide">
-                                        <div class="reels__card">
-                                            <video class="reels__video" src="video/3.MOV" muted playsinline preload="metadata" loop volume="0"></video>
                                         </div>
                                     </div>
                                 </div>
@@ -625,7 +630,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="1">
-                        <img src="img/eat1.webp" alt="Блюда" class="gallery__img">
+                        <img src="img/eat1.webp" alt="Блюда" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -635,7 +640,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="2">
-                        <img src="img/11.webp" alt="Сервировка" class="gallery__img">
+                        <img src="img/11.webp" alt="Сервировка" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -645,7 +650,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="3">
-                        <img src="img/5.webp" alt="Банкетный стол" class="gallery__img">
+                        <img src="img/5.webp" alt="Банкетный стол" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -657,7 +662,7 @@
                     
                     <!-- Второй ряд - 2 обычных + 1 большой (2x2) -->
                     <div class="gallery__item" data-index="4">
-                        <img src="img/4.webp" alt="Зал" class="gallery__img">
+                        <img src="img/4.webp" alt="Зал" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -667,7 +672,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="5">
-                        <img src="img/6.webp" alt="Оформление" class="gallery__img">
+                        <img src="img/6.webp" alt="Оформление" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -677,7 +682,7 @@
                         </div>
                     </div>
                     <div class="gallery__item gallery__item--large" data-index="6">
-                        <img src="img/15.webp" alt="Зал с гостями" class="gallery__img">
+                        <img src="img/10.webp" alt="Зал с гостями" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -689,7 +694,7 @@
                     
                     <!-- Третий ряд - 1 большой (2x2) + 2 обычных -->
                     <div class="gallery__item gallery__item--large" data-index="7">
-                        <img src="img/1.webp" alt="Интерьер зала" class="gallery__img">
+                        <img src="img/1.webp" alt="Интерьер зала" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -699,7 +704,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="8">
-                        <img src="img/eat2.webp" alt="Кухня" class="gallery__img">
+                        <img src="img/eat2.webp" alt="Кухня" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -709,7 +714,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="9">
-                        <img src="img/eat4.webp" alt="Десерты" class="gallery__img">
+                        <img src="img/eat4.webp" alt="Десерты" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -721,7 +726,7 @@
                     
                     <!-- Четвертый ряд - 4 обычных элемента -->
                     <div class="gallery__item" data-index="10">
-                        <img src="img/eat5.webp" alt="Праздничный стол" class="gallery__img">
+                        <img src="img/eat5.webp" alt="Праздничный стол" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -731,7 +736,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="11">
-                        <img src="img/3.webp" alt="Мероприятие" class="gallery__img">
+                        <img src="img/3.webp" alt="Мероприятие" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -741,7 +746,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="12">
-                        <img src="img/12.webp" alt="Банкет" class="gallery__img">
+                        <img src="img/12.webp" alt="Банкет" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -751,7 +756,7 @@
                         </div>
                     </div>
                     <div class="gallery__item" data-index="13">
-                        <img src="img/2.webp" alt="Интерьер" class="gallery__img">
+                        <img src="img/2.webp" alt="Интерьер" class="gallery__img" loading="lazy">
                         <div class="gallery__overlay">
                             <svg class="gallery__zoom-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
                                 <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
@@ -771,20 +776,21 @@
                     </button>
                     
                     <button class="gallery__lightbox-prev" aria-label="Предыдущее фото">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     
                     <button class="gallery__lightbox-next" aria-label="Следующее фото">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M9 18l6-6-6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     
                     <div class="gallery__lightbox-content">
-                        <img src="" alt="" class="gallery__lightbox-img" id="lightboxImg">
-                        <div class="gallery__lightbox-counter" id="lightboxCounter">1 / 14</div>
+                        <h2 id="lightbox-title" class="visually-hidden">Просмотр галереи</h2>
+                        <img src="" alt="" class="gallery__lightbox-img" id="lightboxImg" aria-describedby="lightboxCounter">
+                        <div class="gallery__lightbox-counter" id="lightboxCounter" aria-live="polite" aria-atomic="true">1 / 14</div>
                     </div>
                 </div>
 
@@ -808,8 +814,9 @@
                         <p class="booking__subtitle">Оставьте заявку и мы свяжемся с вами для обсуждения деталей</p>
                     </div>
 
-                    <form class="booking__form" id="bookingForm">
+                    <form class="booking__form" id="bookingForm" novalidate aria-label="Форма бронирования зала">
                         <div class="booking__inputs">
+                            <label for="name" class="visually-hidden">Ваше имя</label>
                             <input 
                                 type="text" 
                                 id="name" 
@@ -817,7 +824,10 @@
                                 class="booking__input" 
                                 placeholder="Ваше имя"
                                 required
+                                aria-required="true"
+                                aria-label="Ваше имя"
                             >
+                            <label for="phone" class="visually-hidden">Ваш телефон</label>
                             <input 
                                 type="tel" 
                                 id="phone" 
@@ -825,13 +835,18 @@
                                 class="booking__input" 
                                 placeholder="Ваш телефон"
                                 required
+                                aria-required="true"
+                                aria-label="Ваш телефон"
+                                pattern="\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}"
                             >
+                            <label for="comment" class="visually-hidden">Комментарий</label>
                             <input 
                                 type="text" 
                                 id="comment" 
                                 name="comment" 
                                 class="booking__input" 
                                 placeholder="Комментарий"
+                                aria-label="Комментарий (необязательно)"
                             >
                         </div>
 
