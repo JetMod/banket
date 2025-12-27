@@ -793,7 +793,7 @@
 }
 
 /* Адаптив */
-@media (max-width: 1024px) {
+@media (max-width: 1210px) {
   .hero--contacts .hero__container {
     grid-template-columns: 1fr;
   }

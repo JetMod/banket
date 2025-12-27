@@ -45,6 +45,13 @@
     align-items: flex-start;
     margin-bottom: 16px;
   }
+
+  @media (max-width: 1270px) { 
+  .booking__form{
+    flex-direction: column;
+  }
+}
+ 
   
   .booking__inputs {
     display: flex;
@@ -245,6 +252,7 @@
   
     .booking__inputs {
       flex-direction: column;
+      width: 100%;
     }
   
     .booking__button {

@@ -568,9 +568,9 @@
 /* Планшеты и небольшие десктопы */
 @media (max-width: 1024px) {
   .hero__container {
-    padding-top: 140px;
+    /* padding-top: 140px;
     padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+    padding-right: var(--spacing-md); */
   }
 
   .hero__content {
