@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / Editor
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/sftp.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# WordPress (если позже появятся)
+wp-config.php
+.htaccess
+
+# Временные файлы
+*.swp
+*.swo
+*~
+Thumbs.db

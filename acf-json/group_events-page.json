@@ -1,0 +1,561 @@
+{
+    "key": "group_events_page",
+    "title": "Страница Мероприятия",
+    "fields": [
+        {
+            "key": "field_events_hero",
+            "label": "Hero секция",
+            "name": "events_hero",
+            "type": "group",
+            "instructions": "Настройки Hero секции страницы мероприятий",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_events_hero_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Незабываемые мероприятия",
+                    "placeholder": "Незабываемые мероприятия"
+                },
+                {
+                    "key": "field_events_hero_label_icon",
+                    "label": "Иконка метки",
+                    "name": "label_icon",
+                    "type": "text",
+                    "default_value": "✨",
+                    "placeholder": "✨"
+                },
+                {
+                    "key": "field_events_hero_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Создаем волшебство ваших праздников",
+                    "placeholder": "Создаем волшебство ваших праздников",
+                    "required": 1
+                },
+                {
+                    "key": "field_events_hero_title_accent",
+                    "label": "Акцентное слово в заголовке",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "волшебство",
+                    "placeholder": "волшебство"
+                },
+                {
+                    "key": "field_events_hero_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "От камерных celebrations до масштабных торжеств.\nПрофессиональная организация мероприятий любого формата\nв премиальном банкетном зале Shen.",
+                    "placeholder": "От камерных celebrations до масштабных торжеств."
+                },
+                {
+                    "key": "field_events_hero_slider",
+                    "label": "Слайдер изображений",
+                    "name": "slider",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_events_hero_nav_cards",
+                    "label": "Навигационные карточки",
+                    "name": "nav_cards",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 1,
+                    "button_label": "Добавить карточку",
+                    "sub_fields": [
+                        {
+                            "key": "field_events_nav_icon",
+                            "label": "Иконка",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "💍",
+                            "placeholder": "💍"
+                        },
+                        {
+                            "key": "field_events_nav_title",
+                            "label": "Название",
+                            "name": "title",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_events_nav_count",
+                            "label": "Количество",
+                            "name": "count",
+                            "type": "text",
+                            "default_value": "150+",
+                            "placeholder": "150+"
+                        },
+                        {
+                            "key": "field_events_nav_anchor",
+                            "label": "Якорь (ID секции)",
+                            "name": "anchor",
+                            "type": "text",
+                            "default_value": "wedding",
+                            "placeholder": "wedding",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "icon": "💍",
+                            "title": "Свадьбы",
+                            "count": "150+",
+                            "anchor": "wedding"
+                        },
+                        {
+                            "icon": "🎉",
+                            "title": "Корпоративы",
+                            "count": "200+",
+                            "anchor": "corporate"
+                        },
+                        {
+                            "icon": "🎂",
+                            "title": "Дни рождения",
+                            "count": "300+",
+                            "anchor": "birthday"
+                        },
+                        {
+                            "icon": "🎊",
+                            "title": "Юбилеи",
+                            "count": "180+",
+                            "anchor": "anniversary"
+                        },
+                        {
+                            "icon": "🎓",
+                            "title": "Выпускные",
+                            "count": "50+",
+                            "anchor": "graduation"
+                        },
+                        {
+                            "icon": "💼",
+                            "title": "Конференции",
+                            "count": "80+",
+                            "anchor": "conference"
+                        },
+                        {
+                            "icon": "🎈",
+                            "title": "Детские",
+                            "count": "120+",
+                            "anchor": "kids"
+                        },
+                        {
+                            "icon": "🎄",
+                            "title": "Новогодние",
+                            "count": "60+",
+                            "anchor": "newyear"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_events_sections",
+            "label": "Секции мероприятий",
+            "name": "events_sections",
+            "type": "repeater",
+            "layout": "block",
+            "min": 1,
+            "button_label": "Добавить секцию мероприятия",
+            "sub_fields": [
+                {
+                    "key": "field_event_section_id",
+                    "label": "ID секции (якорь)",
+                    "name": "section_id",
+                    "type": "text",
+                    "instructions": "Уникальный ID для якорной ссылки (например: wedding, corporate)",
+                    "required": 1,
+                    "default_value": "wedding"
+                },
+                {
+                    "key": "field_event_section_style",
+                    "label": "Стиль секции",
+                    "name": "style",
+                    "type": "select",
+                    "choices": {
+                        "light": "Светлая",
+                        "dark": "Темная"
+                    },
+                    "default_value": "light",
+                    "required": 1
+                },
+                {
+                    "key": "field_event_section_label",
+                    "label": "Метка секции",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "💍 Свадьбы",
+                    "placeholder": "💍 Свадьбы"
+                },
+                {
+                    "key": "field_event_section_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_event_section_description",
+                    "label": "Описание",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 5,
+                    "required": 1
+                },
+                {
+                    "key": "field_event_section_stats",
+                    "label": "Статистика",
+                    "name": "stats",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 1,
+                    "max": 3,
+                    "button_label": "Добавить статистику",
+                    "sub_fields": [
+                        {
+                            "key": "field_event_stat_number",
+                            "label": "Число",
+                            "name": "number",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_event_stat_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "number": "150+",
+                            "label": "проведенных свадеб"
+                        },
+                        {
+                            "number": "4.9",
+                            "label": "средний рейтинг"
+                        },
+                        {
+                            "number": "98%",
+                            "label": "рекомендуют нас"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_event_section_cta",
+                    "label": "Кнопка CTA",
+                    "name": "cta",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_event_cta_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Забронировать свадьбу",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_event_cta_note",
+                            "label": "Примечание под кнопкой",
+                            "name": "note",
+                            "type": "text",
+                            "default_value": "Бронируйте заранее — лучшие даты разбирают за 6-12 месяцев"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_event_section_gallery",
+                    "label": "Галерея изображений",
+                    "name": "gallery",
+                    "type": "gallery",
+                    "instructions": "Изображения для секции мероприятия",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all"
+                }
+            ],
+            "default_value": [
+                {
+                    "section_id": "wedding",
+                    "style": "light",
+                    "label": "💍 Свадьбы",
+                    "title": "Ваша свадьба — начало волшебной истории",
+                    "description": "Ваша свадьба в Shen — это начало новой главы в атмосфере роскоши и элегантности. Мы создаем незабываемые торжества, где каждая деталь продумана до мелочей. Премиальный банкетный зал с безупречным сервисом и изысканной атмосферой.",
+                    "stats": [
+                        {
+                            "number": "150+",
+                            "label": "проведенных свадеб"
+                        },
+                        {
+                            "number": "4.9",
+                            "label": "средний рейтинг"
+                        },
+                        {
+                            "number": "98%",
+                            "label": "рекомендуют нас"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Забронировать свадьбу",
+                        "note": "Бронируйте заранее — лучшие даты разбирают за 6-12 месяцев"
+                    }
+                },
+                {
+                    "section_id": "corporate",
+                    "style": "dark",
+                    "label": "🎉 Корпоративы",
+                    "title": "Корпоративные праздники с размахом",
+                    "description": "Корпоративные мероприятия в Shen — это идеальное сочетание делового подхода и праздничной атмосферы. Организуем Новогодние корпоративы, team building события, празднования успехов компании и деловые вечера. Профессиональная команда, современное оборудование для презентаций, изысканное меню и безупречный сервис — всё для успеха вашего корпоративного мероприятия.",
+                    "stats": [
+                        {
+                            "number": "200+",
+                            "label": "корпоративов"
+                        },
+                        {
+                            "number": "4.8",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "95%",
+                            "label": "повторные заказы"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Заказать корпоратив",
+                        "note": "Специальные условия для постоянных клиентов"
+                    }
+                },
+                {
+                    "section_id": "birthday",
+                    "style": "light",
+                    "label": "🎂 Дни рождения",
+                    "title": "Праздник, который запомнится надолго!",
+                    "description": "День рождения в Shen — это праздник, который запомнится надолго! Создаем атмосферу радости и веселья для гостей любого возраста. От ужина на 20 человек до масштабной вечеринки на 300 гостей. Индивидуальное оформление, тематические декорации, профессиональное обслуживание и изысканное меню — мы воплотим в жизнь праздник вашей мечты.",
+                    "stats": [
+                        {
+                            "number": "300+",
+                            "label": "дней рождения"
+                        },
+                        {
+                            "number": "4.9",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "100%",
+                            "label": "радости гостей"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Организовать праздник",
+                        "note": "Бонусы именинникам — торт или шампанское в подарок!"
+                    }
+                },
+                {
+                    "section_id": "anniversary",
+                    "style": "dark",
+                    "label": "🎊 Юбилеи",
+                    "title": "Торжественный размах особенной даты",
+                    "description": "Юбилей — особенная дата, требующая торжественного размаха. В Shen мы организуем юбилеи с особым шиком: 30, 40, 50, 60 лет и другие значимые даты. Элегантная атмосфера, изысканное меню, внимание к каждой детали и тёплая семейная обстановка. Мы создаём торжество, достойное ваших достижений и окружённое теплом близких людей.",
+                    "stats": [
+                        {
+                            "number": "180+",
+                            "label": "юбилеев"
+                        },
+                        {
+                            "number": "5.0",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "100%",
+                            "label": "счастливых именинников"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Отпраздновать юбилей",
+                        "note": "Скидки для больших компаний от 100 гостей"
+                    }
+                },
+                {
+                    "section_id": "graduation",
+                    "style": "light",
+                    "label": "🎓 Выпускные",
+                    "title": "Незабываемый вечер прощания с юностью",
+                    "description": "Выпускной вечер — это прощание с беззаботной юностью и шаг во взрослую жизнь. Организуем выпускные для школ, колледжей и университетов. Стильное оформление, молодёжная атмосфера, современная музыка и праздничное меню. Создаём вечер, который станет ярким воспоминанием на всю жизнь для выпускников и их родителей.",
+                    "stats": [
+                        {
+                            "number": "50+",
+                            "label": "выпускных"
+                        },
+                        {
+                            "number": "4.9",
+                            "label": "рейтинг"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Забронировать выпускной",
+                        "note": "Ранее бронирование — лучшие даты разбирают за 8-10 месяцев"
+                    }
+                },
+                {
+                    "section_id": "conference",
+                    "style": "dark",
+                    "label": "💼 Конференции",
+                    "title": "Деловые мероприятия формата премиум",
+                    "description": "Деловые мероприятия в формате премиум. Организуем конференции, презентации, семинары, бизнес-встречи и тренинги любого уровня. Профессиональное техническое оснащение, удобная рассадка, кофе-брейки и бизнес-ланчи. Создаём идеальные условия для продуктивной работы и нетворкинга в комфортной обстановке с безупречным сервисом.",
+                    "stats": [
+                        {
+                            "number": "80+",
+                            "label": "мероприятий"
+                        },
+                        {
+                            "number": "4.8",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "300",
+                            "label": "макс. участников"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Организовать мероприятие",
+                        "note": "Индивидуальные условия для длительной аренды"
+                    }
+                },
+                {
+                    "section_id": "kids",
+                    "style": "light",
+                    "label": "🎈 Детские праздники",
+                    "title": "Волшебство для маленьких гостей",
+                    "description": "Детский праздник в Shen — это волшебство! Создаем сказочные celebrations для маленьких гостей. Дни рождения, выпускные в детском саду, первое причастие и другие детские торжества. Яркое тематическое оформление, детское меню, безопасное пространство и весёлая атмосфера. Помогаем организовать аниматоров, шоу-программы и сладкий стол для незабываемого праздника.",
+                    "stats": [
+                        {
+                            "number": "120+",
+                            "label": "детских праздников"
+                        },
+                        {
+                            "number": "5.0",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "100%",
+                            "label": "счастливых детей"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Устроить детский праздник",
+                        "note": ""
+                    }
+                },
+                {
+                    "section_id": "newyear",
+                    "style": "dark",
+                    "label": "🎄 Новогодние мероприятия",
+                    "title": "Встречайте Новый год в атмосфере сказки",
+                    "description": "Встречайте Новый год в атмосфере сказки и волшебства! Новогодние корпоративы, семейные celebrations и дружеские вечеринки в Shen. Праздничное оформление в новогодней тематике, изысканное праздничное меню, живая музыка или DJ, шоу-программы и, конечно, бой курантов в окружении близких людей. Создаём волшебную атмосферу для встречи самого главного праздника года.",
+                    "stats": [
+                        {
+                            "number": "60+",
+                            "label": "новогодних вечеров"
+                        },
+                        {
+                            "number": "4.9",
+                            "label": "рейтинг"
+                        },
+                        {
+                            "number": "31 дек",
+                            "label": "бронируйте заранее!"
+                        }
+                    ],
+                    "cta": {
+                        "text": "Забронировать Новый год",
+                        "note": "Бронирование на 31 декабря открыто — количество мест ограничено!"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_events_contact_cta",
+            "label": "Секция Contact CTA",
+            "name": "events_contact_cta",
+            "type": "group",
+            "instructions": "Настройки финальной секции с контактами",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contact_cta_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Готовы создать незабываемое мероприятие?",
+                    "placeholder": "Готовы создать незабываемое мероприятие?",
+                    "required": 1
+                },
+                {
+                    "key": "field_contact_cta_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Свяжитесь с нами для консультации и бронирования",
+                    "placeholder": "Свяжитесь с нами для консультации и бронирования"
+                },
+                {
+                    "key": "field_contact_cta_phone",
+                    "label": "Телефон",
+                    "name": "phone",
+                    "type": "text",
+                    "default_value": "+7 (978) 187-28-27",
+                    "placeholder": "+7 (978) 187-28-27",
+                    "required": 1
+                },
+                {
+                    "key": "field_contact_cta_whatsapp",
+                    "label": "WhatsApp (номер)",
+                    "name": "whatsapp",
+                    "type": "text",
+                    "default_value": "79781872827",
+                    "placeholder": "79781872827"
+                },
+                {
+                    "key": "field_contact_cta_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "type": "text",
+                    "default_value": "Забронировать",
+                    "placeholder": "Забронировать"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-events.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы мероприятий"
+}
+

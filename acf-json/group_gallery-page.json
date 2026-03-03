@@ -1,0 +1,411 @@
+{
+    "key": "group_gallery_page",
+    "title": "Страница галереи",
+    "fields": [
+        {
+            "key": "field_gallery_hero_section",
+            "label": "Hero секция",
+            "name": "gallery_hero_section",
+            "type": "group",
+            "instructions": "Настройки Hero секции страницы галереи",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_hero_slideshow",
+                    "label": "Слайдер изображений",
+                    "name": "slideshow",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_gallery_hero_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_gallery_hero_label_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "📸",
+                            "placeholder": "📸"
+                        },
+                        {
+                            "key": "field_gallery_hero_label_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Наша галерея",
+                            "placeholder": "Наша галерея"
+                        }
+                    ],
+                    "default_value": {
+                        "icon": "📸",
+                        "text": "Наша галерея"
+                    }
+                },
+                {
+                    "key": "field_gallery_hero_title",
+                    "label": "Заголовок (первая часть)",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Галерея",
+                    "placeholder": "Галерея",
+                    "required": 1
+                },
+                {
+                    "key": "field_gallery_hero_title_accent",
+                    "label": "Заголовок (акцентная часть)",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "Shen",
+                    "placeholder": "Shen",
+                    "required": 1
+                },
+                {
+                    "key": "field_gallery_hero_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Вдохновитесь атмосферой наших залов, изысканными блюдами\nи незабываемыми мероприятиями. Бесконечная коллекция моментов счастья.",
+                    "placeholder": "Описание для Hero секции"
+                },
+                {
+                    "key": "field_gallery_hero_stats",
+                    "label": "Статистика в Hero",
+                    "name": "stats",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 3,
+                    "max": 3,
+                    "button_label": "Добавить статистику",
+                    "sub_fields": [
+                        {
+                            "key": "field_gallery_hero_stat_value",
+                            "label": "Значение",
+                            "name": "value",
+                            "type": "text",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_hero_stat_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text",
+                            "default_value": "",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "value": "∞",
+                            "label": "Вдохновения"
+                        },
+                        {
+                            "value": "4",
+                            "label": "Категории"
+                        },
+                        {
+                            "value": "1000+",
+                            "label": "Мероприятий"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_gallery_filters_section",
+            "label": "Секция Фильтры",
+            "name": "gallery_filters_section",
+            "type": "group",
+            "instructions": "Настройки секции фильтров галереи",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_filters_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Выберите категорию",
+                    "placeholder": "Выберите категорию",
+                    "required": 1
+                },
+                {
+                    "key": "field_gallery_filters_list",
+                    "label": "Фильтры",
+                    "name": "filters",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить фильтр",
+                    "sub_fields": [
+                        {
+                            "key": "field_gallery_filter_id",
+                            "label": "ID фильтра",
+                            "name": "filter_id",
+                            "type": "text",
+                            "instructions": "Уникальный ID фильтра (латиницей, например: all, halls, food)",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_filter_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "instructions": "Оставьте пустым для фильтра 'Все'",
+                            "default_value": "",
+                            "placeholder": "🏛"
+                        },
+                        {
+                            "key": "field_gallery_filter_text",
+                            "label": "Текст фильтра",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_filter_count",
+                            "label": "Количество фотографий",
+                            "name": "count",
+                            "type": "number",
+                            "default_value": 0,
+                            "min": 0,
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_filter_active",
+                            "label": "Активный фильтр",
+                            "name": "active",
+                            "type": "true_false",
+                            "instructions": "Отметьте для фильтра, который будет активен по умолчанию",
+                            "default_value": 0
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "filter_id": "all",
+                            "icon": "",
+                            "text": "Все",
+                            "count": 40,
+                            "active": true
+                        },
+                        {
+                            "filter_id": "halls",
+                            "icon": "🏛",
+                            "text": "Интерьеры залов",
+                            "count": 14,
+                            "active": false
+                        },
+                        {
+                            "filter_id": "food",
+                            "icon": "🍽",
+                            "text": "Кухня и блюда",
+                            "count": 8,
+                            "active": false
+                        },
+                        {
+                            "filter_id": "events",
+                            "icon": "🎉",
+                            "text": "Мероприятия",
+                            "count": 12,
+                            "active": false
+                        },
+                        {
+                            "filter_id": "details",
+                            "icon": "✨",
+                            "text": "Детали и декор",
+                            "count": 6,
+                            "active": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_gallery_images_section",
+            "label": "Секция Изображения галереи",
+            "name": "gallery_images_section",
+            "type": "group",
+            "instructions": "Настройки изображений галереи",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_images_items",
+                    "label": "Изображения галереи",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить изображение",
+                    "sub_fields": [
+                        {
+                            "key": "field_gallery_image_file",
+                            "label": "Изображение",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_image_category",
+                            "label": "Категория",
+                            "name": "category",
+                            "type": "text",
+                            "instructions": "ID категории фильтра (например: halls, food, events, details). Для отображения в 'Все' можно указать несколько через запятую.",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_gallery_image_category_label",
+                            "label": "Подпись категории",
+                            "name": "category_label",
+                            "type": "group",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_gallery_image_category_icon",
+                                    "label": "Иконка категории (эмодзи)",
+                                    "name": "icon",
+                                    "type": "text",
+                                    "default_value": "",
+                                    "placeholder": "🏛"
+                                },
+                                {
+                                    "key": "field_gallery_image_category_text",
+                                    "label": "Текст категории",
+                                    "name": "text",
+                                    "type": "text",
+                                    "default_value": "",
+                                    "placeholder": "Интерьер"
+                                }
+                            ],
+                            "default_value": {
+                                "icon": "🏛",
+                                "text": "Интерьер"
+                            }
+                        },
+                        {
+                            "key": "field_gallery_image_visible",
+                            "label": "Видимо при загрузке",
+                            "name": "visible",
+                            "type": "true_false",
+                            "instructions": "Отметьте, если изображение должно быть видимо при первой загрузке страницы (первые 12 изображений)",
+                            "default_value": 1
+                        }
+                    ]
+                },
+                {
+                    "key": "field_gallery_images_items_per_page",
+                    "label": "Изображений на странице (первая загрузка)",
+                    "name": "items_per_page",
+                    "type": "number",
+                    "default_value": 12,
+                    "min": 6,
+                    "max": 24,
+                    "required": 1
+                },
+                {
+                    "key": "field_gallery_images_load_more_text",
+                    "label": "Текст кнопки 'Загрузить ещё'",
+                    "name": "load_more_text",
+                    "type": "text",
+                    "default_value": "Загрузить ещё",
+                    "placeholder": "Загрузить ещё"
+                }
+            ],
+            "default_value": {
+                "items_per_page": 12,
+                "load_more_text": "Загрузить ещё"
+            }
+        },
+        {
+            "key": "field_gallery_booking_section",
+            "label": "Секция Бронирование",
+            "name": "gallery_booking_section",
+            "type": "group",
+            "instructions": "Настройки секции бронирования",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_booking_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_gallery_booking_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ",
+                    "placeholder": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ",
+                    "required": 1
+                },
+                {
+                    "key": "field_gallery_booking_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Оставьте заявку и мы свяжемся с вами для обсуждения деталей",
+                    "placeholder": "Оставьте заявку и мы свяжемся с вами для обсуждения деталей"
+                },
+                {
+                    "key": "field_gallery_booking_wrapper",
+                    "label": "Обертка",
+                    "name": "wrapper",
+                    "type": "true_false",
+                    "instructions": "Использовать обертку для секции",
+                    "default_value": 1
+                },
+                {
+                    "key": "field_gallery_booking_form_id",
+                    "label": "ID формы",
+                    "name": "form_id",
+                    "type": "text",
+                    "default_value": "bookingForm",
+                    "placeholder": "bookingForm"
+                }
+            ],
+            "default_value": {
+                "title": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ",
+                "subtitle": "Оставьте заявку и мы свяжемся с вами для обсуждения деталей",
+                "wrapper": true,
+                "form_id": "bookingForm"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-gallery.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы галереи"
+}
+

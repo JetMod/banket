@@ -1,0 +1,240 @@
+{
+    "key": "group_privacy_page",
+    "title": "Страница Политика конфиденциальности",
+    "fields": [
+        {
+            "key": "field_privacy_hero_section",
+            "label": "Hero секция",
+            "name": "privacy_hero_section",
+            "type": "group",
+            "instructions": "Настройки главного экрана страницы политики конфиденциальности",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_privacy_hero_icon",
+                    "label": "SVG иконка",
+                    "name": "icon",
+                    "type": "textarea",
+                    "instructions": "Вставьте SVG код иконки",
+                    "rows": 8,
+                    "default_value": "<svg width=\"64\" height=\"64\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M12 8V12M12 16H12.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+                },
+                {
+                    "key": "field_privacy_hero_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Политика конфиденциальности",
+                    "placeholder": "Политика конфиденциальности",
+                    "required": 1
+                },
+                {
+                    "key": "field_privacy_hero_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Защита ваших персональных данных — наш приоритет",
+                    "placeholder": "Защита ваших персональных данных — наш приоритет"
+                },
+                {
+                    "key": "field_privacy_hero_date",
+                    "label": "Дата обновления",
+                    "name": "date",
+                    "type": "text",
+                    "default_value": "Последнее обновление: 1 января 2025 года",
+                    "placeholder": "Последнее обновление: 1 января 2025 года"
+                }
+            ]
+        },
+        {
+            "key": "field_privacy_content_sections",
+            "label": "Разделы политики конфиденциальности",
+            "name": "privacy_content_sections",
+            "type": "repeater",
+            "instructions": "Добавьте разделы политики конфиденциальности",
+            "layout": "block",
+            "min": 1,
+            "button_label": "Добавить раздел",
+            "sub_fields": [
+                {
+                    "key": "field_privacy_section_number",
+                    "label": "Номер раздела",
+                    "name": "number",
+                    "type": "text",
+                    "instructions": "Номер раздела (например: 1, 2, 3...)",
+                    "required": 1
+                },
+                {
+                    "key": "field_privacy_section_title",
+                    "label": "Заголовок раздела",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_privacy_section_content",
+                    "label": "Содержание раздела",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "Текст раздела. Можно использовать списки, выделение и т.д.",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 1
+                }
+            ],
+            "default_value": [
+                {
+                    "number": "1",
+                    "title": "Общие положения",
+                    "content": "<p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта банкетных залов <strong>Shen</strong> (далее — «Сайт»), расположенного по адресу: г. Симферополь, ул. Генерала Васильева, 40А.</p><p>Используя Сайт и оставляя свои персональные данные, вы соглашаетесь с условиями настоящей Политики конфиденциальности.</p>"
+                },
+                {
+                    "number": "2",
+                    "title": "Персональные данные, которые мы собираем",
+                    "content": "<p>При использовании Сайта мы можем собирать следующие персональные данные:</p><ul><li><strong>Имя</strong> — для идентификации и обращения к вам</li><li><strong>Номер телефона</strong> — для связи с вами по вопросам бронирования и организации мероприятий</li><li><strong>Электронная почта</strong> — для отправки подтверждений и уведомлений</li><li><strong>Комментарии и пожелания</strong> — информация, которую вы добровольно предоставляете при заполнении форм обратной связи</li><li><strong>Технические данные</strong> — IP-адрес, тип браузера, операционная система (собираются автоматически)</li></ul>"
+                },
+                {
+                    "number": "3",
+                    "title": "Цели обработки персональных данных",
+                    "content": "<p>Мы используем ваши персональные данные для следующих целей:</p><ul><li>Обработка заявок на бронирование банкетных залов</li><li>Связь с вами для уточнения деталей мероприятий</li><li>Предоставление информации об услугах и специальных предложениях</li><li>Улучшение качества обслуживания и работы Сайта</li><li>Соблюдение требований законодательства Российской Федерации</li></ul>"
+                },
+                {
+                    "number": "4",
+                    "title": "Защита персональных данных",
+                    "content": "<p>Мы применяем современные технические и организационные меры для защиты ваших персональных данных от несанкционированного доступа, изменения, раскрытия или уничтожения:</p><ul><li>Использование защищенных протоколов передачи данных (HTTPS)</li><li>Ограничение доступа к персональным данным только уполномоченным сотрудникам</li><li>Регулярное обновление систем безопасности</li><li>Резервное копирование данных</li></ul>"
+                },
+                {
+                    "number": "5",
+                    "title": "Передача персональных данных третьим лицам",
+                    "content": "<p>Мы не передаем ваши персональные данные третьим лицам, за исключением следующих случаев:</p><ul><li>Когда передача необходима для предоставления запрошенных вами услуг</li><li>Когда передача требуется по законодательству Российской Федерации</li><li>С вашего явного согласия на передачу данных</li></ul><p>Мы не продаем и не сдаем в аренду ваши персональные данные.</p>"
+                },
+                {
+                    "number": "6",
+                    "title": "Ваши права",
+                    "content": "<p>Вы имеете право:</p><ul><li>Получать информацию о том, какие персональные данные мы обрабатываем</li><li>Требовать исправления неточных или неполных данных</li><li>Требовать удаления ваших персональных данных</li><li>Отозвать согласие на обработку персональных данных</li><li>Ограничить обработку ваших персональных данных</li></ul><p>Для реализации ваших прав вы можете связаться с нами по телефону <a href=\"tel:+79781872827\">+7 (978) 187-28-27</a> или по электронной почте <a href=\"mailto:banquet@shen.ru\">banquet@shen.ru</a>.</p>"
+                },
+                {
+                    "number": "7",
+                    "title": "Использование файлов Cookie",
+                    "content": "<p>Сайт может использовать файлы Cookie для улучшения пользовательского опыта и анализа посещаемости. Вы можете настроить ваш браузер для отказа от приема файлов Cookie, однако это может ограничить функциональность Сайта.</p>"
+                },
+                {
+                    "number": "8",
+                    "title": "Сроки хранения персональных данных",
+                    "content": "<p>Мы храним ваши персональные данные в течение срока, необходимого для достижения целей обработки, или в течение срока, установленного законодательством Российской Федерации. После истечения срока хранения данные удаляются или обезличиваются.</p>"
+                },
+                {
+                    "number": "9",
+                    "title": "Изменения в Политике конфиденциальности",
+                    "content": "<p>Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности. Все изменения вступают в силу с момента их публикации на Сайте. Рекомендуем периодически просматривать данную страницу для ознакомления с актуальной информацией.</p>"
+                },
+                {
+                    "number": "10",
+                    "title": "Контактная информация",
+                    "content": "<p>По всем вопросам, связанным с обработкой персональных данных, вы можете обращаться:</p><div class=\"privacy-contacts\"><div class=\"privacy-contact-item\"><strong>Телефон:</strong> <a href=\"tel:+79781872827\">+7 (978) 187-28-27</a></div><div class=\"privacy-contact-item\"><strong>Email:</strong> <a href=\"mailto:banquet@shen.ru\">banquet@shen.ru</a></div><div class=\"privacy-contact-item\"><strong>Адрес:</strong> г. Симферополь, ул. Генерала Васильева, 40А</div></div>"
+                }
+            ]
+        },
+        {
+            "key": "field_privacy_cta_section",
+            "label": "CTA секция",
+            "name": "privacy_cta_section",
+            "type": "group",
+            "instructions": "Настройки секции призыва к действию",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_privacy_cta_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Готовы забронировать зал?",
+                    "placeholder": "Готовы забронировать зал?",
+                    "required": 1
+                },
+                {
+                    "key": "field_privacy_cta_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Свяжитесь с нами для организации незабываемого мероприятия",
+                    "placeholder": "Свяжитесь с нами для организации незабываемого мероприятия"
+                },
+                {
+                    "key": "field_privacy_cta_button_primary",
+                    "label": "Основная кнопка",
+                    "name": "button_primary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_privacy_cta_button_primary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Перейти к контактам",
+                            "placeholder": "Перейти к контактам"
+                        },
+                        {
+                            "key": "field_privacy_cta_button_primary_url",
+                            "label": "URL кнопки",
+                            "name": "url",
+                            "type": "page_link",
+                            "post_type": [
+                                "page"
+                            ],
+                            "default_value": "/контакты/"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_privacy_cta_button_secondary",
+                    "label": "Вторичная кнопка",
+                    "name": "button_secondary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_privacy_cta_button_secondary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "На главную",
+                            "placeholder": "На главную"
+                        },
+                        {
+                            "key": "field_privacy_cta_button_secondary_url",
+                            "label": "URL кнопки",
+                            "name": "url",
+                            "type": "page_link",
+                            "post_type": [
+                                "page"
+                            ],
+                            "default_value": "/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-privacy.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы политики конфиденциальности"
+}
+

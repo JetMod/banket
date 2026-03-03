@@ -1,0 +1,643 @@
+{
+    "key": "group_menu_page",
+    "title": "Страница меню",
+    "fields": [
+        {
+            "key": "field_menu_hero_section",
+            "label": "Hero секция",
+            "name": "menu_hero_section",
+            "type": "group",
+            "instructions": "Настройки Hero секции страницы меню",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_menu_hero_slideshow",
+                    "label": "Слайдер изображений",
+                    "name": "slideshow",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1,
+                    "default_value": []
+                },
+                {
+                    "key": "field_menu_hero_badges",
+                    "label": "Бейджи",
+                    "name": "badges",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 0,
+                    "max": 2,
+                    "button_label": "Добавить бейдж",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_hero_badge_type",
+                            "label": "Тип бейджа",
+                            "name": "type",
+                            "type": "select",
+                            "choices": {
+                                "halal": "Халяль",
+                                "fresh": "Свежее из печи"
+                            },
+                            "default_value": "halal",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_hero_badge_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "⭐",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_hero_badge_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Халяль",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "type": "halal",
+                            "icon": "⭐",
+                            "text": "Халяль"
+                        },
+                        {
+                            "type": "fresh",
+                            "icon": "🔥",
+                            "text": "Свежее из печи"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_menu_hero_title_line",
+                    "label": "Заголовок (первая строка)",
+                    "name": "title_line",
+                    "type": "text",
+                    "default_value": "Наше",
+                    "placeholder": "Наше",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_hero_title_accent",
+                    "label": "Заголовок (акцентная строка)",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "Меню",
+                    "placeholder": "Меню",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_hero_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Восточная и европейская кухня премиум-класса.\nСвежее приготовление блюд непосредственно перед подачей.",
+                    "placeholder": "Восточная и европейская кухня премиум-класса."
+                },
+                {
+                    "key": "field_menu_hero_button_primary",
+                    "label": "Основная кнопка",
+                    "name": "button_primary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_hero_button_primary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Смотреть меню",
+                            "placeholder": "Смотреть меню",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_hero_button_primary_action",
+                            "label": "Якорь или действие",
+                            "name": "action",
+                            "type": "text",
+                            "default_value": "#menu-gallery",
+                            "placeholder": "#menu-gallery"
+                        }
+                    ],
+                    "default_value": {
+                        "text": "Смотреть меню",
+                        "action": "#menu-gallery"
+                    }
+                },
+                {
+                    "key": "field_menu_hero_button_secondary",
+                    "label": "Вторичная кнопка",
+                    "name": "button_secondary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_hero_button_secondary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Консультация шефа",
+                            "placeholder": "Консультация шефа",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_hero_button_secondary_phone",
+                            "label": "Телефон",
+                            "name": "phone",
+                            "type": "text",
+                            "default_value": "+7 (978) 8064657",
+                            "placeholder": "+7 (978) 8064657",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": {
+                        "text": "Консультация шефа",
+                        "phone": "+7 (978) 8064657"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_menu_gallery_section",
+            "label": "Галерея блюд",
+            "name": "menu_gallery_section",
+            "type": "group",
+            "instructions": "Настройки секции галереи блюд",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_menu_gallery_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Галерея блюд",
+                    "placeholder": "Галерея блюд",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_gallery_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Вдохновитесь нашими блюдами",
+                    "placeholder": "Вдохновитесь нашими блюдами"
+                },
+                {
+                    "key": "field_menu_gallery_images",
+                    "label": "Изображения галереи",
+                    "name": "images",
+                    "type": "gallery",
+                    "instructions": "Изображения блюд для галереи",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                }
+            ],
+            "default_value": {
+                "title": "Галерея блюд",
+                "subtitle": "Вдохновитесь нашими блюдами"
+            }
+        },
+        {
+            "key": "field_menu_categories_section",
+            "label": "Категории меню",
+            "name": "menu_categories_section",
+            "type": "group",
+            "instructions": "Настройки секции категорий меню",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_menu_categories_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Меню",
+                    "placeholder": "Меню"
+                },
+                {
+                    "key": "field_menu_categories_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Категории блюд",
+                    "placeholder": "Категории блюд",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_categories_description",
+                    "label": "Описание",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Мы предлагаем широкий выбор блюд восточной и европейской кухни. Все продукты сертифицированы как Халяль, блюда готовятся свежими из печи.",
+                    "placeholder": "Описание категорий меню"
+                },
+                {
+                    "key": "field_menu_categories_list",
+                    "label": "Категории",
+                    "name": "categories",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить категорию",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_category_id",
+                            "label": "ID категории",
+                            "name": "category_id",
+                            "type": "text",
+                            "instructions": "Уникальный ID категории (латиницей, например: sets, appetizers)",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_category_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "🍽️",
+                            "placeholder": "🍽️",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_category_name",
+                            "label": "Название категории",
+                            "name": "name",
+                            "type": "text",
+                            "default_value": "Банкетные сеты",
+                            "placeholder": "Банкетные сеты",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_category_title",
+                            "label": "Заголовок категории",
+                            "name": "title",
+                            "type": "text",
+                            "default_value": "Банкетные сеты",
+                            "placeholder": "Банкетные сеты",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_category_description",
+                            "label": "Описание категории",
+                            "name": "description",
+                            "type": "textarea",
+                            "rows": 2,
+                            "default_value": "Готовые банкетные меню для мероприятий различного формата. Сбалансированные наборы блюд, рассчитанные на количество гостей.",
+                            "placeholder": "Описание категории"
+                        },
+                        {
+                            "key": "field_menu_category_items",
+                            "label": "Блюда категории",
+                            "name": "items",
+                            "type": "repeater",
+                            "layout": "block",
+                            "min": 0,
+                            "button_label": "Добавить блюдо",
+                            "sub_fields": [
+                                {
+                                    "key": "field_menu_category_item_name",
+                                    "label": "Название блюда",
+                                    "name": "name",
+                                    "type": "text",
+                                    "default_value": "",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_menu_category_item_desc",
+                                    "label": "Описание",
+                                    "name": "description",
+                                    "type": "textarea",
+                                    "rows": 2,
+                                    "default_value": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_menu_category_active",
+                            "label": "Активная категория",
+                            "name": "active",
+                            "type": "true_false",
+                            "instructions": "Отметьте для категории, которая будет показана первой",
+                            "default_value": 0
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "category_id": "sets",
+                            "icon": "🍽️",
+                            "name": "Банкетные сеты",
+                            "title": "Банкетные сеты",
+                            "description": "Готовые банкетные меню для мероприятий различного формата. Сбалансированные наборы блюд, рассчитанные на количество гостей.",
+                            "active": true,
+                            "items": [
+                                {
+                                    "name": "Свадебный сет",
+                                    "description": "Традиционные блюда для торжества"
+                                },
+                                {
+                                    "name": "Корпоративный сет",
+                                    "description": "Бизнес-ланч и фуршетные варианты"
+                                },
+                                {
+                                    "name": "Детский сет",
+                                    "description": "Специальное меню для детских праздников"
+                                },
+                                {
+                                    "name": "Премиум сет",
+                                    "description": "Эксклюзивные блюда премиум-класса"
+                                }
+                            ]
+                        },
+                        {
+                            "category_id": "appetizers",
+                            "icon": "🥗",
+                            "name": "Холодные закуски",
+                            "title": "Холодные закуски",
+                            "description": "Свежие салаты, овощные нарезки, сырные тарелки и традиционные закуски.",
+                            "active": false,
+                            "items": [
+                                {
+                                    "name": "Салаты",
+                                    "description": "Свежие овощные и мясные салаты"
+                                },
+                                {
+                                    "name": "Овощные нарезки",
+                                    "description": "Свежие сезонные овощи"
+                                },
+                                {
+                                    "name": "Сырная тарелка",
+                                    "description": "Ассорти из премиальных сыров"
+                                },
+                                {
+                                    "name": "Традиционные закуски",
+                                    "description": "Восточные и европейские закуски"
+                                }
+                            ]
+                        },
+                        {
+                            "category_id": "hot",
+                            "icon": "🍖",
+                            "name": "Горячие блюда",
+                            "title": "Горячие блюда",
+                            "description": "Основные блюда из мяса, птицы и рыбы. Приготовление из печи, подача горячими.",
+                            "active": false,
+                            "items": [
+                                {
+                                    "name": "Мясные блюда",
+                                    "description": "Говядина, баранина, телятина"
+                                },
+                                {
+                                    "name": "Блюда из птицы",
+                                    "description": "Курица, индейка, утка"
+                                },
+                                {
+                                    "name": "Рыбные блюда",
+                                    "description": "Свежая рыба и морепродукты"
+                                },
+                                {
+                                    "name": "Гарниры",
+                                    "description": "Овощи, крупы, картофель"
+                                }
+                            ]
+                        },
+                        {
+                            "category_id": "grill",
+                            "icon": "🔥",
+                            "name": "Мангал и гриль",
+                            "title": "Мангал и гриль",
+                            "description": "Блюда, приготовленные на открытом огне. Ароматные шашлыки и стейки.",
+                            "active": false,
+                            "items": [
+                                {
+                                    "name": "Шашлыки",
+                                    "description": "Мясные и овощные шашлыки"
+                                },
+                                {
+                                    "name": "Стейки",
+                                    "description": "Премиальные стейки на гриле"
+                                },
+                                {
+                                    "name": "Кебабы",
+                                    "description": "Традиционные восточные кебабы"
+                                },
+                                {
+                                    "name": "Овощи на гриле",
+                                    "description": "Сезонные овощи на мангале"
+                                }
+                            ]
+                        },
+                        {
+                            "category_id": "desserts",
+                            "icon": "🍰",
+                            "name": "Десерты",
+                            "title": "Десерты",
+                            "description": "Сладкие завершения банкета. Торты, пирожные, восточные сладости.",
+                            "active": false,
+                            "items": [
+                                {
+                                    "name": "Торты",
+                                    "description": "Авторские торты на заказ"
+                                },
+                                {
+                                    "name": "Пирожные",
+                                    "description": "Ассорти из десертов"
+                                },
+                                {
+                                    "name": "Восточные сладости",
+                                    "description": "Традиционные восточные десерты"
+                                },
+                                {
+                                    "name": "Фруктовые тарелки",
+                                    "description": "Свежие сезонные фрукты"
+                                }
+                            ]
+                        },
+                        {
+                            "category_id": "drinks",
+                            "icon": "🥤",
+                            "name": "Напитки",
+                            "title": "Напитки",
+                            "description": "Широкий выбор безалкогольных напитков, соки, чай, кофе.",
+                            "active": false,
+                            "items": [
+                                {
+                                    "name": "Свежевыжатые соки",
+                                    "description": "Натуральные фруктовые соки"
+                                },
+                                {
+                                    "name": "Чай и кофе",
+                                    "description": "Премиальные сорта чая и кофе"
+                                },
+                                {
+                                    "name": "Безалкогольные напитки",
+                                    "description": "Газированные и негазированные"
+                                },
+                                {
+                                    "name": "Морсы и компоты",
+                                    "description": "Домашние напитки"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "default_value": {
+                "label": "Меню",
+                "title": "Категории блюд",
+                "description": "Мы предлагаем широкий выбор блюд восточной и европейской кухни. Все продукты сертифицированы как Халяль, блюда готовятся свежими из печи."
+            }
+        },
+        {
+            "key": "field_menu_contact_cta_section",
+            "label": "Contact CTA секция",
+            "name": "menu_contact_cta_section",
+            "type": "group",
+            "instructions": "Настройки секции призыва к действию",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_menu_contact_cta_badge",
+                    "label": "Бейдж",
+                    "name": "badge",
+                    "type": "text",
+                    "default_value": "Индивидуальный подход",
+                    "placeholder": "Индивидуальный подход"
+                },
+                {
+                    "key": "field_menu_contact_cta_title_line",
+                    "label": "Заголовок (первая строка)",
+                    "name": "title_line",
+                    "type": "text",
+                    "default_value": "Готовы составить",
+                    "placeholder": "Готовы составить",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_contact_cta_title_accent",
+                    "label": "Заголовок (акцентная строка)",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "меню для вашего мероприятия?",
+                    "placeholder": "меню для вашего мероприятия?",
+                    "required": 1
+                },
+                {
+                    "key": "field_menu_contact_cta_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Свяжитесь с нами для консультации с шеф-поваром и составления индивидуального меню",
+                    "placeholder": "Свяжитесь с нами для консультации..."
+                },
+                {
+                    "key": "field_menu_contact_cta_primary",
+                    "label": "Основная кнопка",
+                    "name": "primary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_contact_cta_primary_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text",
+                            "default_value": "Позвонить",
+                            "placeholder": "Позвонить",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_contact_cta_primary_phone",
+                            "label": "Телефон",
+                            "name": "phone",
+                            "type": "text",
+                            "default_value": "+7 (978) 8064657",
+                            "placeholder": "+7 (978) 8064657",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": {
+                        "label": "Позвонить",
+                        "phone": "+7 (978) 8064657"
+                    }
+                },
+                {
+                    "key": "field_menu_contact_cta_secondary",
+                    "label": "Вторичная кнопка",
+                    "name": "secondary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_contact_cta_secondary_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text",
+                            "default_value": "Контакты",
+                            "placeholder": "Контакты",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_menu_contact_cta_secondary_subtitle",
+                            "label": "Подзаголовок",
+                            "name": "subtitle",
+                            "type": "text",
+                            "default_value": "Написать нам",
+                            "placeholder": "Написать нам"
+                        },
+                        {
+                            "key": "field_menu_contact_cta_secondary_url",
+                            "label": "URL ссылки",
+                            "name": "url",
+                            "type": "page_link",
+                            "post_type": [
+                                "page"
+                            ],
+                            "default_value": ""
+                        }
+                    ],
+                    "default_value": {
+                        "label": "Контакты",
+                        "subtitle": "Написать нам",
+                        "url": ""
+                    }
+                }
+            ],
+            "default_value": {
+                "badge": "Индивидуальный подход",
+                "title_line": "Готовы составить",
+                "title_accent": "меню для вашего мероприятия?",
+                "text": "Свяжитесь с нами для консультации с шеф-поваром и составления индивидуального меню"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-menu.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы меню"
+}
+

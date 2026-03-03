@@ -1,0 +1,300 @@
+{
+    "key": "group_header",
+    "title": "Header (Шапка сайта)",
+    "fields": [
+        {
+            "key": "field_header_logo",
+            "label": "Логотип",
+            "name": "header_logo",
+            "type": "group",
+            "instructions": "Настройки логотипа в шапке сайта",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_header_logo_type",
+                    "label": "Тип логотипа",
+                    "name": "type",
+                    "type": "select",
+                    "choices": {
+                        "svg": "SVG код",
+                        "image": "Изображение"
+                    },
+                    "default_value": "svg",
+                    "required": 1
+                },
+                {
+                    "key": "field_header_logo_svg",
+                    "label": "SVG код логотипа",
+                    "name": "svg",
+                    "type": "textarea",
+                    "instructions": "Вставьте SVG код логотипа",
+                    "rows": 15,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_logo_type",
+                                "operator": "==",
+                                "value": "svg"
+                            }
+                        ]
+                    ],
+                    "default_value": "<svg class=\"header__logo-svg\" width=\"120\" height=\"50\" viewBox=\"0 0 120 50\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <!-- Декоративный элемент слева -->\n    <path d=\"M2 25L8 19L2 13\" stroke=\"url(#gold-gradient)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n    \n    <!-- Текст SHEN -->\n    <text x=\"18\" y=\"32\" font-family=\"'Playfair Display', serif\" font-size=\"24\" font-weight=\"600\" fill=\"url(#gold-gradient)\" letter-spacing=\"2\">\n        SHEN\n    </text>\n    \n    <!-- Декоративный элемент справа -->\n    <path d=\"M118 25L112 31L118 37\" stroke=\"url(#gold-gradient)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n    \n    <!-- Подпись снизу -->\n    <text x=\"60\" y=\"44\" font-family=\"'Inter', sans-serif\" font-size=\"7\" fill=\"rgba(255,255,255,0.8)\" text-anchor=\"middle\" letter-spacing=\"3\">\n        BANQUET HALLS\n    </text>\n     \n    <!-- Градиент -->\n    <defs>\n        <linearGradient id=\"gold-gradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n            <stop offset=\"0%\" style=\"stop-color:#d4af37;stop-opacity:1\" />\n            <stop offset=\"50%\" style=\"stop-color:#f4d03f;stop-opacity:1\" />\n            <stop offset=\"100%\" style=\"stop-color:#c9a961;stop-opacity:1\" />\n        </linearGradient>\n    </defs>\n</svg>"
+                },
+                {
+                    "key": "field_header_logo_image",
+                    "label": "Изображение логотипа",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Загрузите изображение логотипа",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_logo_type",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_header_mobile_logo",
+            "label": "Логотип для мобильного меню",
+            "name": "header_mobile_logo",
+            "type": "image",
+            "instructions": "Логотип, отображаемый в мобильном меню",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_header_menu",
+            "label": "Меню навигации",
+            "name": "header_menu",
+            "type": "repeater",
+            "instructions": "Добавьте пункты меню",
+            "layout": "block",
+            "min": 1,
+            "button_label": "Добавить пункт меню",
+            "sub_fields": [
+                {
+                    "key": "field_header_menu_title",
+                    "label": "Название пункта",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_header_menu_url",
+                    "label": "URL ссылки",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "Введите URL (например: /мероприятия/ или полный URL)",
+                    "required": 1
+                },
+                {
+                    "key": "field_header_menu_has_dropdown",
+                    "label": "Есть подменю",
+                    "name": "has_dropdown",
+                    "type": "true_false",
+                    "instructions": "Включить, если у пункта есть выпадающее подменю",
+                    "default_value": 0
+                },
+                {
+                    "key": "field_header_menu_dropdown_items",
+                    "label": "Элементы подменю",
+                    "name": "dropdown_items",
+                    "type": "repeater",
+                    "instructions": "Добавьте элементы подменю",
+                    "layout": "table",
+                    "min": 0,
+                    "button_label": "Добавить элемент подменю",
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_dropdown_title",
+                            "label": "Название",
+                            "name": "title",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_header_menu_dropdown_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "text",
+                            "instructions": "Введите URL (например: /мероприятия/#wedding)",
+                            "required": 1
+                        }
+                    ],
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_has_dropdown",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_header_menu_dropdown_aria_label",
+                    "label": "ARIA label для подменю",
+                    "name": "dropdown_aria_label",
+                    "type": "text",
+                    "instructions": "Текст для aria-label подменю",
+                    "default_value": "Подменю",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_has_dropdown",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "default_value": [
+                {
+                    "title": "Мероприятия",
+                    "url": "/мероприятия/",
+                    "has_dropdown": true,
+                    "dropdown_aria_label": "Подменю мероприятий",
+                    "dropdown_items": [
+                        {
+                            "title": "Свадьба",
+                            "url": "/мероприятия/#wedding"
+                        },
+                        {
+                            "title": "День рождения",
+                            "url": "/мероприятия/#birthday"
+                        },
+                        {
+                            "title": "Корпоратив",
+                            "url": "/мероприятия/#corporate"
+                        },
+                        {
+                            "title": "Выпускной",
+                            "url": "/мероприятия/#graduation"
+                        },
+                        {
+                            "title": "Конференция | Бизнес мероприятия",
+                            "url": "/мероприятия/#conference"
+                        },
+                        {
+                            "title": "Детский праздник",
+                            "url": "/мероприятия/#kids"
+                        },
+                        {
+                            "title": "Новогодняя ночь",
+                            "url": "/мероприятия/#newyear"
+                        }
+                    ]
+                },
+                {
+                    "title": "Меню",
+                    "url": "/меню/",
+                    "has_dropdown": false
+                },
+                {
+                    "title": "Галерея",
+                    "url": "/галерея/",
+                    "has_dropdown": false
+                },
+                {
+                    "title": "Отзывы",
+                    "url": "/отзывы/",
+                    "has_dropdown": false
+                },
+                {
+                    "title": "Контакты",
+                    "url": "/контакты/",
+                    "has_dropdown": false
+                }
+            ]
+        },
+        {
+            "key": "field_header_contacts",
+            "label": "Контакты",
+            "name": "header_contacts",
+            "type": "group",
+            "instructions": "Контактная информация в шапке",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_header_phone",
+                    "label": "Телефон",
+                    "name": "phone",
+                    "type": "text",
+                    "default_value": "+7 (978) 187-28-27",
+                    "placeholder": "+7 (978) 187-28-27",
+                    "required": 1
+                },
+                {
+                    "key": "field_header_address",
+                    "label": "Адрес (для мобильного меню)",
+                    "name": "address",
+                    "type": "text",
+                    "default_value": "ул. Генерала Васильева, 40А",
+                    "placeholder": "ул. Генерала Васильева, 40А"
+                }
+            ]
+        },
+        {
+            "key": "field_header_aria_labels",
+            "label": "ARIA метки",
+            "name": "header_aria_labels",
+            "type": "group",
+            "instructions": "Настройки доступности (ARIA labels)",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_header_aria_nav",
+                    "label": "ARIA label для навигации",
+                    "name": "nav",
+                    "type": "text",
+                    "default_value": "Основная навигация",
+                    "placeholder": "Основная навигация"
+                },
+                {
+                    "key": "field_header_aria_burger",
+                    "label": "ARIA label для кнопки меню",
+                    "name": "burger",
+                    "type": "text",
+                    "default_value": "Открыть меню",
+                    "placeholder": "Открыть меню"
+                },
+                {
+                    "key": "field_header_aria_arrow",
+                    "label": "ARIA label для стрелки подменю",
+                    "name": "arrow",
+                    "type": "text",
+                    "default_value": "Раскрыть подменю",
+                    "placeholder": "Раскрыть подменю"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "banket-blocks-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки шапки сайта (Header)"
+}
+

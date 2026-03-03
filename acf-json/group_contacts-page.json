@@ -1,0 +1,404 @@
+{
+    "key": "group_contacts_page",
+    "title": "Страница Контакты",
+    "fields": [
+        {
+            "key": "field_contacts_hero_section",
+            "label": "Hero секция",
+            "name": "contacts_hero_section",
+            "type": "group",
+            "instructions": "Настройки главного экрана страницы контактов",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_hero_slideshow",
+                    "label": "Слайдшоу изображений",
+                    "name": "slideshow",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдшоу в левой части Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_contacts_hero_main_label_icon",
+                    "label": "Иконка метки (левая часть)",
+                    "name": "main_label_icon",
+                    "type": "text",
+                    "default_value": "✨",
+                    "placeholder": "✨"
+                },
+                {
+                    "key": "field_contacts_hero_main_label_text",
+                    "label": "Текст метки (левая часть)",
+                    "name": "main_label_text",
+                    "type": "text",
+                    "default_value": "Примеальный уровень",
+                    "placeholder": "Примеальный уровень"
+                },
+                {
+                    "key": "field_contacts_hero_main_title",
+                    "label": "Заголовок (левая часть)",
+                    "name": "main_title",
+                    "type": "text",
+                    "default_value": "Банкетный зал",
+                    "placeholder": "Банкетный зал",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_hero_main_title_accent",
+                    "label": "Акцентный заголовок (левая часть)",
+                    "name": "main_title_accent",
+                    "type": "text",
+                    "default_value": "Shen",
+                    "placeholder": "Shen",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_hero_main_subtitle",
+                    "label": "Подзаголовок (левая часть)",
+                    "name": "main_subtitle",
+                    "type": "text",
+                    "default_value": "Ваше идеальное место для незабываемых мероприятий",
+                    "placeholder": "Ваше идеальное место для незабываемых мероприятий"
+                },
+                {
+                    "key": "field_contacts_hero_form_title",
+                    "label": "Заголовок формы (правая часть)",
+                    "name": "form_title",
+                    "type": "text",
+                    "default_value": "Забронируйте зал",
+                    "placeholder": "Забронируйте зал",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_hero_form_subtitle",
+                    "label": "Подзаголовок формы (правая часть)",
+                    "name": "form_subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Оставьте заявку, и наш менеджер свяжется с вами в ближайшее время для уточнения деталей",
+                    "placeholder": "Оставьте заявку, и наш менеджер свяжется с вами в ближайшее время для уточнения деталей"
+                },
+                {
+                    "key": "field_contacts_hero_form_button_text",
+                    "label": "Текст кнопки формы",
+                    "name": "form_button_text",
+                    "type": "text",
+                    "default_value": "Отправить заявку",
+                    "placeholder": "Отправить заявку"
+                },
+                {
+                    "key": "field_contacts_hero_form_button_icon",
+                    "label": "Иконка кнопки формы",
+                    "name": "form_button_icon",
+                    "type": "text",
+                    "default_value": "→",
+                    "placeholder": "→"
+                }
+            ]
+        },
+        {
+            "key": "field_contacts_info_section",
+            "label": "Секция Контактная информация",
+            "name": "contacts_info_section",
+            "type": "group",
+            "instructions": "Настройки секции с контактными карточками",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_info_label",
+                    "label": "Метка секции",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Наши контакты",
+                    "placeholder": "Наши контакты"
+                },
+                {
+                    "key": "field_contacts_info_title",
+                    "label": "Заголовок секции",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Как с нами связаться",
+                    "placeholder": "Как с нами связаться",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_info_divider_icon",
+                    "label": "Иконка разделителя",
+                    "name": "divider_icon",
+                    "type": "text",
+                    "default_value": "✨",
+                    "placeholder": "✨"
+                },
+                {
+                    "key": "field_contacts_info_cards",
+                    "label": "Контактные карточки",
+                    "name": "cards",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 4,
+                    "max": 4,
+                    "button_label": "Добавить карточку",
+                    "sub_fields": [
+                        {
+                            "key": "field_contacts_info_card_icon",
+                            "label": "SVG иконка",
+                            "name": "icon",
+                            "type": "textarea",
+                            "instructions": "Вставьте SVG код иконки",
+                            "rows": 5
+                        },
+                        {
+                            "key": "field_contacts_info_card_title",
+                            "label": "Заголовок карточки",
+                            "name": "title",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_contacts_info_card_text",
+                            "label": "Описание",
+                            "name": "text",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_contacts_info_card_value",
+                            "label": "Значение (телефон, email, адрес, часы)",
+                            "name": "value",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_contacts_info_card_link",
+                            "label": "Ссылка (для телефона и email)",
+                            "name": "link",
+                            "type": "text",
+                            "instructions": "Оставьте пустым, если не нужна ссылка"
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5z\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>",
+                            "title": "Телефон",
+                            "text": "Звоните в любое время",
+                            "value": "+7 (978) 187-28-27",
+                            "link": "tel:+79781872827"
+                        },
+                        {
+                            "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M3 7l9 6 9-6\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>",
+                            "title": "Email",
+                            "text": "Напишите нам",
+                            "value": "info@shen-banquet.ru",
+                            "link": "mailto:info@shen-banquet.ru"
+                        },
+                        {
+                            "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>",
+                            "title": "Адрес",
+                            "text": "г. Симферополь",
+                            "value": "ул. Генерала Васильева, 40А",
+                            "link": ""
+                        },
+                        {
+                            "icon": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M12 7v5l3 3\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>",
+                            "title": "Часы работы",
+                            "text": "Консультации",
+                            "value": "Ежедневно 09:00 — 18:00",
+                            "link": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_contacts_location_section",
+            "label": "Секция Расположение и карта",
+            "name": "contacts_location_section",
+            "type": "group",
+            "instructions": "Настройки секции с картой и описанием расположения",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_location_label",
+                    "label": "Метка секции",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Наше расположение",
+                    "placeholder": "Наше расположение"
+                },
+                {
+                    "key": "field_contacts_location_title",
+                    "label": "Заголовок секции",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Как нас найти",
+                    "placeholder": "Как нас найти",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_location_divider_icon",
+                    "label": "Иконка разделителя",
+                    "name": "divider_icon",
+                    "type": "text",
+                    "default_value": "📍",
+                    "placeholder": "📍"
+                },
+                {
+                    "key": "field_contacts_location_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Удобное расположение",
+                    "placeholder": "Удобное расположение"
+                },
+                {
+                    "key": "field_contacts_location_description",
+                    "label": "Описание",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Наш банкетный зал Shen расположен в городской черте Симферополя, вдали от шумных дорог. Просторное помещение вмещает до 300 гостей. Для ваших гостей предусмотрена просторная собственная парковка.",
+                    "placeholder": "Наш банкетный зал Shen расположен в городской черте Симферополя, вдали от шумных дорог. Просторное помещение вмещает до 300 гостей. Для ваших гостей предусмотрена просторная собственная парковка."
+                },
+                {
+                    "key": "field_contacts_location_features",
+                    "label": "Особенности расположения",
+                    "name": "features",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить особенность",
+                    "sub_fields": [
+                        {
+                            "key": "field_contacts_location_feature_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "🚗",
+                            "placeholder": "🚗"
+                        },
+                        {
+                            "key": "field_contacts_location_feature_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "icon": "🚗",
+                            "text": "На автомобиле: 10 минут от центра города"
+                        },
+                        {
+                            "icon": "🚌",
+                            "text": "Общественный транспорт: остановка \"Генерала Васильева\""
+                        },
+                        {
+                            "icon": "🚕",
+                            "text": "Такси: доступны все сервисы"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_contacts_location_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "type": "text",
+                    "default_value": "Открыть в Яндекс Картах",
+                    "placeholder": "Открыть в Яндекс Картах"
+                },
+                {
+                    "key": "field_contacts_location_button_url",
+                    "label": "URL кнопки",
+                    "name": "button_url",
+                    "type": "url",
+                    "default_value": "https://yandex.ru/maps/?text=Симферополь, ул. Генерала Васильева, 40А",
+                    "placeholder": "https://yandex.ru/maps/?text=Симферополь, ул. Генерала Васильева, 40А"
+                },
+                {
+                    "key": "field_contacts_location_map_iframe",
+                    "label": "Код карты (iframe)",
+                    "name": "map_iframe",
+                    "type": "textarea",
+                    "instructions": "Вставьте iframe код карты Yandex. Можно использовать src атрибут или полный iframe код",
+                    "rows": 3,
+                    "default_value": "https://yandex.ru/map-widget/v1/?um=constructor%3A1ad7b0dd8adf5e98eb599a8f318124d64581efcc234ff8ceea29d6371beb5e3e&source=constructor"
+                } 
+            ]
+        },
+        {
+            "key": "field_contacts_booking_section",
+            "label": "Секция Форма бронирования",
+            "name": "contacts_booking_section",
+            "type": "group",
+            "instructions": "Настройки секции с формой обратной связи",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_booking_label",
+                    "label": "Метка секции",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Напишите нам",
+                    "placeholder": "Напишите нам"
+                },
+                {
+                    "key": "field_contacts_booking_title",
+                    "label": "Заголовок секции",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Форма обратной связи",
+                    "placeholder": "Форма обратной связи",
+                    "required": 1
+                },
+                {
+                    "key": "field_contacts_booking_subtitle",
+                    "label": "Подзаголовок секции",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Заполните форму, и наш менеджер свяжется с вами в ближайшее время",
+                    "placeholder": "Заполните форму, и наш менеджер свяжется с вами в ближайшее время"
+                },
+                {
+                    "key": "field_contacts_booking_wrapper",
+                    "label": "Использовать обертку",
+                    "name": "wrapper",
+                    "type": "true_false",
+                    "instructions": "Использовать обертку для секции",
+                    "default_value": 0
+                },
+                {
+                    "key": "field_contacts_booking_form_id",
+                    "label": "ID формы",
+                    "name": "form_id",
+                    "type": "text",
+                    "default_value": "bookingForm",
+                    "placeholder": "bookingForm"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы контактов"
+}
+

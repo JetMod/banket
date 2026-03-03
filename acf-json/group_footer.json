@@ -1,0 +1,387 @@
+{
+    "key": "group_footer",
+    "title": "Footer (Подвал сайта)",
+    "fields": [
+        {
+            "key": "field_footer_about",
+            "label": "Колонка 'О компании'",
+            "name": "footer_about",
+            "type": "group",
+            "instructions": "Настройки первой колонки футера",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_logo_text",
+                    "label": "Текст логотипа",
+                    "name": "logo_text",
+                    "type": "text",
+                    "default_value": "SHEN",
+                    "placeholder": "SHEN",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_logo_subtitle",
+                    "label": "Подзаголовок логотипа",
+                    "name": "logo_subtitle",
+                    "type": "text",
+                    "default_value": "BANQUET HALLS",
+                    "placeholder": "BANQUET HALLS"
+                },
+                {
+                    "key": "field_footer_description",
+                    "label": "Описание",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Премиальный банкетный зал для незабываемых мероприятий. Создаем идеальную атмосферу для ваших торжеств.",
+                    "placeholder": "Премиальный банкетный зал для незабываемых мероприятий. Создаем идеальную атмосферу для ваших торжеств."
+                },
+                {
+                    "key": "field_footer_social_links",
+                    "label": "Социальные сети",
+                    "name": "social_links",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 0,
+                    "button_label": "Добавить социальную сеть",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_social_name",
+                            "label": "Название",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "Название сети (VK, Telegram, WhatsApp и т.д.)",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_footer_social_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "url",
+                            "instructions": "Ссылка на профиль",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_footer_social_icon",
+                            "label": "SVG иконка",
+                            "name": "icon",
+                            "type": "textarea",
+                            "instructions": "Вставьте SVG код иконки",
+                            "rows": 8,
+                            "required": 1
+                        },
+                        {
+                            "key": "field_footer_social_aria",
+                            "label": "ARIA label",
+                            "name": "aria_label",
+                            "type": "text",
+                            "instructions": "Текст для aria-label",
+                            "default_value": ""
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "name": "VK",
+                            "url": "https://vk.com",
+                            "aria_label": "VK",
+                            "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12.785 16.241s.288-.032.436-.191c.136-.146.131-.42.131-.42s-.019-1.284.571-1.473c.582-.186 1.329 1.241 2.122 1.791.6.416 1.056.325 1.056.325l2.123-.03s1.111-.069.584-.952c-.043-.072-.308-.655-1.586-1.85-1.338-1.25-1.159-1.048.453-3.21.982-1.316 1.374-2.118 1.252-2.463-.116-.329-.834-.242-.834-.242l-2.386.015s-.177-.024-.308.055c-.128.078-.21.259-.21.259s-.376.995-.877 1.84c-1.058 1.784-1.482 1.879-1.656 1.767-.404-.261-.303-.996-.303-1.576 0-1.713.257-2.427-.501-2.612-.252-.061-.437-.102-1.081-.108-.826-.008-1.525.003-1.920.198-.263.13-.466.419-.342.435.153.02.499.094.683.346.237.325.229.956.229.956s.137 2.017-.319 2.268c-.313.173-.743-.18-1.665-1.79-.472-.824-.829-1.734-.829-1.734s-.069-.169-.192-.259c-.149-.11-.357-.145-.357-.145l-2.268.015s-.341.01-.466.159c-.111.132-.009.405-.009.405s1.763 4.153 3.758 6.244c1.832 1.918 3.911 1.792 3.911 1.792h.943z\" fill=\"currentColor\"/></svg>"
+                        },
+                        {
+                            "name": "Telegram",
+                            "url": "https://t.me",
+                            "aria_label": "Telegram",
+                            "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z\" fill=\"currentColor\"/></svg>"
+                        },
+                        {
+                            "name": "WhatsApp",
+                            "url": "https://wa.me/79781872827",
+                            "aria_label": "WhatsApp",
+                            "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\" fill=\"currentColor\"/></svg>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_footer_navigation",
+            "label": "Колонка 'Навигация'",
+            "name": "footer_navigation",
+            "type": "group",
+            "instructions": "Настройки колонки навигации",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_nav_title",
+                    "label": "Заголовок колонки",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Навигация",
+                    "placeholder": "Навигация",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_nav_links",
+                    "label": "Ссылки навигации",
+                    "name": "links",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 1,
+                    "button_label": "Добавить ссылку",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_nav_link_text",
+                            "label": "Текст ссылки",
+                            "name": "text",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_footer_nav_link_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "text",
+                            "instructions": "Введите URL (например: /#about или /меню/)",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "text": "О нас",
+                            "url": "/#about"
+                        },
+                        {
+                            "text": "Преимущества",
+                            "url": "/#advantages"
+                        },
+                        {
+                            "text": "Меню",
+                            "url": "/меню/"
+                        },
+                        {
+                            "text": "Галерея",
+                            "url": "/галерея/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_footer_services",
+            "label": "Колонка 'Услуги'",
+            "name": "footer_services",
+            "type": "group",
+            "instructions": "Настройки колонки услуг",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_services_title",
+                    "label": "Заголовок колонки",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Услуги",
+                    "placeholder": "Услуги",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_services_links",
+                    "label": "Ссылки на услуги",
+                    "name": "links",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 1,
+                    "button_label": "Добавить ссылку",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_services_link_text",
+                            "label": "Текст ссылки",
+                            "name": "text",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_footer_services_link_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "text",
+                            "instructions": "Введите URL (например: /мероприятия/#corporate)",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "text": "Корпоративы",
+                            "url": "/мероприятия/#corporate"
+                        },
+                        {
+                            "text": "Свадьбы",
+                            "url": "/мероприятия/#wedding"
+                        },
+                        {
+                            "text": "Дни рождения",
+                            "url": "/мероприятия/#birthday"
+                        },
+                        {
+                            "text": "Конференции",
+                            "url": "/мероприятия/#conference"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_footer_contacts",
+            "label": "Колонка 'Контакты'",
+            "name": "footer_contacts",
+            "type": "group",
+            "instructions": "Настройки колонки контактов",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_contacts_title",
+                    "label": "Заголовок колонки",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Контакты",
+                    "placeholder": "Контакты",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_contacts_phone",
+                    "label": "Телефон",
+                    "name": "phone",
+                    "type": "text",
+                    "default_value": "+7 (978) 187-28-27",
+                    "placeholder": "+7 (978) 187-28-27",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_contacts_email",
+                    "label": "Email",
+                    "name": "email",
+                    "type": "email",
+                    "default_value": "banquet@shen.ru",
+                    "placeholder": "banquet@shen.ru",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_contacts_address",
+                    "label": "Адрес",
+                    "name": "address",
+                    "type": "text",
+                    "default_value": "г. Симферополь, ул. Генерала Васильева, 40А",
+                    "placeholder": "г. Симферополь, ул. Генерала Васильева, 40А",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_contacts_hours",
+                    "label": "Часы работы",
+                    "name": "hours",
+                    "type": "text",
+                    "default_value": "Ежедневно с 09:00 до 18:00",
+                    "placeholder": "Ежедневно с 09:00 до 18:00"
+                }
+            ]
+        },
+        {
+            "key": "field_footer_bottom",
+            "label": "Нижняя часть футера",
+            "name": "footer_bottom",
+            "type": "group",
+            "instructions": "Настройки нижней части футера",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_copyright",
+                    "label": "Текст копирайта",
+                    "name": "copyright",
+                    "type": "text",
+                    "instructions": "Можно использовать {year} для автоматической подстановки года",
+                    "default_value": "© {year} Shen Banquet Halls. Все права защищены.",
+                    "placeholder": "© {year} Shen Banquet Halls. Все права защищены.",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_privacy_link",
+                    "label": "Ссылка на политику конфиденциальности",
+                    "name": "privacy_link",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_privacy_text",
+                            "label": "Текст ссылки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Политика конфиденциальности",
+                            "placeholder": "Политика конфиденциальности"
+                        },
+                        {
+                            "key": "field_footer_privacy_url",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "page_link",
+                            "post_type": [
+                                "page"
+                            ],
+                            "default_value": "/политика-конфиденциальности/"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_footer_modal",
+            "label": "Модальное окно формы",
+            "name": "footer_modal",
+            "type": "group",
+            "instructions": "Настройки модального окна для формы бронирования",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_footer_modal_title",
+                    "label": "Заголовок модального окна",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Забронировать зал",
+                    "placeholder": "Забронировать зал",
+                    "required": 1
+                },
+                {
+                    "key": "field_footer_modal_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Оставьте заявку и мы свяжемся с вами в ближайшее время",
+                    "placeholder": "Оставьте заявку и мы свяжемся с вами в ближайшее время"
+                },
+                {
+                    "key": "field_footer_modal_aria_close",
+                    "label": "ARIA label для кнопки закрытия",
+                    "name": "aria_close",
+                    "type": "text",
+                    "default_value": "Закрыть модальное окно",
+                    "placeholder": "Закрыть модальное окно"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "banket-blocks-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки подвала сайта (Footer)"
+}
+

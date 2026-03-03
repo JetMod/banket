@@ -1,0 +1,217 @@
+{
+    "key": "group_template_parts",
+    "title": "Template Parts — Глобальные настройки",
+    "fields": [
+        {
+            "key": "field_tp_booking",
+            "label": "Блок: Форма бронирования",
+            "name": "tp_booking",
+            "type": "group",
+            "instructions": "Глобальные дефолты для template-parts/section-booking.php (можно переопределять через booking_args в конкретных шаблонах)",
+            "layout": "block",
+            "sub_fields": [
+                { 
+                    "key": "field_tp_booking_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Напишите нам",
+                    "placeholder": "Напишите нам"
+                },
+                {
+                    "key": "field_tp_booking_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Форма обратной связи",
+                    "placeholder": "Форма обратной связи",
+                    "required": 1
+                },
+                {
+                    "key": "field_tp_booking_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Заполните форму, и наш менеджер свяжется с вами в ближайшее время",
+                    "placeholder": "Заполните форму, и наш менеджер свяжется с вами в ближайшее время"
+                },
+                {
+                    "key": "field_tp_booking_divider_icon",
+                    "label": "Иконка разделителя",
+                    "name": "divider_icon",
+                    "type": "text",
+                    "default_value": "✨",
+                    "placeholder": "✨"
+                },
+                {
+                    "key": "field_tp_booking_form_id",
+                    "label": "ID формы",
+                    "name": "form_id",
+                    "type": "text",
+                    "default_value": "bookingForm",
+                    "placeholder": "bookingForm"
+                },
+                {
+                    "key": "field_tp_booking_placeholder_name",
+                    "label": "Placeholder: имя",
+                    "name": "placeholder_name",
+                    "type": "text",
+                    "default_value": "Ваше имя",
+                    "placeholder": "Ваше имя"
+                },
+                {
+                    "key": "field_tp_booking_placeholder_phone",
+                    "label": "Placeholder: телефон",
+                    "name": "placeholder_phone",
+                    "type": "text",
+                    "default_value": "Ваш телефон",
+                    "placeholder": "Ваш телефон"
+                },
+                {
+                    "key": "field_tp_booking_placeholder_comment",
+                    "label": "Placeholder: комментарий",
+                    "name": "placeholder_comment",
+                    "type": "text",
+                    "default_value": "Комментарий",
+                    "placeholder": "Комментарий"
+                },
+                {
+                    "key": "field_tp_booking_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "type": "text",
+                    "default_value": "ОТПРАВИТЬ ЗАЯВКУ",
+                    "placeholder": "ОТПРАВИТЬ ЗАЯВКУ"
+                },
+                {
+                    "key": "field_tp_booking_privacy_prefix",
+                    "label": "Текст перед ссылкой",
+                    "name": "privacy_prefix",
+                    "type": "text",
+                    "default_value": "Я принимаю условия",
+                    "placeholder": "Я принимаю условия"
+                },
+                {
+                    "key": "field_tp_booking_privacy_link_text",
+                    "label": "Текст ссылки",
+                    "name": "privacy_link_text",
+                    "type": "text",
+                    "default_value": "политики конфиденциальности",
+                    "placeholder": "политики конфиденциальности"
+                },
+                {
+                    "key": "field_tp_booking_privacy_page",
+                    "label": "Страница политики",
+                    "name": "privacy_page",
+                    "type": "page_link",
+                    "post_type": [
+                        "page"
+                    ],
+                    "default_value": "/политика-конфиденциальности/"
+                }
+            ]
+        },
+        {
+            "key": "field_tp_lightbox",
+            "label": "Блок: Lightbox галереи",
+            "name": "tp_lightbox",
+            "type": "group",
+            "instructions": "Глобальные тексты/лейблы для template-parts/lightbox-gallery.php",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_tp_lightbox_aria_close",
+                    "label": "ARIA: закрыть",
+                    "name": "aria_close",
+                    "type": "text",
+                    "default_value": "Закрыть",
+                    "placeholder": "Закрыть"
+                },
+                {
+                    "key": "field_tp_lightbox_aria_prev",
+                    "label": "ARIA: предыдущее",
+                    "name": "aria_prev",
+                    "type": "text",
+                    "default_value": "Предыдущее фото",
+                    "placeholder": "Предыдущее фото"
+                },
+                {
+                    "key": "field_tp_lightbox_aria_next",
+                    "label": "ARIA: следующее",
+                    "name": "aria_next",
+                    "type": "text",
+                    "default_value": "Следующее фото",
+                    "placeholder": "Следующее фото"
+                },
+                {
+                    "key": "field_tp_lightbox_aria_slideshow",
+                    "label": "ARIA: слайдшоу",
+                    "name": "aria_slideshow",
+                    "type": "text",
+                    "default_value": "Запустить слайдшоу",
+                    "placeholder": "Запустить слайдшоу"
+                },
+                {
+                    "key": "field_tp_lightbox_title_zoom",
+                    "label": "Title: Zoom",
+                    "name": "title_zoom",
+                    "type": "text",
+                    "default_value": "Zoom",
+                    "placeholder": "Zoom"
+                },
+                {
+                    "key": "field_tp_lightbox_title_share",
+                    "label": "Title: Поделиться",
+                    "name": "title_share",
+                    "type": "text",
+                    "default_value": "Поделиться",
+                    "placeholder": "Поделиться"
+                },
+                {
+                    "key": "field_tp_lightbox_title_download",
+                    "label": "Title: Скачать",
+                    "name": "title_download",
+                    "type": "text",
+                    "default_value": "Скачать",
+                    "placeholder": "Скачать"
+                },
+                {
+                    "key": "field_tp_lightbox_counter_fallback",
+                    "label": "Счетчик (fallback)",
+                    "name": "counter_fallback",
+                    "type": "text",
+                    "default_value": "1 / 14",
+                    "placeholder": "1 / 14"
+                },
+                {
+                    "key": "field_tp_lightbox_category_fallback",
+                    "label": "Категория (fallback)",
+                    "name": "category_fallback",
+                    "type": "text",
+                    "default_value": "🏛 Интерьер",
+                    "placeholder": "🏛 Интерьер"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "banket-blocks-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Глобальные настройки для переиспользуемых template-parts"
+}
+
+

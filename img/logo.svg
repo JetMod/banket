@@ -1,0 +1,62 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffeb3b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a252f;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Фон -->
+  <rect width="500" height="500" rx="100" fill="url(#bgGradient)"/>
+  
+  <!-- Декоративные элементы фона -->
+  <circle cx="100" cy="100" r="60" fill="url(#goldGradient)" opacity="0.08"/>
+  <circle cx="400" cy="400" r="80" fill="url(#goldGradient)" opacity="0.08"/>
+  <circle cx="450" cy="100" r="40" fill="url(#goldGradient)" opacity="0.05"/>
+  
+  <!-- Декоративная рамка -->
+  <rect x="80" y="180" width="340" height="140" rx="20" fill="none" stroke="url(#goldGradient)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Главная надпись SHEN -->
+  <text x="250" y="275" 
+        font-family="'Playfair Display', Georgia, serif" 
+        font-size="120" 
+        font-weight="bold" 
+        fill="url(#goldGradient)" 
+        text-anchor="middle"
+        letter-spacing="16"
+        filter="url(#glow)">SHEN</text>
+  
+  <!-- Декоративные линии -->
+  <line x1="100" y1="250" x2="200" y2="250" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <line x1="300" y1="250" x2="400" y2="250" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Подпись -->
+  <text x="250" y="360" 
+        font-family="'Inter', Arial, sans-serif" 
+        font-size="24" 
+        font-weight="400" 
+        fill="url(#goldGradient)" 
+        text-anchor="middle"
+        letter-spacing="10"
+        opacity="0.8">BANQUET HALLS</text>
+        
+  <!-- Декоративные элементы снизу -->
+  <circle cx="220" cy="380" r="3" fill="url(#goldGradient)" opacity="0.6"/>
+  <circle cx="250" cy="380" r="3" fill="url(#goldGradient)" opacity="0.6"/>
+  <circle cx="280" cy="380" r="3" fill="url(#goldGradient)" opacity="0.6"/>
+</svg>

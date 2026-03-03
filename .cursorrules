@@ -1,0 +1,376 @@
+# Правила проекта: Банкетный зал Shen
+
+## 📋 ИНФОРМАЦИЯ О ПРОЕКТЕ
+
+**Название:** Банкетный зал ShenCrystal
+**Тип:** Лендинг для банкетного зала  
+**Телефон:** +7 (978) 8064657  
+**Слоган:** ✨Нет предела совершенству✨
+
+---
+
+## 🏢 О КОМПАНИИ
+
+ShenCrystal – многопрофильный банкетный зал для проведения разноплановых мероприятий: корпоративы, премии, презентации, конференции.
+
+**Преимущества:**
+- Расположение в городской черте, вдали от шумных дорог
+- Гардеробная и собственная парковка
+- Вместимость: от 100 до 300 гостей
+- Профессиональная банкетная команда
+- Восточная и европейская кухня
+- Продукты Халяль
+- Свежее приготовление блюд ("из печи")
+
+**Контакты:**
+- Телефон: +7 (978) 8064657
+
+---
+
+## 🛠 ТЕХНОЛОГИИ
+
+- HTML5 (семантическая разметка)
+- CSS3 (современные стили, переменные, Grid, Flexbox)
+- JavaScript ES6+ (Vanilla JS, без фреймворков)
+
+---
+
+## 📐 МЕТОДОЛОГИЯ: БЭМ (Блок-Элемент-Модификатор)
+
+### Правила именования:
+
+```
+блок                    # .header
+блок__элемент           # .header__logo
+блок--модификатор       # .header--fixed
+блок__элемент--модификатор  # .button__icon--active
+```
+
+### Структура CSS файлов (рекомендуется):
+
+```
+css/
+├── style.css           # Главный файл (импорты и базовые стили)
+├── variables.css       # CSS переменные
+├── reset.css          # CSS Reset
+├── blocks/            # БЭМ блоки
+│   ├── header.css
+│   ├── hero.css
+│   ├── about.css
+│   ├── services.css
+│   ├── gallery.css
+│   ├── booking.css
+│   ├── contacts.css
+│   └── footer.css
+```
+
+### Примеры БЭМ для проекта:
+
+```css
+/* Header */
+.header { }
+.header__container { }
+.header__logo { }
+.header__nav { }
+.header__menu { }
+.header__menu-item { }
+.header__menu-item--active { }
+.header__phone { }
+.header__burger { }
+
+/* Hero */
+.hero { }
+.hero__container { }
+.hero__title { }
+.hero__slogan { }
+.hero__description { }
+.hero__button { }
+.hero__button--primary { }
+
+/* About */
+.about { }
+.about__container { }
+.about__title { }
+.about__halls { }
+.about__hall { }
+.about__hall--crystal { }
+.about__hall--mirror { }
+.about__hall-title { }
+.about__hall-description { }
+.about__hall-image { }
+
+/* Services */
+.services { }
+.services__container { }
+.services__title { }
+.services__list { }
+.services__item { }
+.services__item-icon { }
+.services__item-title { }
+.services__item-text { }
+
+/* Gallery */
+.gallery { }
+.gallery__container { }
+.gallery__title { }
+.gallery__grid { }
+.gallery__item { }
+.gallery__image { }
+
+/* Booking Form */
+.booking { }
+.booking__container { }
+.booking__title { }
+.booking__form { }
+.booking__field { }
+.booking__label { }
+.booking__input { }
+.booking__input--error { }
+.booking__textarea { }
+.booking__button { }
+.booking__message { }
+.booking__message--success { }
+.booking__message--error { }
+
+/* Contacts */
+.contacts { }
+.contacts__container { }
+.contacts__info { }
+.contacts__phone { }
+.contacts__address { }
+.contacts__map { }
+
+/* Footer */
+.footer { }
+.footer__container { }
+.footer__content { }
+.footer__copyright { }
+```
+
+---
+
+## 🎨 СТАНДАРТЫ HTML
+
+### Семантическая разметка:
+```html
+<header class="header">
+  <nav class="header__nav">
+    <ul class="header__menu">
+      <li class="header__menu-item">...</li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">...</section>
+  <section class="about">...</section>
+  <section class="services">...</section>
+</main>
+
+<footer class="footer">...</footer>
+```
+
+### Обязательно:
+- Используй `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
+- Все изображения с `alt` атрибутами
+- `<button>` для действий, `<a>` для ссылок
+- Формы с `<label>` для каждого `<input>`
+
+---
+
+## 🎨 СТАНДАРТЫ CSS
+
+### CSS Custom Properties (обязательно):
+```css
+:root {
+  /* Цвета */
+  --color-primary: #d4af37;
+  --color-secondary: #2c3e50;
+  --color-accent: #e74c3c;
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: #1a1a2e;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  
+  /* Шрифты */
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Roboto', sans-serif;
+  
+  /* Размеры */
+  --fs-h1: 3.5rem;
+  --fs-h2: 2.5rem;
+  --fs-h3: 1.75rem;
+  --fs-body: 1rem;
+  
+  /* Отступы */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.6s;
+}
+```
+
+### Mobile-First подход:
+```css
+/* Базовые стили для мобильных (320px+) */
+.header { }
+
+/* Планшеты */
+@media (min-width: 768px) { }
+
+/* Десктоп */
+@media (min-width: 1024px) { }
+
+/* Широкие экраны */
+@media (min-width: 1440px) { }
+```
+
+### Запрещено:
+- ❌ ID для стилей (#header)
+- ❌ Глубокая вложенность (.header .nav .menu .item)
+- ❌ !important (кроме крайних случаев)
+- ❌ Инлайн стили (style="...")
+
+---
+
+## 💻 СТАНДАРТЫ JAVASCRIPT
+
+### Структура:
+```javascript
+// Используй модульную структуру
+const App = {
+  init() {
+    this.initMenu();
+    this.initScroll();
+    this.initForm();
+    this.initGallery();
+  },
+  
+  initMenu() { },
+  initScroll() { },
+  initForm() { },
+  initGallery() { }
+};
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  App.init();
+});
+```
+
+### Правила:
+- Используй `const` и `let`, не используй `var`
+- Arrow functions где возможно
+- Современный ES6+ синтаксис
+- Деструктуризация, template literals
+- Комментарии на русском языке
+- Используй querySelector с БЭМ классами
+
+### Пример:
+```javascript
+// Мобильное меню
+const burger = document.querySelector('.header__burger');
+const menu = document.querySelector('.header__menu');
+
+burger.addEventListener('click', () => {
+  menu.classList.toggle('header__menu--active');
+  burger.classList.toggle('header__burger--active');
+});
+```
+
+---
+
+## 📝 КОММЕНТАРИИ В КОДЕ
+
+### HTML:
+```html
+<!-- Header -->
+<header class="header">
+  <!-- Навигация -->
+  <nav class="header__nav">
+    ...
+  </nav>
+</header>
+```
+
+### CSS:
+```css
+/* =================================
+   Header
+   ================================= */
+
+.header { }
+
+/* Header Navigation */
+.header__nav { }
+```
+
+### JavaScript:
+```javascript
+// Инициализация плавной прокрутки
+const initSmoothScroll = () => {
+  // Логика
+};
+```
+
+---
+
+## 🎯 ПРИОРИТЕТЫ
+
+1. **БЭМ методология** - строго следовать именованию
+2. **Семантический HTML** - правильные теги
+3. **CSS переменные** - для всех значений
+4. **Mobile-First** - начинать с мобильной версии
+5. **Чистый JS** - без jQuery или других библиотек
+6. **Производительность** - оптимизация изображений, ленивая загрузка
+7. **Доступность** - ARIA, alt теги, контрастность
+
+---
+
+## 🚫 ЗАПРЕЩЕНО
+
+- Bootstrap, Tailwind или другие CSS фреймворки
+- jQuery или другие JS библиотеки (только Vanilla JS)
+- Инлайн стили
+- ID для стилизации
+- !important без необходимости
+- Игнорирование БЭМ методологии
+
+---
+
+## ✅ КОНТЕНТ ДЛЯ САЙТА
+
+### Секции:
+1. Hero - главный экран со слоганом
+2. О зале - ShenCrystal
+3. Преимущества - парковка, гардероб, расположение
+4. Услуги и меню - восточная и европейская кухня, Халяль
+5. Галерея - фото залов и мероприятий
+6. Форма бронирования
+7. Контакты - телефон, карта
+
+### Ключевые моменты:
+- Подчеркнуть продукты Халяль
+- Указать вместимость 100-300 гостей
+- Показать зал ShenCrystal
+- Выделить профессиональную команду
+- "Свежее приготовление из печи"
+
+---
+
+## 📞 КОНТАКТЫ (обязательно указать)
+
+**Телефон:** +7 (978) 8064657  
+**Слоган:** ✨Нет предела совершенству✨
+
+---
+
+**Кодировка:** UTF-8  
+**Язык интерфейса:** Русский  
+**Язык комментариев:** Русский

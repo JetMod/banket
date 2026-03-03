@@ -1,0 +1,845 @@
+{
+    "key": "group_home_page",
+    "title": "Главная страница",
+    "fields": [
+        {
+            "key": "field_hero_section",
+            "label": "Hero секция",
+            "name": "hero_section",
+            "type": "group",
+            "instructions": "Настройки главного экрана",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_hero_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Банкетный зал",
+                    "placeholder": "Банкетный зал"
+                },
+                {
+                    "key": "field_hero_title_accent",
+                    "label": "Акцентный заголовок",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "ShenCrystal",
+                    "placeholder": "ShenCrystal"
+                },
+                {
+                    "key": "field_hero_slogan",
+                    "label": "Слоган",
+                    "name": "slogan",
+                    "type": "text",
+                    "default_value": "✨ Нет предела совершенству ✨",
+                    "placeholder": "✨ Нет предела совершенству ✨"
+                },
+                {
+                    "key": "field_hero_rating",
+                    "label": "Рейтинг",
+                    "name": "rating",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_rating_value",
+                            "label": "Значение рейтинга",
+                            "name": "value",
+                            "type": "text",
+                            "default_value": "5.0",
+                            "placeholder": "5.0"
+                        },
+                        {
+                            "key": "field_hero_rating_text",
+                            "label": "Текст рейтинга",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "рейтинг",
+                            "placeholder": "рейтинг"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_hero_button_primary",
+                    "label": "Основная кнопка",
+                    "name": "button_primary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_button_primary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Забронировать",
+                            "placeholder": "Забронировать"
+                        },
+                        {
+                            "key": "field_hero_button_primary_action",
+                            "label": "Действие",
+                            "name": "action",
+                            "type": "text",
+                            "default_value": "open-booking",
+                            "placeholder": "open-booking"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_hero_button_secondary",
+                    "label": "Вторичная кнопка",
+                    "name": "button_secondary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_button_secondary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Узнать больше",
+                            "placeholder": "Узнать больше"
+                        },
+                        {
+                            "key": "field_hero_button_secondary_scroll",
+                            "label": "Якорь для прокрутки",
+                            "name": "scroll_to",
+                            "type": "text",
+                            "default_value": "#about",
+                            "placeholder": "#about"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_hero_info",
+                    "label": "Информационные блоки",
+                    "name": "info",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 3,
+                    "max": 3,
+                    "button_label": "Добавить блок",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_info_type",
+                            "label": "Тип блока",
+                            "name": "type",
+                            "type": "select",
+                            "choices": {
+                                "guests": "Гости",
+                                "premium": "Премиум",
+                                "halal": "Халяль"
+                            },
+                            "default_value": "guests"
+                        },
+                        {
+                            "key": "field_hero_info_number",
+                            "label": "Число (для типа 'Гости')",
+                            "name": "number",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_hero_info_type",
+                                        "operator": "==",
+                                        "value": "guests"
+                                    }
+                                ]
+                            ],
+                            "default_value": "300"
+                        },
+                        {
+                            "key": "field_hero_info_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text"
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "type": "guests",
+                            "number": "300",
+                            "text": "гостей"
+                        },
+                        {
+                            "type": "premium",
+                            "text": "премиум"
+                        },
+                        {
+                            "type": "halal",
+                            "text": "халяль"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_hero_slider",
+                    "label": "Слайдер изображений",
+                    "name": "slider",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                }
+            ]
+        },
+        {
+            "key": "field_about_section",
+            "label": "Секция О нас",
+            "name": "about_section",
+            "type": "group",
+            "instructions": "Настройки секции О нас",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_about_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "О нас",
+                    "placeholder": "О нас"
+                },
+                {
+                    "key": "field_about_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Банкетный зал Shen Crystal",
+                    "placeholder": "Банкетный зал Shen Crystal"
+                },
+                {
+                    "key": "field_about_text",
+                    "label": "Описание",
+                    "name": "text",
+                    "type": "textarea",
+                    "default_value": "Shen Crystal — это многопрофильный банкетный зал премиум-класса, объединяющий в себе элегантность, функциональность и безупречный сервис. Мы создали идеальное пространство для проведения самых разноплановых мероприятий: от торжественных корпоративных праздников и церемоний вручения премий до презентаций новых продуктов и бизнес-конференций. Наш зал вмещает до 300 гостей и готов принять ваше мероприятие любого масштаба.",
+                    "rows": 5
+                },
+                {
+                    "key": "field_about_stats",
+                    "label": "Статистика",
+                    "name": "stats",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 3,
+                    "max": 3,
+                    "button_label": "Добавить статистику",
+                    "sub_fields": [
+                        {
+                            "key": "field_about_stat_number",
+                            "label": "Число",
+                            "name": "number",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_about_stat_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text"
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "number": "300",
+                            "label": "Гостей"
+                        },
+                        {
+                            "number": "100%",
+                            "label": "Качество"
+                        },
+                        {
+                            "number": "24/7",
+                            "label": "Поддержка"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_about_slider",
+                    "label": "Слайдер изображений",
+                    "name": "slider",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера секции О нас",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                }
+            ]
+        },
+        {
+            "key": "field_advantages_section",
+            "label": "Секция Преимущества",
+            "name": "advantages_section",
+            "type": "group",
+            "instructions": "Настройки секции Преимущества",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_advantages_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Почему выбирают Shen Crystal",
+                    "placeholder": "Почему выбирают Shen Crystal"
+                },
+                {
+                    "key": "field_advantages_items",
+                    "label": "Преимущества",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить преимущество",
+                    "sub_fields": [
+                        {
+                            "key": "field_advantage_title",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_advantage_text",
+                            "label": "Описание",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_advantage_number",
+                            "label": "Номер",
+                            "name": "number",
+                            "type": "text",
+                            "placeholder": "01"
+                        },
+                        {
+                            "key": "field_advantage_icon",
+                            "label": "SVG иконка",
+                            "name": "icon",
+                            "type": "textarea",
+                            "instructions": "Вставьте SVG код иконки",
+                            "rows": 10
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "title": "1000+ мероприятий",
+                            "text": "Богатый опыт организации торжеств любого формата и масштаба",
+                            "number": "01"
+                        },
+                        {
+                            "title": "Индивидуальное меню",
+                            "text": "Персонализация меню под ваши предпочтения и особенности мероприятия",
+                            "number": "02"
+                        },
+                        {
+                            "title": "Свежее из печи",
+                            "text": "Приготовление блюд непосредственно перед подачей, горячее прямо из печи",
+                            "number": "03"
+                        },
+                        {
+                            "title": "Удобное расположение",
+                            "text": "В городской черте, вдали от шумных дорог с собственной парковкой",
+                            "number": "04"
+                        },
+                        {
+                            "title": "Профессионалы",
+                            "text": "Опытная банкетная команда для безупречной организации вашего события",
+                            "number": "05"
+                        },
+                        {
+                            "title": "VIP-сервис",
+                            "text": "Индивидуальный подход, гардероб и персональный менеджер",
+                            "number": "06"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_clients_section",
+            "label": "Секция Клиенты",
+            "name": "clients_section",
+            "type": "group",
+            "instructions": "Настройки секции Клиенты",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_clients_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "НАС ВЫБРАЛИ",
+                    "placeholder": "НАС ВЫБРАЛИ"
+                },
+                {
+                    "key": "field_clients_list",
+                    "label": "Список клиентов",
+                    "name": "list",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 1,
+                    "button_label": "Добавить клиента",
+                    "sub_fields": [
+                        {
+                            "key": "field_client_name",
+                            "label": "Название",
+                            "name": "name",
+                            "type": "text"
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "name": "IC"
+                        },
+                        {
+                            "name": "АТО EVENTS"
+                        },
+                        {
+                            "name": "ОНТИКО"
+                        },
+                        {
+                            "name": "АНКТ"
+                        },
+                        {
+                            "name": "OCS"
+                        },
+                        {
+                            "name": "gallaDance"
+                        },
+                        {
+                            "name": "ФЕДЕРАЛЬНАЯ ЭКЗАМЕНАЦИОННАЯ СЛУЖБА"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_menu_section",
+            "label": "Секция Меню",
+            "name": "menu_section",
+            "type": "group",
+            "instructions": "Настройки секции Меню",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_menu_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Меню и кухня",
+                    "placeholder": "Меню и кухня"
+                },
+                {
+                    "key": "field_menu_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Восточная и европейская кухня от наших шеф-поваров",
+                    "placeholder": "Восточная и европейская кухня от наших шеф-поваров"
+                },
+                {
+                    "key": "field_menu_heading",
+                    "label": "Заголовок описания",
+                    "name": "heading",
+                    "type": "text",
+                    "default_value": "Разнообразие вкусов",
+                    "placeholder": "Разнообразие вкусов"
+                },
+                {
+                    "key": "field_menu_description_1",
+                    "label": "Описание (первый абзац)",
+                    "name": "description_1",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Основу меню составляет восточная и европейская кухня. Предлагаемый ассортимент можно дополнить в соответствии с вашими пожеланиями."
+                },
+                {
+                    "key": "field_menu_description_2",
+                    "label": "Описание (второй абзац)",
+                    "name": "description_2",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Только свежие премиальные продукты, лучшие рецепты, высокое мастерство и высококлассный сервис — это основные принципы работы банкетных залов SHEN."
+                },
+                {
+                    "key": "field_menu_features",
+                    "label": "Особенности меню",
+                    "name": "features",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить особенность",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_feature_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "🥘",
+                            "placeholder": "🥘"
+                        },
+                        {
+                            "key": "field_menu_feature_title",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_menu_feature_text",
+                            "label": "Описание",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 2
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "icon": "🥘",
+                            "title": "Восточная кухня",
+                            "text": "Традиционные блюда с аутентичным вкусом"
+                        },
+                        {
+                            "icon": "🍴",
+                            "title": "Европейская кухня",
+                            "text": "Классические рецепты европейской кулинарии"
+                        },
+                        {
+                            "icon": "✨",
+                            "title": "Премиальные ингредиенты",
+                            "text": "Только свежие продукты высшего качества от проверенных поставщиков"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_menu_images",
+                    "label": "Изображения",
+                    "name": "images",
+                    "type": "gallery",
+                    "instructions": "Изображения блюд для секции меню",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 2,
+                    "max": 2
+                }
+            ]
+        },
+        {
+            "key": "field_reels_section",
+            "label": "Секция Reels (Видео)",
+            "name": "reels_section",
+            "type": "group",
+            "instructions": "Настройки секции с видео",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reels_badge",
+                    "label": "Бейдж",
+                    "name": "badge",
+                    "type": "text",
+                    "default_value": "✨ Нет предела совершенству",
+                    "placeholder": "✨ Нет предела совершенству"
+                },
+                {
+                    "key": "field_reels_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Живые моменты",
+                    "placeholder": "Живые моменты"
+                },
+                {
+                    "key": "field_reels_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "коротко о главном — атмосфера, кухня, эмоции",
+                    "placeholder": "коротко о главном — атмосфера, кухня, эмоции"
+                },
+                {
+                    "key": "field_reels_cta_text",
+                    "label": "Текст кнопки CTA",
+                    "name": "cta_text",
+                    "type": "text",
+                    "default_value": "Забронировать дату",
+                    "placeholder": "Забронировать дату"
+                },
+                {
+                    "key": "field_reels_phone",
+                    "label": "Телефон",
+                    "name": "phone",
+                    "type": "text",
+                    "default_value": "+7 (978) 187-28-27",
+                    "placeholder": "+7 (978) 187-28-27"
+                },
+                {
+                    "key": "field_reels_videos",
+                    "label": "Видео",
+                    "name": "videos",
+                    "type": "repeater",
+                    "layout": "block",
+                    "min": 1,
+                    "button_label": "Добавить видео",
+                    "sub_fields": [
+                        {
+                            "key": "field_reels_video_file",
+                            "label": "Видео файл",
+                            "name": "video_file",
+                            "type": "file",
+                            "return_format": "array",
+                            "library": "all",
+                            "mime_types": "mp4,webm,ogg"
+                        },
+                        {
+                            "key": "field_reels_video_active",
+                            "label": "Активное видео",
+                            "name": "active",
+                            "type": "true_false",
+                            "instructions": "Отметить для видео, которое будет показано первым",
+                            "default_value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_gallery_section",
+            "label": "Секция Галерея",
+            "name": "gallery_section",
+            "type": "group",
+            "instructions": "Настройки секции Галерея",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Галерея",
+                    "placeholder": "Галерея"
+                },
+                {
+                    "key": "field_gallery_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Атмосфера наших залов и мероприятий",
+                    "placeholder": "Атмосфера наших залов и мероприятий"
+                },
+                {
+                    "key": "field_gallery_images",
+                    "label": "Изображения галереи",
+                    "name": "images",
+                    "type": "gallery",
+                    "instructions": "Изображения для галереи. Первые 4 - обычные, затем можно отметить большие изображения",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_gallery_large_items",
+                    "label": "Большие элементы",
+                    "name": "large_items",
+                    "type": "repeater",
+                    "instructions": "Укажите индексы изображений (начиная с 0), которые должны быть большими (2x2)",
+                    "layout": "table",
+                    "button_label": "Добавить индекс",
+                    "sub_fields": [
+                        {
+                            "key": "field_gallery_large_index",
+                            "label": "Индекс изображения",
+                            "name": "index",
+                            "type": "number",
+                            "instructions": "Индекс изображения в галерее (начиная с 0)",
+                            "min": 0
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "index": 6
+                        },
+                        {
+                            "index": 7
+                        }
+                    ]
+                },
+                {
+                    "key": "field_gallery_link_text",
+                    "label": "Текст ссылки",
+                    "name": "link_text",
+                    "type": "text",
+                    "default_value": "Смотреть все фото",
+                    "placeholder": "Смотреть все фото"
+                },
+                {
+                    "key": "field_gallery_link_url",
+                    "label": "URL ссылки",
+                    "name": "link_url",
+                    "type": "page_link",
+                    "post_type": [
+                        "page"
+                    ],
+                    "default_value": "/галерея/"
+                }
+            ]
+        },
+        {
+            "key": "field_booking_section",
+            "label": "Секция Бронирование",
+            "name": "booking_section",
+            "type": "group",
+            "instructions": "Настройки секции Бронирование",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_booking_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_booking_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ",
+                    "placeholder": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ"
+                },
+                {
+                    "key": "field_booking_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Оставьте заявку и мы свяжемся с вами для обсуждения деталей",
+                    "placeholder": "Оставьте заявку и мы свяжемся с вами для обсуждения деталей"
+                },
+                {
+                    "key": "field_booking_wrapper",
+                    "label": "Обертка",
+                    "name": "wrapper",
+                    "type": "true_false",
+                    "instructions": "Использовать обертку для секции",
+                    "default_value": 1
+                },
+                {
+                    "key": "field_booking_form_id",
+                    "label": "ID формы",
+                    "name": "form_id",
+                    "type": "text",
+                    "default_value": "bookingForm",
+                    "placeholder": "bookingForm"
+                }
+            ]
+        },
+        {
+            "key": "field_contacts_section",
+            "label": "Секция Контакты",
+            "name": "contacts_section",
+            "type": "group",
+            "instructions": "Настройки секции Контакты",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contacts_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "КОНТАКТЫ",
+                    "placeholder": "КОНТАКТЫ"
+                },
+                {
+                    "key": "field_contacts_phone",
+                    "label": "Телефон",
+                    "name": "phone",
+                    "type": "text",
+                    "default_value": "+7 (978) 187-28-27",
+                    "placeholder": "+7 (978) 187-28-27"
+                },
+                {
+                    "key": "field_contacts_email",
+                    "label": "Email",
+                    "name": "email",
+                    "type": "email",
+                    "default_value": "banquet@shen.ru",
+                    "placeholder": "banquet@shen.ru"
+                },
+                {
+                    "key": "field_contacts_address",
+                    "label": "Адрес",
+                    "name": "address",
+                    "type": "text",
+                    "default_value": "г. Симферополь, ул. Генерала Васильева, 40А",
+                    "placeholder": "г. Симферополь, ул. Генерала Васильева, 40А"
+                },
+                {
+                    "key": "field_contacts_map",
+                    "label": "Код карты Yandex",
+                    "name": "map_code",
+                    "type": "textarea",
+                    "instructions": "Вставьте iframe код карты Yandex",
+                    "rows": 3,
+                    "default_value": "https://yandex.ru/map-widget/v1/?um=constructor%3A331be3a5bae9d4421f82ff3cc734dca26e90ab2b49adf24a3be4bd725584b85b&amp;source=constructor"
+                },
+                {
+                    "key": "field_contacts_rating",
+                    "label": "Рейтинг",
+                    "name": "rating",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_contacts_rating_title",
+                            "label": "Заголовок рейтинга",
+                            "name": "title",
+                            "type": "text",
+                            "default_value": "НАШ ПРОФЕССИОНАЛИЗМ ЦЕНЯТ",
+                            "placeholder": "НАШ ПРОФЕССИОНАЛИЗМ ЦЕНЯТ"
+                        },
+                        {
+                            "key": "field_contacts_rating_score",
+                            "label": "Оценка",
+                            "name": "score",
+                            "type": "text",
+                            "default_value": "5,0",
+                            "placeholder": "5,0"
+                        },
+                        {
+                            "key": "field_contacts_rating_count",
+                            "label": "Количество оценок",
+                            "name": "count",
+                            "type": "text",
+                            "default_value": "12001 оценка",
+                            "placeholder": "12001 оценка"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки главной страницы сайта"
+}
+

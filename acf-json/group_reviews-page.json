@@ -1,0 +1,572 @@
+{
+    "key": "group_reviews_page",
+    "title": "Страница отзывов",
+    "fields": [
+        {
+            "key": "field_reviews_hero_section",
+            "label": "Hero секция",
+            "name": "reviews_hero_section",
+            "type": "group",
+            "instructions": "Настройки Hero секции страницы отзывов",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_hero_slideshow",
+                    "label": "Слайдер изображений",
+                    "name": "slideshow",
+                    "type": "gallery",
+                    "instructions": "Изображения для слайдера Hero секции",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_reviews_hero_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_hero_label_icon",
+                            "label": "Иконка (эмодзи)",
+                            "name": "icon",
+                            "type": "text",
+                            "default_value": "⭐",
+                            "placeholder": "⭐"
+                        },
+                        {
+                            "key": "field_reviews_hero_label_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Мнение наших гостей",
+                            "placeholder": "Мнение наших гостей"
+                        }
+                    ],
+                    "default_value": {
+                        "icon": "⭐",
+                        "text": "Мнение наших гостей"
+                    }
+                },
+                {
+                    "key": "field_reviews_hero_title",
+                    "label": "Заголовок (первая строка)",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Отзывы о",
+                    "placeholder": "Отзывы о",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_hero_title_accent",
+                    "label": "Заголовок (акцентная строка)",
+                    "name": "title_accent",
+                    "type": "text",
+                    "default_value": "Банкетном зале Shen",
+                    "placeholder": "Банкетном зале Shen",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_hero_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Нам доверяют тысячи гостей! Более 2900 оценок подтверждают наш профессионализм.\nСпасибо за ваше доверие и максимальный рейтинг 5.0!",
+                    "placeholder": "Описание для Hero секции"
+                },
+                {
+                    "key": "field_reviews_hero_stats",
+                    "label": "Статистика в Hero",
+                    "name": "stats",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 3,
+                    "max": 3,
+                    "button_label": "Добавить статистику",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_hero_stat_value",
+                            "label": "Значение",
+                            "name": "value",
+                            "type": "text",
+                            "default_value": "",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_hero_stat_stars",
+                            "label": "Звезды (для рейтинга)",
+                            "name": "stars",
+                            "type": "text",
+                            "instructions": "Оставьте пустым, если не нужны звезды",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_reviews_hero_stat_label",
+                            "label": "Подпись",
+                            "name": "label",
+                            "type": "text",
+                            "default_value": "",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "value": "5.0",
+                            "stars": "⭐⭐⭐⭐⭐",
+                            "label": ""
+                        },
+                        {
+                            "value": "2926",
+                            "stars": "",
+                            "label": "Оценок"
+                        },
+                        {
+                            "value": "99%",
+                            "stars": "",
+                            "label": "Довольных гостей"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_reviews_stats_section",
+            "label": "Секция Статистика",
+            "name": "reviews_stats_section",
+            "type": "group",
+            "instructions": "Настройки секции статистики отзывов",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_stats_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Наша статистика",
+                    "placeholder": "Наша статистика"
+                },
+                {
+                    "key": "field_reviews_stats_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Что говорят цифры",
+                    "placeholder": "Что говорят цифры",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_stats_main",
+                    "label": "Общий рейтинг",
+                    "name": "main",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_stats_main_rating",
+                            "label": "Рейтинг",
+                            "name": "rating",
+                            "type": "text",
+                            "default_value": "5.0",
+                            "placeholder": "5.0",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_stats_main_stars",
+                            "label": "Звезды",
+                            "name": "stars",
+                            "type": "text",
+                            "default_value": "⭐⭐⭐⭐⭐",
+                            "placeholder": "⭐⭐⭐⭐⭐",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_stats_main_text",
+                            "label": "Текст",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "На основе 2926 оценок",
+                            "placeholder": "На основе 2926 оценок",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": {
+                        "rating": "5.0",
+                        "stars": "⭐⭐⭐⭐⭐",
+                        "text": "На основе 2926 оценок"
+                    }
+                },
+                {
+                    "key": "field_reviews_stats_distribution",
+                    "label": "Распределение оценок",
+                    "name": "distribution",
+                    "type": "repeater",
+                    "layout": "table",
+                    "min": 5,
+                    "max": 5,
+                    "button_label": "Добавить оценку",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_stats_dist_stars",
+                            "label": "Количество звезд",
+                            "name": "stars",
+                            "type": "text",
+                            "default_value": "5★",
+                            "placeholder": "5★",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_stats_dist_percent",
+                            "label": "Процент",
+                            "name": "percent",
+                            "type": "number",
+                            "default_value": 0,
+                            "min": 0,
+                            "max": 100,
+                            "required": 1
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "stars": "5★",
+                            "percent": 96
+                        },
+                        {
+                            "stars": "4★",
+                            "percent": 3
+                        },
+                        {
+                            "stars": "3★",
+                            "percent": 1
+                        },
+                        {
+                            "stars": "2★",
+                            "percent": 0
+                        },
+                        {
+                            "stars": "1★",
+                            "percent": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_reviews_yandex_section",
+            "label": "Секция Яндекс Виджет",
+            "name": "reviews_yandex_section",
+            "type": "group",
+            "instructions": "Настройки секции с виджетом Яндекс карт",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_yandex_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Яндекс Карты",
+                    "placeholder": "Яндекс Карты"
+                },
+                {
+                    "key": "field_reviews_yandex_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Отзывы на Яндексе",
+                    "placeholder": "Отзывы на Яндексе",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_yandex_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Мы также собираем отзывы на Яндекс Картах. Будем благодарны за ваше мнение!",
+                    "placeholder": "Описание секции"
+                },
+                {
+                    "key": "field_reviews_yandex_widget_url",
+                    "label": "URL виджета Яндекс",
+                    "name": "widget_url",
+                    "type": "url",
+                    "default_value": "https://yandex.ru/maps-reviews-widget/1013938334?comments",
+                    "placeholder": "https://yandex.ru/maps-reviews-widget/1013938334?comments",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_yandex_widget_height",
+                    "label": "Высота виджета (px)",
+                    "name": "widget_height",
+                    "type": "number",
+                    "default_value": 800,
+                    "min": 400,
+                    "max": 1200,
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_yandex_map_url",
+                    "label": "URL страницы на Яндекс Картах",
+                    "name": "map_url",
+                    "type": "url",
+                    "default_value": "https://yandex.ru/maps/org/shen/1013938334/",
+                    "placeholder": "https://yandex.ru/maps/org/shen/1013938334/",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_yandex_reviews_url",
+                    "label": "URL страницы отзывов",
+                    "name": "reviews_url",
+                    "type": "url",
+                    "default_value": "https://yandex.ru/maps/org/1013938334/reviews",
+                    "placeholder": "https://yandex.ru/maps/org/1013938334/reviews",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_yandex_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "type": "text",
+                    "default_value": "Все отзывы на Яндекс Картах",
+                    "placeholder": "Все отзывы на Яндекс Картах",
+                    "required": 1
+                }
+            ],
+            "default_value": {
+                "label": "Яндекс Карты",
+                "title": "Отзывы на Яндексе",
+                "subtitle": "Мы также собираем отзывы на Яндекс Картах. Будем благодарны за ваше мнение!",
+                "widget_url": "https://yandex.ru/maps-reviews-widget/1013938334?comments",
+                "widget_height": 800,
+                "map_url": "https://yandex.ru/maps/org/shen/1013938334/",
+                "reviews_url": "https://yandex.ru/maps/org/1013938334/reviews",
+                "button_text": "Все отзывы на Яндекс Картах"
+            }
+        },
+        {
+            "key": "field_reviews_gallery_section",
+            "label": "Секция Галерея",
+            "name": "reviews_gallery_section",
+            "type": "group",
+            "instructions": "Настройки секции галереи на странице отзывов",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_gallery_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Галерея",
+                    "placeholder": "Галерея",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_gallery_subtitle",
+                    "label": "Подзаголовок",
+                    "name": "subtitle",
+                    "type": "text",
+                    "default_value": "Атмосфера наших залов и мероприятий",
+                    "placeholder": "Атмосфера наших залов и мероприятий"
+                },
+                {
+                    "key": "field_reviews_gallery_images",
+                    "label": "Изображения галереи",
+                    "name": "images",
+                    "type": "gallery",
+                    "instructions": "Изображения для галереи",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": 1
+                },
+                {
+                    "key": "field_reviews_gallery_large_items",
+                    "label": "Большие элементы",
+                    "name": "large_items",
+                    "type": "repeater",
+                    "instructions": "Укажите индексы изображений (начиная с 0), которые должны быть большими (2x2)",
+                    "layout": "table",
+                    "button_label": "Добавить индекс",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_gallery_large_index",
+                            "label": "Индекс изображения",
+                            "name": "index",
+                            "type": "number",
+                            "instructions": "Индекс изображения в галерее (начиная с 0)",
+                            "required": 1,
+                            "min": 0,
+                            "default_value": 6
+                        }
+                    ],
+                    "default_value": [
+                        {
+                            "index": 6
+                        },
+                        {
+                            "index": 7
+                        }
+                    ]
+                },
+                {
+                    "key": "field_reviews_gallery_link_text",
+                    "label": "Текст ссылки",
+                    "name": "link_text",
+                    "type": "text",
+                    "default_value": "Смотреть все фото",
+                    "placeholder": "Смотреть все фото"
+                },
+                {
+                    "key": "field_reviews_gallery_link_url",
+                    "label": "URL ссылки",
+                    "name": "link_url",
+                    "type": "page_link",
+                    "post_type": [
+                        "page"
+                    ],
+                    "default_value": ""
+                }
+            ],
+            "default_value": {
+                "title": "Галерея",
+                "subtitle": "Атмосфера наших залов и мероприятий",
+                "link_text": "Смотреть все фото"
+            }
+        },
+        {
+            "key": "field_reviews_cta_section",
+            "label": "CTA секция",
+            "name": "reviews_cta_section",
+            "type": "group",
+            "instructions": "Настройки секции призыва к действию",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_reviews_cta_label",
+                    "label": "Метка",
+                    "name": "label",
+                    "type": "text",
+                    "default_value": "Поделитесь впечатлениями",
+                    "placeholder": "Поделитесь впечатлениями"
+                },
+                {
+                    "key": "field_reviews_cta_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Оставьте свой отзыв",
+                    "placeholder": "Оставьте свой отзыв",
+                    "required": 1
+                },
+                {
+                    "key": "field_reviews_cta_description",
+                    "label": "Описание",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 2,
+                    "default_value": "Ваше мнение очень важно для нас! Если вы уже посетили наш банкетный зал,\nбудем благодарны за отзыв на Яндекс Картах.",
+                    "placeholder": "Описание для CTA секции"
+                },
+                {
+                    "key": "field_reviews_cta_button_primary",
+                    "label": "Основная кнопка",
+                    "name": "button_primary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_cta_button_primary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Оставить отзыв на Яндекс",
+                            "placeholder": "Оставить отзыв на Яндекс",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_cta_button_primary_url",
+                            "label": "URL ссылки",
+                            "name": "url",
+                            "type": "url",
+                            "default_value": "https://yandex.ru/maps/org/1013938334/reviews",
+                            "placeholder": "https://yandex.ru/maps/org/1013938334/reviews",
+                            "required": 1
+                        }
+                    ],
+                    "default_value": {
+                        "text": "Оставить отзыв на Яндекс",
+                        "url": "https://yandex.ru/maps/org/1013938334/reviews"
+                    }
+                },
+                {
+                    "key": "field_reviews_cta_button_secondary",
+                    "label": "Вторичная кнопка",
+                    "name": "button_secondary",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_cta_button_secondary_text",
+                            "label": "Текст кнопки",
+                            "name": "text",
+                            "type": "text",
+                            "default_value": "Забронировать мероприятие",
+                            "placeholder": "Забронировать мероприятие",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_reviews_cta_button_secondary_url",
+                            "label": "URL ссылки",
+                            "name": "url",
+                            "type": "page_link",
+                            "post_type": [
+                                "page"
+                            ],
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_reviews_cta_button_secondary_action",
+                            "label": "Действие",
+                            "name": "action",
+                            "type": "text",
+                            "instructions": "Например: open-booking (для открытия модального окна)",
+                            "default_value": "open-booking",
+                            "placeholder": "open-booking"
+                        }
+                    ],
+                    "default_value": {
+                        "text": "Забронировать мероприятие",
+                        "action": "open-booking"
+                    }
+                }
+            ],
+            "default_value": {
+                "label": "Поделитесь впечатлениями",
+                "title": "Оставьте свой отзыв",
+                "description": "Ваше мнение очень важно для нас! Если вы уже посетили наш банкетный зал,\nбудем благодарны за отзыв на Яндекс Картах."
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-reviews.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Поля для настройки страницы отзывов"
+}
+
